@@ -1,0 +1,639 @@
+/* Reset & Mobile-First Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #fff;
+    color: #000;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background: #fff;
+    border-bottom: 2px solid #EB0028;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Header Container */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 5px 0;
+}
+
+.logo {
+    height: 50px;
+    /* no border-radius here — logo stays as the original square/rect */
+}
+
+/* If you ever want to display the favicon image inline on the page and make it round:
+   use <img class="favicon-inline" src="img/favicon.png"> in your HTML */
+.favicon-inline {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center; /* vertically centers nav items including the ticket button */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #EB0028;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.12s;
+}
+
+.btn-primary {
+    background-color: #EB0028;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #b3001f;
+    transform: translateY(-1px);
+}
+
+/* Combined Hero + About wrapper (single background image, no repetition) */
+.hero-about {
+    position: relative;
+    color: #fff;
+    background-image: url('img/microphone.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* Single overlay that transitions from top -> bottom (slightly darker toward bottom) */
+.hero-about::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.55) 0%,
+        rgba(0,0,0,0.60) 45%,
+        rgba(0,0,0,0.70) 100%
+    );
+    z-index: 1;
+}
+
+/* Inner blocks (sit above overlay) */
+.hero-top,
+.about-bottom {
+    position: relative;
+    z-index: 2;
+}
+
+/* Hero part */
+.hero-top {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero-top h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    line-height: 1.05;
+}
+
+.hero-top .tagline {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* About part (same background but separate spacing + a subtle extra darkening) */
+.about-bottom {
+    padding: 48px 20px;
+}
+
+/* optional extra darkening specifically for the about block for clearer reading */
+.about-bottom::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.12);
+    z-index: 1;
+}
+
+/* About text sits above that extra dark layer */
+.about-bottom .container {
+    position: relative;
+    z-index: 2;
+}
+
+.about-bottom h2 {
+    color: #EB0028; /* TEDx accent */
+    margin-bottom: 15px;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+}
+
+/* Placeholder Sections */
+.section-placeholder {
+    padding: 40px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.section-placeholder h2 {
+    color: #EB0028;
+    margin-bottom: 15px;
+}
+
+/* Tickets Section */
+.tickets {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.tickets h2 {
+    color: #EB0028;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #EB0028;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Tweaks */
+@media (min-width: 768px) {
+    .hero-top h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-top .tagline {
+        font-size: 1.4rem;
+    }
+
+    nav ul {
+        gap: 25px;
+    }
+}
+
+/* Mobile Navigation Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    position: absolute;
+    right: 0; /* pushes burger to the right edge */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: #000;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Hide nav links on small screens */
+nav ul.nav-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+/* MOBILE LAYOUT */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav ul.nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+        border-top: 2px solid #EB0028;
+        display: none; /* hidden by default */
+    }
+
+    nav ul.nav-links.active {
+        display: flex; /* shown when menu opened */
+        animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Animate burger to “X” */
+    .menu-toggle.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.is-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.is-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* Contact Section */
+.contact {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.contact h2 {
+    color: #EB0028;
+    margin-bottom: 15px;
+}
+
+.contact p {
+    margin-bottom: 25px;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #EB0028;
+}
+
+.contact button {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.contact-alt {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.contact-alt a {
+    color: #EB0028;
+    text-decoration: none;
+}
+
+.contact-alt a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile adjustment */
+@media (max-width: 600px) {
+    .contact-form {
+        width: 100%;
+    }
+}
+
+/* Next Event Section */
+.next-event {
+    background-color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+    border-top: 2px solid #EB0028;
+    border-bottom: 2px solid #EB0028;
+}
+
+.next-event h2 {
+    color: #EB0028;
+    margin-bottom: 30px;
+}
+
+.event-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.event-info {
+    max-width: 600px;
+}
+
+.event-info h3 {
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.event-info p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.event-image img {
+    max-height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Tablet & Desktop layout */
+@media (min-width: 768px) {
+    .event-details {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .event-info {
+        flex: 1;
+    }
+
+    .event-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .event-image img {
+        max-width: 90%;
+    }
+}
+
+/* Team Section */
+.team {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.team h2 {
+    color: #EB0028;
+    margin-bottom: 15px;
+}
+
+.team p {
+    margin-bottom: 40px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    justify-content: center; /* ensures the last odd one is centered */
+}
+
+.team-member {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.team-member img {
+    width: 100%;
+    max-width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.team-member h3 {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.team-member p {
+    color: #333;
+    font-size: 0.95rem;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 600px) {
+    .team-member img {
+        max-width: 120px;
+        height: 120px;
+    }
+}
+
+/* Speakers Section */
+.speakers {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.speakers h2 {
+    color: #EB0028;
+    margin-bottom: 15px;
+}
+
+.speakers p {
+    margin-bottom: 40px;
+}
+
+.speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.speaker-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+}
+
+.speaker-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.speaker-card img {
+    width: 100%;
+    max-width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.speaker-card h3 {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.speaker-card .topic {
+    font-weight: bold;
+    color: #EB0028;
+    margin-bottom: 10px;
+}
+
+.speaker-card .bio {
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .speaker-card img {
+        max-width: 140px;
+        height: 140px;
+    }
+}
+
+/* Sponsors Section */
+.sponsors {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.sponsors h2 {
+    color: #EB0028;
+    margin-bottom: 15px;
+}
+
+.sponsors p {
+    margin-bottom: 40px;
+}
+
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    justify-content: center; /* center last odd item */
+}
+
+.sponsor-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.sponsor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.sponsor-card img {
+    width: 100%;
+    max-width: 150px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.sponsor-card h3 {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    color: #000;
+}
+
+.sponsor-card p {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    .sponsor-card img {
+        max-width: 120px;
+        height: 80px;
+    }
+}
