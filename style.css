@@ -413,14 +413,23 @@ nav ul.nav-links {
 .collage {
       position: relative;
       width: 80%;
-      max-width: 800px;
+      max-width: 600px;
       height: 500px;
       margin: 50px auto;
 }
 
 .collage img {
   position: absolute;
-  width: 35%;
+  width: 40%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.collage img.large {
+  position: absolute;
+  width: 75%;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -428,10 +437,10 @@ nav ul.nav-links {
 }
 
 /* Overlapping positions for larger screens */
-.collage img:nth-child(1) { top: 10%; left: 5%; transform: rotate(-5deg); z-index: 1; }
-.collage img:nth-child(2) { top: 20%; left: 25%; transform: rotate(4deg); z-index: 2; }
-.collage img:nth-child(3) { top: 15%; left: 50%; transform: rotate(-3deg); z-index: 3; }
-.collage img:nth-child(4) { top: 30%; left: 35%; transform: rotate(2deg); z-index: 4; }
+.collage img:nth-child(1) { top: 0%; left: 5%; transform: rotate(-5deg); z-index: 1; }
+.collage img:nth-child(2) { top: 2%; left: 60%; transform: rotate(4deg); z-index: 2; }
+.collage img:nth-child(3) { top: 25%; left: 15%; transform: rotate(-5deg); z-index: 3; }
+.collage img:nth-child(4) { top: 30%; left: 45%; transform: rotate(6deg); z-index: 4; }
 
 .collage img:hover {
   transform: scale(1.05);
@@ -681,3 +690,4 @@ nav ul.nav-links {
     }
 
 }
+
