@@ -410,10 +410,53 @@ nav ul.nav-links {
     line-height: 1.5;
 }
 
-.event-image img {
-    max-height: 300px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.collage {
+      position: relative;
+      width: 80%;
+      max-width: 800px;
+      height: 500px;
+      margin: 50px auto;
+}
+
+.collage img {
+  position: absolute;
+  width: 35%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+/* Overlapping positions for larger screens */
+.collage img:nth-child(1) { top: 10%; left: 5%; transform: rotate(-5deg); z-index: 1; }
+.collage img:nth-child(2) { top: 20%; left: 25%; transform: rotate(4deg); z-index: 2; }
+.collage img:nth-child(3) { top: 15%; left: 50%; transform: rotate(-3deg); z-index: 3; }
+.collage img:nth-child(4) { top: 30%; left: 35%; transform: rotate(2deg); z-index: 4; }
+
+.collage img:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+  .collage {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .collage img {
+    position: static;
+    width: 45%;
+    transform: none;
+  }
+
+  .collage img:hover {
+    transform: scale(1.03);
+  }
 }
 
 /* Tablet & Desktop layout */
@@ -636,4 +679,5 @@ nav ul.nav-links {
         max-width: 120px;
         height: 80px;
     }
+
 }
