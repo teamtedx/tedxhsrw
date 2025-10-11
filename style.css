@@ -505,22 +505,45 @@ nav ul.nav-links {
 }
 
 .team p {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+/* Hierarchy wrapper */
+.team-hierarchy {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Each level in hierarchy */
+.team-level {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 30px;
-    justify-content: center; /* ensures the last odd one is centered */
 }
 
+/* Indentation for levels */
+.team-level.head-organiser {
+    justify-content: center;
+}
+
+.team-level.leads {
+    margin-left: 20px; /* Slight indentation */
+}
+
+.team-level.members {
+    margin-left: 40px; /* More indentation for lower level */
+}
+
+/* Team member card */
 .team-member {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
     transition: transform 0.3s, box-shadow 0.3s;
+    width: 200px; /* fixed width for consistent layout */
 }
 
 .team-member:hover {
@@ -530,7 +553,6 @@ nav ul.nav-links {
 
 .team-member img {
     width: 100%;
-    max-width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
@@ -690,4 +712,5 @@ nav ul.nav-links {
     }
 
 }
+
 
