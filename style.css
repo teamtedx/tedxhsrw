@@ -41,11 +41,9 @@ header {
 
 .logo {
     height: 50px;
-    /* no border-radius here — logo stays as the original square/rect */
 }
 
-/* If you ever want to display the favicon image inline on the page and make it round:
-   use <img class="favicon-inline" src="img/favicon.png"> in your HTML */
+/* Favicon inline */
 .favicon-inline {
     width: 36px;
     height: 36px;
@@ -59,7 +57,7 @@ nav ul {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
-    align-items: center; /* vertically centers nav items including the ticket button */
+    align-items: center;
 }
 
 nav ul li a {
@@ -93,7 +91,7 @@ nav ul li a:hover {
     transform: translateY(-1px);
 }
 
-/* Combined Hero + About wrapper (single background image, no repetition) */
+/* Combined Hero + About wrapper */
 .hero-about {
     position: relative;
     color: #fff;
@@ -104,7 +102,7 @@ nav ul li a:hover {
     overflow: hidden;
 }
 
-/* Single overlay that transitions from top -> bottom (slightly darker toward bottom) */
+/* Overlay for hero-about */
 .hero-about::before {
     content: "";
     position: absolute;
@@ -118,7 +116,7 @@ nav ul li a:hover {
     z-index: 1;
 }
 
-/* Inner blocks (sit above overlay) */
+/* Inner blocks above overlay */
 .hero-top,
 .about-bottom {
     position: relative;
@@ -142,12 +140,11 @@ nav ul li a:hover {
     margin-bottom: 20px;
 }
 
-/* About part (same background but separate spacing + a subtle extra darkening) */
+/* About part */
 .about-bottom {
     padding: 48px 20px;
 }
 
-/* optional extra darkening specifically for the about block for clearer reading */
 .about-bottom::before {
     content: "";
     position: absolute;
@@ -156,14 +153,13 @@ nav ul li a:hover {
     z-index: 1;
 }
 
-/* About text sits above that extra dark layer */
 .about-bottom .container {
     position: relative;
     z-index: 2;
 }
 
 .about-bottom h2 {
-    color: #EB0028; /* TEDx accent */
+    color: #EB0028;
     margin-bottom: 15px;
     text-shadow: 0 1px 0 rgba(0,0,0,0.5);
 }
@@ -184,6 +180,7 @@ nav ul li a:hover {
 .tickets {
     padding: 40px 0;
     text-align: center;
+background-color:#f9f9f9
 }
 
 .tickets h2 {
@@ -231,11 +228,10 @@ footer a:hover {
     cursor: pointer;
     gap: 5px;
     position: absolute;
-    right: 0; /* pushes burger to the right edge */
+    right: 0;
     top: 50%;
     transform: translateY(-50%);
 }
-
 
 .bar {
     height: 3px;
@@ -245,16 +241,7 @@ footer a:hover {
     transition: all 0.3s ease;
 }
 
-/* Hide nav links on small screens */
-nav ul.nav-links {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    align-items: center;
-}
-
-/* MOBILE LAYOUT */
+/* Mobile layout */
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
@@ -271,11 +258,11 @@ nav ul.nav-links {
         gap: 20px;
         padding: 20px 0;
         border-top: 2px solid #EB0028;
-        display: none; /* hidden by default */
+        display: none;
     }
 
     nav ul.nav-links.active {
-        display: flex; /* shown when menu opened */
+        display: flex;
         animation: slideDown 0.3s ease;
     }
 
@@ -284,7 +271,6 @@ nav ul.nav-links {
         to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Animate burger to “X” */
     .menu-toggle.is-active .bar:nth-child(2) {
         opacity: 0;
     }
@@ -301,7 +287,7 @@ nav ul.nav-links {
 /* Contact Section */
 .contact {
     padding: 60px 20px;
-    background-color: #f9f9f9;
+    background-color: #fff;
     text-align: center;
 }
 
@@ -368,13 +354,6 @@ nav ul.nav-links {
     text-decoration: underline;
 }
 
-/* Mobile adjustment */
-@media (max-width: 600px) {
-    .contact-form {
-        width: 100%;
-    }
-}
-
 /* Next Event Section */
 .next-event {
     background-color: #fff;
@@ -411,64 +390,61 @@ nav ul.nav-links {
 }
 
 .collage {
-      position: relative;
-      width: 80%;
-      max-width: 600px;
-      height: 500px;
-      margin: 50px auto;
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    height: 500px;
+    margin: 50px auto;
 }
 
 .collage img {
-  position: absolute;
-  width: 40%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+    position: absolute;
+    width: 40%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
 
 .collage img.large {
-  position: absolute;
-  width: 75%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+    position: absolute;
+    width: 75%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
 
-/* Overlapping positions for larger screens */
 .collage img:nth-child(1) { top: 0%; left: 5%; transform: rotate(-5deg); z-index: 1; }
 .collage img:nth-child(2) { top: 2%; left: 60%; transform: rotate(4deg); z-index: 2; }
 .collage img:nth-child(3) { top: 25%; left: 15%; transform: rotate(-5deg); z-index: 3; }
 .collage img:nth-child(4) { top: 30%; left: 45%; transform: rotate(6deg); z-index: 4; }
 
 .collage img:hover {
-  transform: scale(1.05);
-  z-index: 10;
+    transform: scale(1.05);
+    z-index: 10;
 }
 
-/* Responsive layout for smaller screens */
 @media (max-width: 768px) {
-  .collage {
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
+    .collage {
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
 
-  .collage img {
-    position: static;
-    width: 45%;
-    transform: none;
-  }
+    .collage img {
+        position: static;
+        width: 45%;
+        transform: none;
+    }
 
-  .collage img:hover {
-    transform: scale(1.03);
-  }
+    .collage img:hover {
+        transform: scale(1.03);
+    }
 }
 
-/* Tablet & Desktop layout */
 @media (min-width: 768px) {
     .event-details {
         flex-direction: row;
@@ -495,7 +471,7 @@ nav ul.nav-links {
 /* Team Section */
 .team {
     padding: 60px 20px;
-    background-color: #f9f9f9;
+    background-color: #fff;
     text-align: center;
 }
 
@@ -508,14 +484,12 @@ nav ul.nav-links {
     margin-bottom: 10px;
 }
 
-/* Hierarchy wrapper */
 .team-hierarchy {
     display: flex;
     flex-direction: column;
     gap: 40px;
 }
 
-/* Each level in hierarchy */
 .team-level {
     display: flex;
     flex-wrap: wrap;
@@ -523,27 +497,25 @@ nav ul.nav-links {
     gap: 30px;
 }
 
-/* Indentation for levels */
 .team-level.head-organiser {
     justify-content: center;
 }
 
 .team-level.leads {
-    margin-left: 20px; /* Slight indentation */
+    margin-left: 20px;
 }
 
 .team-level.members {
-    margin-left: 40px; /* More indentation for lower level */
+    margin-left: 20px;
 }
 
-/* Team member card */
 .team-member {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
     transition: transform 0.3s, box-shadow 0.3s;
-    width: 200px; /* fixed width for consistent layout */
+    width: 200px;
 }
 
 .team-member:hover {
@@ -569,7 +541,6 @@ nav ul.nav-links {
     font-size: 0.95rem;
 }
 
-/* Responsive Tweaks */
 @media (max-width: 600px) {
     .team-member img {
         max-width: 120px;
@@ -577,81 +548,126 @@ nav ul.nav-links {
     }
 }
 
-/* Speakers Section */
-.speakers {
-    padding: 60px 20px;
-    background-color: #fff;
-    text-align: center;
+/* Speakers Section — Black Background, Red Accents */
+.speakers-alt {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 100px 5%;
+    gap: 40px;
+    color: #fff;
+    background: #000; /* black background */
+    border-bottom: 2px solid #EB0028;
 }
 
-.speakers h2 {
-    color: #EB0028;
-    margin-bottom: 15px;
-}
-
-.speakers p {
-    margin-bottom: 40px;
-}
-
-.speakers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+/* Image left */
+.speakers-alt .speakers-image {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-.speaker-card {
-    background: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    padding: 20px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    text-align: left;
-}
-
-.speaker-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-}
-
-.speaker-card img {
+.speakers-alt .speakers-image img {
     width: 100%;
-    max-width: 180px;
-    height: 180px;
-    border-radius: 50%;
+    max-width: 500px;
+    height: auto;
     object-fit: cover;
-    margin-bottom: 15px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
-.speaker-card h3 {
-    margin-bottom: 5px;
-    font-size: 1.2rem;
+/* Content right */
+.speakers-alt .speakers-content {
+    flex: 1;
+    min-width: 320px;
 }
 
-.speaker-card .topic {
-    font-weight: bold;
-    color: #EB0028;
-    margin-bottom: 10px;
+.speakers-alt .speakers-content h2 {
+    color: #EB0028; /* red header */
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    position: relative;
 }
 
-.speaker-card .bio {
+.speakers-alt .speakers-content h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #EB0028; /* red underline */
+    margin-top: 8px;
+}
+
+.speakers-alt .speakers-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #fff;
+    margin-bottom: 20px;
+    max-width: 600px;
+}
+
+/* Speaker cards */
+.speakers-alt .speaker-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.speakers-alt .speaker {
+    background: rgba(255,255,255,0.05);
+    padding: 15px 20px;
+    border-left: 4px solid #EB0028;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: box-shadow 0.3s, background 0.3s;
+}
+
+.speakers-alt .speaker:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    background: rgba(255,255,255,0.1);
+}
+
+.speakers-alt .speaker h3,
+.speakers-alt .speaker .topic {
+    color: #fff;
+}
+
+/* Hidden bio */
+.speakers-alt .speaker .bio {
+    display: none;
+    margin-top: 10px;
+    color: #f0f0f0;
     font-size: 0.95rem;
-    color: #333;
     line-height: 1.4;
 }
 
-/* Responsive tweaks */
-@media (max-width: 600px) {
-    .speaker-card img {
-        max-width: 140px;
-        height: 140px;
-    }
+/* Show bio when active */
+.speakers-alt .speaker.active .bio {
+    display: block;
 }
 
+@media (max-width: 900px) {
+    .speakers-alt {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    .speakers-alt .speakers-image img {
+        max-width: 350px;
+    }
+
+    .speakers-alt .speaker {
+        text-align: left;
+    }
+}
 /* Sponsors Section */
 .sponsors {
     padding: 60px 20px;
-    background-color: #fff;
+    background-color: #f9f9f9;
     text-align: center;
 }
 
@@ -668,7 +684,7 @@ nav ul.nav-links {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 30px;
-    justify-content: center; /* center last odd item */
+    justify-content: center;
 }
 
 .sponsor-card {
@@ -704,14 +720,14 @@ nav ul.nav-links {
     color: #333;
 }
 
-/* Mobile Adjustments */
 @media (max-width: 600px) {
     .sponsor-card img {
         max-width: 120px;
         height: 80px;
     }
-
 }
 
-
-
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
