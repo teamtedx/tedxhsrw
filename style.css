@@ -47,9 +47,11 @@ header {
 }
 @media (max-width: 768px) {
     .logo {
-        width: 40%;    /* responsive */
+        width: 60%;    /* responsive */
         max-width: 100%;
         height: auto;    
+	   padding: 0px 10%
+ 
     }
 }
 
@@ -435,20 +437,27 @@ footer a:hover {
 /* 📱 mobile grid layout */
 @media (max-width: 768px) {
   .collage {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    aspect-ratio: auto;
+    position: relative;
+  width: 80%;
+  max-width: 600px;
+  margin: auto;
+  aspect-ratio: 1 / 1;
   }
 
   .collage img {
-    position: static;
-    width: 100%;
-    transform: none;
+  position: absolute;
+  width: 40%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
   }
  .collage img.large {
     display: none;
   }
+.collage img:nth-child(2) { top: 2%; left: 45%; transform: rotate(4deg); z-index: 2; }
+.collage img:nth-child(3) { top: 5%; left: 15%; transform: rotate(-5deg); z-index: 3; }
+.collage img:nth-child(4) { top: 20%; left: 30%; transform: rotate(6deg); z-index: 4; }
 }
 
 
@@ -738,6 +747,7 @@ footer a:hover {
 html {
   scroll-behavior: smooth;
 }
+
 
 
 
