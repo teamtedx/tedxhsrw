@@ -23,6 +23,7 @@ body {
 /* Header */
 header {
     background: #fff;
+    height: auto
     border-bottom: 2px solid #EB0028;
     padding: 10px 0;
     position: sticky;
@@ -47,7 +48,7 @@ header {
 @media (max-width: 768px) {
     .logo {
         width: 40%;    /* responsive */
-        max-width: 300px;
+        max-width: 100%;
         height: auto;    
     }
 }
@@ -737,6 +738,7 @@ footer a:hover {
 html {
   scroll-behavior: smooth;
 }
+
 
 
 
