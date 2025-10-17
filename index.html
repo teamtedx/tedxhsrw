@@ -78,7 +78,11 @@
         <a href="https://buytickets.at/tedxhsrw/1913143" class="btn btn-primary">Get Tickets</a>
       </div>
       <div class="collage">
+	    <picture>
+		  <!-- Mobile screens: load a 1x1 pixel or empty image -->
+		  <source media="(max-width: 767px)" srcset="">
         <img src="./img/group.JPG" class="large" alt="Image 3">
+		</picture>
         <img src="./img/eagerfaces.JPG" alt="Image 1">
         <img src="./img/listening.JPG" alt="Image 2">
         <img src="./img/sign.JPG" alt="Image 4">
@@ -276,6 +280,7 @@ document.querySelectorAll('.speakers-alt .speaker').forEach(speaker => {
 
 </body>
 </html>
+
 
 
 
