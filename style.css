@@ -447,7 +447,7 @@ footer a:hover {
 }
 
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .event-details {
         flex-direction: row;
         justify-content: space-between;
@@ -733,6 +733,7 @@ footer a:hover {
 html {
   scroll-behavior: smooth;
 }
+
 
 
 
