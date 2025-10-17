@@ -44,6 +44,13 @@ header {
     max-width: 300px;
     height: auto;
 }
+@media (min-width: 768px) {
+    .logo {
+        width: 40%;    /* responsive */
+        max-width: 300px;
+        height: auto;    
+    }
+}
 
 /* Favicon inline */
 .favicon-inline {
@@ -726,5 +733,6 @@ footer a:hover {
 html {
   scroll-behavior: smooth;
 }
+
 
 
