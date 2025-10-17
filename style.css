@@ -424,7 +424,7 @@ footer a:hover {
 }
 
 /* 📱 mobile grid layout */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .collage {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -726,4 +726,5 @@ footer a:hover {
 html {
   scroll-behavior: smooth;
 }
+
 
