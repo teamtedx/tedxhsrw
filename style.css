@@ -44,7 +44,7 @@ header {
     max-width: 300px;
     height: auto;
 }
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .logo {
         width: 40%;    /* responsive */
         max-width: 300px;
@@ -378,9 +378,10 @@ footer a:hover {
 }
 
 .event-details {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 30px;
 }
 
@@ -444,14 +445,17 @@ footer a:hover {
     width: 100%;
     transform: none;
   }
+ .collage img.large {
+    display: none;
+  }
 }
 
 
 @media (max-width: 768px) {
     .event-details {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
     }
 
     .event-info {
@@ -733,6 +737,7 @@ footer a:hover {
 html {
   scroll-behavior: smooth;
 }
+
 
 
 
