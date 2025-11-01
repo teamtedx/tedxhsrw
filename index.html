@@ -89,17 +89,38 @@
 
 
 <!-- Speakers Section -->
-
-<!-- New optional split layout -->
-<section id ="speakers" class="speakers-alt">
-  <div class="speakers-image">
-    <img src="https://static.wixstatic.com/media/810832_9a1571cb53a94b17a43c6872a0ba7d11~mv2.jpg/v1/fill/w_2039,h_1200,al_c,q_90/810832_9a1571cb53a94b17a43c6872a0ba7d11~mv2.webp" alt="Stylized microphone image">
-  </div>
-
+<section id="speakers" class="speakers-alt">
   <div class="speakers-content">
-    <h2>Our Speakers</h2>
-    <p>Stay tuned - Coming Soon!</p>
+    <h2>Meet Our Speakers</h2>
     <div class="speaker-list">
+      <div class="speaker" onclick="toggleBio(this)">
+        <div class="speaker-header">
+          <img src="img/speakers/Marlow.png" alt="Speaker 1">
+          <div>
+            <h3>Marlow Guttmann</h3>
+            <p class="topic">Redefining Sustainability in Urban Design</p>
+          </div>
+        </div>
+        <div class="bio">
+          Marlow D. Guttmann works in HR and Organizational Development, guiding leaders and young talent through transformation. As a consultant, author, speaker, and mentor, he brings a Generation-Z perspective that bridges generations, and is a sought-after voice on the future of work and AI ethics, featured at conferences and in leading HR and business media. He serves as an honorary judge at Hamburg’s Social Court and co-founded the Rotaract Club Hamburg International – part of the Rotary network – promoting diversity, cultural exchange, volunteer action, and developing young leaders. <br></br> 
+In his talk, he shares a personal mentoring story that shows how an AI-driven world accelerates change while leaving early-career professionals feeling lost and unsure of their direction. His message: technology sets the pace, but purpose sets the path: anchored in values, empathy, and human connection.
+        </div>
+	  </div>
+		
+      <div class="speaker" onclick="toggleBio(this)">
+        <div class="speaker-header">
+          <img src="img/speakers/Fadi.png" alt="Speaker 2">
+          <div>
+            <h3>Dr. Fadi Alshalabi</h3>
+            <p class="topic">AI for Social Good</p>
+          </div>
+        </div>
+        <div class="bio">
+          Dr. Fadi Alshalabi is an educator, researcher, and co-founder of Niuversity, a digital learning platform that has empowered thousands of learners across the Arab world to rebuild their skills and careers through online education and entrepreneurship. After moving to Germany, Fadi discovered that migration is often described as a story of survival — but rarely as a story of creation. His journey inspired him to ask a different question: Why not let newcomers build, not just belong?<br></br>
+In his talk, Fadi explores how entrepreneurship and digital learning can transform integration from a process of adaptation into one of co-creation, replacing dependence with dignity and turning migration into one of humanity’s most powerful startup accelerators. His message is a call to both newcomers and host communities to build belonging through what they create together.
+        </div>
+      </div>
+		
     </div>
   </div>
 </section>
@@ -267,16 +288,25 @@
   });
 </script>
 <script>
-document.querySelectorAll('.speakers-alt .speaker').forEach(speaker => {
-  speaker.addEventListener('click', () => {
-    // Toggle the "active" class to show/hide the bio
-    speaker.classList.toggle('active');
+  // Select all speaker cards
+  const speakers = document.querySelectorAll('.speaker');
+
+  speakers.forEach(card => {
+    card.addEventListener('click', () => {
+      // Remove active from any other card
+      speakers.forEach(c => {
+        if (c !== card) c.classList.remove('active');
+      });
+
+      // Toggle active class on clicked card
+      card.classList.toggle('active');
+    });
   });
-});
 </script>
 
 </body>
 </html>
+
 
 
 
