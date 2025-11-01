@@ -563,123 +563,174 @@ footer a:hover {
         height: 120px;
     }
 }
-
-/* Speakers Section — Black Background, Red Accents */
+/* === SPEAKERS SECTION (Horizontal Scroll, Black & Red Theme) === */
 .speakers-alt {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 100px 5%;
-    gap: 40px;
-    color: #fff;
-    background: #000; /* black background */
-    border-bottom: 2px solid #EB0028;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 7% 100px 7%; /* ↑ more top padding for breathing room above cards */
+  background-color: #000;
+  color: #fff;
+  overflow: hidden;
 }
 
-/* Image left */
-.speakers-alt .speakers-image {
-    flex: 1;
-    min-width: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.speakers-alt h2 {
+  font-size: 4rem; /* ↑ larger */
+  color: #EB0028;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
 }
-
-.speakers-alt .speakers-image img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-}
-
-/* Content right */
-.speakers-alt .speakers-content {
-    flex: 1;
-    min-width: 320px;
-}
-
-.speakers-alt .speakers-content h2 {
-    color: #EB0028; /* red header */
-    font-size: 2.4rem;
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.speakers-alt .speakers-content h2::after {
+/* Decorative line under the header */
+.speakers-alt h2::after {
     content: "";
     display: block;
-    width: 60px;
-    height: 4px;
-    background: #EB0028; /* red underline */
-    margin-top: 8px;
+    width: 320px;           /* length of the line */
+    height: 5px;            /* thickness */
+    background-color: #EB0028;  /* red color matching TEDx palette */
+    margin: 12px 0;    /* space above and centering */
+    border-radius: 2px;     /* slightly rounded ends */
+}
+.speakers-alt .speakers-header {
+  text-align: center;
+  margin-bottom: 60px; /* ↑ spacing between header and first card */
 }
 
-.speakers-alt .speakers-content p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #fff;
-    margin-bottom: 20px;
-    max-width: 600px;
+.speakers-alt .speakers-header h2 {
+  font-size: 3.5rem; /* ↑ bigger header */
+  color: #EB0028;
+  margin-bottom: 25px;
+  position: relative;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-/* Speaker cards */
-.speakers-alt .speaker-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.speakers-alt .speakers-header h2::after {
+  content: "";
+  display: block;
+  width: 80px; /* ↑ wider underline */
+  height: 5px;
+  background: #EB0028;
+  margin: 14px auto 0;
+  border-radius: 2px;
 }
 
-.speakers-alt .speaker {
-    background: rgba(255,255,255,0.05);
-    padding: 15px 20px;
-    border-left: 4px solid #EB0028;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: box-shadow 0.3s, background 0.3s;
+.speakers-alt .speakers-header p {
+  color: #ccc;
+  font-size: 1.15rem;
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
-.speakers-alt .speaker:hover {
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    background: rgba(255,255,255,0.1);
+/* Horizontal Scroll Container */
+.speaker-list {
+  display: flex;
+  gap: 20px; /* spacing between cards */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-top: 20px; /* ↑ breathing room below cards */
+  scrollbar-width: thin;
+  scrollbar-color: #EB0028 #111;
 }
 
-.speakers-alt .speaker h3,
-.speakers-alt .speaker .topic {
-    color: #fff;
+.speaker-list::-webkit-scrollbar {
+  height: 8px;
 }
 
-/* Hidden bio */
-.speakers-alt .speaker .bio {
-    display: none;
-    margin-top: 10px;
-    color: #f0f0f0;
-    font-size: 0.95rem;
-    line-height: 1.4;
+.speaker-list::-webkit-scrollbar-track {
+  background: #111;
 }
 
-/* Show bio when active */
-.speakers-alt .speaker.active .bio {
-    display: block;
+.speaker-list::-webkit-scrollbar-thumb {
+  background-color: #EB0028;
+  border-radius: 10px;
 }
 
-@media (max-width: 900px) {
-    .speakers-alt {
-        flex-direction: column;
-        text-align: center;
-        padding: 60px 20px;
-    }
-
-    .speakers-alt .speakers-image img {
-        max-width: 350px;
-    }
-
-    .speakers-alt .speaker {
-        text-align: left;
-    }
+/* Individual Speaker Card */
+.speaker {
+  flex: 0 0 340px;
+  background: #111;
+  border: 2px solid #EB0028;
+  border-radius: 14px;
+  padding: 50px 30px; /* ↑ internal padding */
+  scroll-snap-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
 }
+
+.speaker:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(235, 0, 40, 0.3);
+}
+
+/* Speaker Header */
+.speaker-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px; /* spacing between image and bio */
+}
+
+.speaker-header img {
+  width: 180px; /* ↑ bigger image */
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #EB0028;
+  margin-bottom: 18px;
+  transition: transform 0.3s ease;
+}
+
+.speaker:hover .speaker-header img {
+  transform: scale(1.05);
+}
+
+.speaker-header h3 {
+  font-size: 1.6rem; /* ↑ slightly larger */
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.speaker-header .topic {
+  color: #EB0028;
+  font-weight: bold;
+  font-size: 1.15rem;
+}
+
+/* Always-Visible Bio */
+.speaker .bio {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-top: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+  .speakers-alt {
+    padding: 100px 5% 80px 5%; /* more top padding retained */
+  }
+
+  .speakers-alt .speakers-header h2 {
+    font-size: 2.5rem;
+  }
+
+  .speaker {
+    flex: 0 0 260px;
+    padding: 40px 20px;
+  }
+
+  .speaker-header img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .speaker-header h3 {
+    font-size: 1.3rem;
+  }
+}
+
 /* Sponsors Section */
 .sponsors {
     padding: 60px 20px;
@@ -747,6 +798,7 @@ footer a:hover {
 html {
   scroll-behavior: smooth;
 }
+
 
 
 
