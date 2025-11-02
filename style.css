@@ -23,6 +23,7 @@ body {
 /* Header */
 header {
     background: #fff;
+    height: auto
     border-bottom: 2px solid #EB0028;
     padding: 10px 0;
     position: sticky;
@@ -40,7 +41,18 @@ header {
 }
 
 .logo {
-    height: 50px;
+    width: 20%;    /* responsive */
+    max-width: 300px;
+    height: auto;
+}
+@media (max-width: 768px) {
+    .logo {
+        width: 60%;    /* responsive */
+        max-width: 100%;
+        height: auto;    
+	   padding: 0px 10%
+ 
+    }
 }
 
 /* Favicon inline */
@@ -369,9 +381,10 @@ footer a:hover {
 }
 
 .event-details {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 30px;
 }
 
@@ -390,66 +403,69 @@ footer a:hover {
 }
 
 .collage {
-    position: relative;
-    width: 80%;
-    max-width: 600px;
-    height: 500px;
-    margin: 50px auto;
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  margin: auto;
+  aspect-ratio: 1 / 1;
 }
 
 .collage img {
-    position: absolute;
-    width: 40%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+  position: absolute;
+  width: 40%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
 
 .collage img.large {
-    position: absolute;
-    width: 75%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+  width: 70%;
 }
 
+/* desktop positions */
 .collage img:nth-child(1) { top: 0%; left: 5%; transform: rotate(-5deg); z-index: 1; }
-.collage img:nth-child(2) { top: 2%; left: 60%; transform: rotate(4deg); z-index: 2; }
+.collage img:nth-child(2) { top: 2%; left: 55%; transform: rotate(4deg); z-index: 2; }
 .collage img:nth-child(3) { top: 25%; left: 15%; transform: rotate(-5deg); z-index: 3; }
 .collage img:nth-child(4) { top: 30%; left: 45%; transform: rotate(6deg); z-index: 4; }
 
 .collage img:hover {
-    transform: scale(1.05);
-    z-index: 10;
+  transform: scale(1.05);
+  z-index: 10;
 }
+
+/* 📱 mobile grid layout */
+@media (max-width: 768px) {
+  .collage {
+    position: relative;
+  width: 80%;
+  max-width: 600px;
+  margin: auto;
+  aspect-ratio: 1 / 1;
+  }
+
+  .collage img {
+  position: absolute;
+  width: 40%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  }
+ .collage img.large {
+    display: none;
+  }
+.collage img:nth-child(2) { top: 2%; left: 45%; transform: rotate(4deg); z-index: 2; }
+.collage img:nth-child(3) { top: 5%; left: 15%; transform: rotate(-5deg); z-index: 3; }
+.collage img:nth-child(4) { top: 20%; left: 30%; transform: rotate(6deg); z-index: 4; }
+}
+
 
 @media (max-width: 768px) {
-    .collage {
-        height: auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .collage img {
-        position: static;
-        width: 45%;
-        transform: none;
-    }
-
-    .collage img:hover {
-        transform: scale(1.03);
-    }
-}
-
-@media (min-width: 768px) {
     .event-details {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
     }
 
     .event-info {
@@ -645,10 +661,9 @@ footer a:hover {
   border-radius: 14px;
   padding: 30px;
   scroll-snap-align: center;
-  width: 320px;       /* fixed width before bio active */
+  width: 340px;       /* fixed width before bio active */
   max-height: 350px;
   overflow: hidden;
-  justify-content: center;
   transition: transform 0.3s, box-shadow 0.3s, width 0.5s ease;
 }
 
@@ -661,17 +676,13 @@ footer a:hover {
 .speaker-header {
   display: flex;
   flex-direction: column;
-  text-align: center;
-  align-items: center; /* centers everything horizontally */
-  justify-content: center; /* vertically center if needed */
-  margin-bottom: 20px;
+  align-items: center;
 }
 
 .speaker-header img {
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  display: block
   object-fit: cover;
   border: 4px solid #EB0028;
   margin-bottom: 18px;
@@ -712,10 +723,10 @@ footer a:hover {
 }
 
 .speaker.active .bio {
-  max-width: 320px;
+  max-width: 280px;
   margin-left: 20px;
   overflow-y: auto;
-  max-height: 280px;
+  max-height: 250px;
 }
 
 /* Smooth push effect for siblings */
@@ -761,6 +772,7 @@ footer a:hover {
     transform: translateX(220px);
   }
 }
+
 /* Sponsors Section */
 .sponsors {
     padding: 60px 20px;
@@ -828,3 +840,12 @@ footer a:hover {
 html {
   scroll-behavior: smooth;
 }
+
+
+
+
+
+
+
+
+'
