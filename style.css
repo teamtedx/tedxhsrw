@@ -661,8 +661,8 @@ footer a:hover {
   border-radius: 14px;
   padding: 30px;
   scroll-snap-align: center;
-  width: 400px;       /* fixed width before bio active */
-  max-height: 550px;
+  width: 390px;       /* fixed width before bio active */
+  max-height: 350px;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s, width 0.5s ease;
 }
@@ -840,6 +840,7 @@ footer a:hover {
 html {
   scroll-behavior: smooth;
 }
+
 
 
 
