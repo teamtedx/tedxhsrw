@@ -25,7 +25,7 @@ header {
     background: #fff;
     height: auto
     border-bottom: 2px solid #EB0028;
-    padding: 10px 0;
+    padding: 60px 7% 100px 7%;;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -138,7 +138,7 @@ nav ul li a:hover {
 /* Hero part */
 .hero-top {
     text-align: center;
-    padding: 80px 20px;
+    padding: 60px 7% 100px 7%;;
 }
 
 .hero-top h1 {
@@ -154,7 +154,7 @@ nav ul li a:hover {
 
 /* About part */
 .about-bottom {
-    padding: 48px 20px;
+    padding: 60px 7% 100px 7%;;
 }
 
 .about-bottom::before {
@@ -178,7 +178,7 @@ nav ul li a:hover {
 
 /* Placeholder Sections */
 .section-placeholder {
-    padding: 40px 0;
+    padding: 60px 7% 100px 7%;;
     background-color: #f9f9f9;
     text-align: center;
 }
@@ -190,7 +190,7 @@ nav ul li a:hover {
 
 /* Tickets Section */
 .tickets {
-    padding: 40px 0;
+    padding: 60px 7% 100px 7%;;
     text-align: center;
 background-color:#f9f9f9
 }
@@ -204,7 +204,7 @@ background-color:#f9f9f9
 footer {
     background-color: #000;
     color: #fff;
-    padding: 20px 0;
+    padding: 60px 7% 100px 7%;;
     text-align: center;
     font-size: 0.9rem;
 }
@@ -298,7 +298,7 @@ footer a:hover {
 
 /* Contact Section */
 .contact {
-    padding: 60px 20px;
+    padding: 60px 7% 100px 7%;;
     background-color: #fff;
     text-align: center;
 }
@@ -369,7 +369,7 @@ footer a:hover {
 /* Next Event Section */
 .next-event {
     background-color: #fff;
-    padding: 60px 20px;
+    padding: 60px 7% 100px 7%;;
     text-align: center;
     border-top: 2px solid #EB0028;
     border-bottom: 2px solid #EB0028;
@@ -486,7 +486,7 @@ footer a:hover {
 
 /* Team Section */
 .team {
-    padding: 60px 20px;
+    padding: 60px 7% 100px 7%;;
     background-color: #fff;
     text-align: center;
 }
@@ -775,7 +775,7 @@ footer a:hover {
 
 /* Sponsors Section */
 .sponsors {
-    padding: 60px 20px;
+    padding: 60px 7% 100px 7%;;
     background-color: #f9f9f9;
     text-align: center;
 }
@@ -840,6 +840,7 @@ footer a:hover {
 html {
   scroll-behavior: smooth;
 }
+
 
 
 
