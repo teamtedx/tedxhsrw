@@ -17,7 +17,7 @@ body {
 .container {
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 7%;
 }
 
 /* Header */
@@ -25,7 +25,7 @@ header {
     background: #fff;
     height: auto
     border-bottom: 2px solid #EB0028;
-    padding: 60px 7% 100px 7%;;
+    padding: 10px 3%;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -37,7 +37,8 @@ header {
     align-items: center;
     justify-content: space-between;
     position: relative;
-    padding: 5px 0;
+    padding: 5px;
+	margin: 0px 7%;
 }
 
 .logo {
@@ -138,7 +139,11 @@ nav ul li a:hover {
 /* Hero part */
 .hero-top {
     text-align: center;
-    padding: 60px 7% 100px 7%;;
+    padding: 80px 0px;
+}
+
+.hero-top .container {
+	margin: 0px 7%;
 }
 
 .hero-top h1 {
@@ -154,7 +159,7 @@ nav ul li a:hover {
 
 /* About part */
 .about-bottom {
-    padding: 60px 7% 100px 7%;;
+    padding: 48px 0px;
 }
 
 .about-bottom::before {
@@ -168,6 +173,7 @@ nav ul li a:hover {
 .about-bottom .container {
     position: relative;
     z-index: 2;
+	margin: 0px 7%;
 }
 
 .about-bottom h2 {
@@ -178,7 +184,7 @@ nav ul li a:hover {
 
 /* Placeholder Sections */
 .section-placeholder {
-    padding: 60px 7% 100px 7%;;
+    padding: 40px 0;
     background-color: #f9f9f9;
     text-align: center;
 }
@@ -190,7 +196,7 @@ nav ul li a:hover {
 
 /* Tickets Section */
 .tickets {
-    padding: 60px 7% 100px 7%;;
+    padding: 40px 0;
     text-align: center;
 background-color:#f9f9f9
 }
@@ -204,7 +210,7 @@ background-color:#f9f9f9
 footer {
     background-color: #000;
     color: #fff;
-    padding: 60px 7% 100px 7%;;
+    padding: 20px 0;
     text-align: center;
     font-size: 0.9rem;
 }
@@ -298,7 +304,7 @@ footer a:hover {
 
 /* Contact Section */
 .contact {
-    padding: 60px 7% 100px 7%;;
+    padding: 60px 20px;
     background-color: #fff;
     text-align: center;
 }
@@ -369,7 +375,7 @@ footer a:hover {
 /* Next Event Section */
 .next-event {
     background-color: #fff;
-    padding: 60px 7% 100px 7%;;
+    padding: 60px 20px;
     text-align: center;
     border-top: 2px solid #EB0028;
     border-bottom: 2px solid #EB0028;
@@ -486,7 +492,7 @@ footer a:hover {
 
 /* Team Section */
 .team {
-    padding: 60px 7% 100px 7%;;
+    padding: 60px 20px;
     background-color: #fff;
     text-align: center;
 }
@@ -531,7 +537,7 @@ footer a:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
     transition: transform 0.3s, box-shadow 0.3s;
-    width: 200px;
+    width: 220px;
 }
 
 .team-member:hover {
@@ -541,7 +547,7 @@ footer a:hover {
 
 .team-member img {
     width: 100%;
-    height: 150px;
+    height: 170px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 15px;
@@ -775,7 +781,7 @@ footer a:hover {
 
 /* Sponsors Section */
 .sponsors {
-    padding: 60px 7% 100px 7%;;
+    padding: 60px 20px;
     background-color: #f9f9f9;
     text-align: center;
 }
@@ -840,15 +846,5 @@ footer a:hover {
 html {
   scroll-behavior: smooth;
 }
-
-
-
-
-
-
-
-
-
-
 
 
