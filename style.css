@@ -834,6 +834,35 @@ footer a:hover {
     font-size: 0.95rem;
     color: #333;
 }
+/* Premium Upgrade */
+.sponsor-card.premium {
+  position: relative;
+  transform: scale(1.05);
+  border: 2px solid #e3c77b;
+  background: #fffcf2;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  z-index: 2;
+}
+.sponsor-card.premium:hover {
+   transform: scale(1.10);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+}
+
+
+/* Ribbon badge */
+.sponsor-card.premium .badge-premium {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: gold;
+  color: black;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
 
 @media (max-width: 600px) {
     .sponsor-card img {
@@ -846,6 +875,7 @@ footer a:hover {
 html {
   scroll-behavior: smooth;
 }
+
 
 
 
