@@ -522,14 +522,6 @@ footer a:hover {
     justify-content: center;
 }
 
-.team-level.leads {
-    margin-left: 20px;
-}
-
-.team-level.members {
-    margin-left: 20px;
-}
-
 .team-member {
     background: #fff;
     border-radius: 10px;
@@ -875,6 +867,7 @@ footer a:hover {
 html {
   scroll-behavior: smooth;
 }
+
 
 
 
