@@ -560,6 +560,82 @@ footer a:hover {
         height: 120px;
     }
 }
+
+
+/* Videography Team Section */
+.videography {
+    padding: 60px 20px;
+    background-color: #ffffff;
+    border-bottom: 2px solid #EB0028;
+}
+
+.videography h2 {
+    color: #EB0028;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.videography > .container > p {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Two-column layout */
+.videography-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+/* Roles (left) */
+.videography-roles {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.videography-roles .role {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.videography-roles h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.videography-roles p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Photo (right) */
+.videography-photo {
+    flex: 1;
+    max-width: 500px;
+}
+
+.videography-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* Mobile: stack vertically (photo on top) */
+@media (max-width: 768px) {
+    .videography-content {
+        flex-direction: column;
+    }
+
+    .videography-photo {
+        max-width: 100%;
+    }
+}
+
 /* === SPEAKERS SECTION (Horizontal Scroll, Black & Red Theme) === */
 .speakers-alt {
   position: relative;
@@ -867,6 +943,7 @@ footer a:hover {
 html {
   scroll-behavior: smooth;
 }
+
 
 
 
