@@ -29,4 +29,5 @@ The site is implemented as a single-page application (SPA) using HTML, CSS, and 
 - Add pages via navbar + page div
 - Add events via EVENTS array
 - Add speakers/team/sponsors using year sections
+
 More information and direction about implementing the additions described above can be found inside the .html file in the relevant sections. 
