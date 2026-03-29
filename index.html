@@ -1,501 +1,736 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEDxHSRW | Why not?</title>
-    <link rel="icon" href="img/favicon.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEDxHSRW | Limitless</title>
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ═══════════════════════════════════════════════
+       MULTI-PAGE ROUTER — additions on top of style.css
+       ═══════════════════════════════════════════════ */
+    .page { display: none; }
+    .page.active { display: block; }
+    .page.active { animation: fadeInPage 0.25s ease; }
+    @keyframes fadeInPage {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .nav-links li button.nav-btn {
+      background: none; border: none; cursor: pointer;
+      font-family: inherit; font-size: inherit; font-weight: bold;
+      color: #000; padding: 0; transition: color 0.3s; white-space: nowrap;
+    }
+    .nav-links li button.nav-btn:hover { color: #EB0028; }
+    .nav-links li button.nav-btn.nav-active {
+      color: #EB0028; text-decoration: underline; text-underline-offset: 3px;
+    }
+
+    .logo { width: auto !important; height: 56px !important; max-width: none !important; }
+    @media (max-width: 768px) { .logo { height: 40px !important; padding: 0 !important; } }
+
+    /* ── Year divider — used in Speakers, Team, Sponsors ── */
+    .year-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 3rem 0 1.5rem;
+    }
+    .year-divider:first-child { margin-top: 0.5rem; }
+    .year-divider .year-label {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #EB0028;
+      white-space: nowrap;
+      letter-spacing: 0.03em;
+    }
+    .year-divider::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: #EB0028;
+      border-radius: 2px;
+    }
+
+    /* ── Speakers: years stack vertically, each year scrolls horizontally ── */
+    .speakers-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Lightbox ── */
+    #lightbox {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.92); z-index: 9999;
+      align-items: center; justify-content: center;
+      flex-direction: column;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw; max-height: 85vh;
+      border-radius: 6px; box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    }
+    #lightbox-close {
+      position: absolute; top: 18px; right: 24px;
+      font-size: 2rem; color: #fff; cursor: pointer;
+      background: none; border: none; line-height: 1;
+    }
+    #lightbox-prev, #lightbox-next {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      font-size: 2.5rem; color: #fff; cursor: pointer;
+      background: none; border: none; padding: 0 16px; line-height: 1;
+      user-select: none;
+    }
+    #lightbox-prev { left: 8px; }
+    #lightbox-next { right: 8px; }
+    #lightbox-caption {
+      color: #ccc; font-size: 0.9rem; margin-top: 10px; text-align: center;
+    }
+  </style>
 </head>
 <body>
-    
-    <!-- Header -->
-    <header>
-    <div class="container header-container">
-		<a href="https://tedxhsrw.com">
-        <img src="img/tedxhsrw.svg" style="transform:scale(1.5)"  alt="TEDxHSRW Logo" class="logo">
-		</a>
-        <!-- Hamburger Icon -->
-        <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-        </div>
 
-        <nav>
-        <ul class="nav-links">
-            <li><a href="#speakers">Speakers</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#sponsors">Sponsors</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="https://buytickets.at/tedxhsrw/1913143" class="btn btn-primary" class="btn btn-primary">Get Tickets</a></li>
-        </ul>
-        </nav>
+<!-- ═══════════════ HEADER / NAVBAR ═══════════════ -->
+<header>
+  <div class="container header-container" style="position:relative;">
+    <a href="#" onclick="showPage('home'); return false;">
+      <img src="img/tedxhsrw.svg" alt="TEDxHSRW Logo" class="logo">
+    </a>
+    <div class="menu-toggle" id="mobile-menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
     </div>
-    </header>
-
-
-<!-- Combined Hero + About (single background image) -->
-<section class="hero-about" aria-label="Hero and About">
-  <div class="hero-top">
-    <div class="container">
-      <h1>TEDxHSRW</h1>
-      <p class="tagline">"Why not?" - sparking ideas and conversations at HSRW</p>
-      <a href="https://buytickets.at/tedxhsrw/1913143" class="btn btn-primary">Get Your Tickets!</a>
-    </div>
+    <nav>
+      <ul class="nav-links" id="nav-links">
+        <li><button class="nav-btn nav-active" onclick="showPage('home')">Home</button></li>
+        <li><button class="nav-btn" onclick="showPage('event')">Events</button></li>
+        <li><button class="nav-btn" onclick="showPage('speakers')">Speakers</button></li>
+        <li><button class="nav-btn" onclick="showPage('team')">Team</button></li>
+        <li><button class="nav-btn" onclick="showPage('sponsors')">Sponsors</button></li>
+        <li><button class="nav-btn" onclick="showPage('contact')">Contact</button></li>
+        <!-- ★ ADD NEW PAGE LINKS HERE ★ -->
+        <li><a href="" class="btn btn-primary" target="_blank" rel="noopener">Get Tickets</a></li>
+      </ul>
+    </nav>
   </div>
-
-  <div class="about-bottom" id="about">
-    <div class="container">
-      <h2>What is TEDx?</h2>
-      <p>
-        In the spirit of ideas worth spreading, TED has created a program called <strong>TEDx</strong>.
-        TEDx is a program of local, self-organized events that bring people together to share a TED-like experience.
-        Our event is called <strong>TEDxHSRW</strong>, where x = independently organized TED event. At our TEDxHSRW event,
-        TEDTalks video and live speakers will combine to spark deep discussion and connection in a small group.
-        The TED Conference provides general guidance for the TEDx program, but individual TEDx events, including ours,
-        are self-organized.
-      </p>
-      <p>
-        <br>Learn more about the TEDx program:
-        <a href="https://www.ted.com/about/programs-initiatives/tedx-program" target="_blank" rel="noopener">TEDx Program</a>
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- Next Event Section -->
-<section id="next-event" class="next-event">
-  <div class="container">
-    <h2>Upcoming Event</h2>
-    <div class="event-details">
-      <div class="event-info">
-        <h3>TEDxHSRW 2025 "Why Not?"</h3>
-        <p><strong>Date:</strong> December 13th, 2025</p>
-        <p><strong>Location:</strong> Rhine-Waal University of Applied Sciences, Kleve Campus</p>
-	    <p>Ever wondered how different your life could have been, had you asked this one question or chased that single opportunity? It's happened to us all, except some people decided to stop wondering; they started to find out. Ordinary people embarked on extraordinary journeys, simply because they took that first step.</p>
-        <p>They asked themselves: <strong>"Why Not?"</strong></p>
-        <p><strong>Join us for an inspiring day of ideas worth spreading - live talks, performances, and community connection. Together, we'll explore the power of asking "Why Not?" in shaping our future.</strong></p>
-        <a href="https://buytickets.at/tedxhsrw/1913143" class="btn btn-primary">Get Tickets</a>
-		<a href="https://docs.google.com/forms/d/e/1FAIpQLSeU5MZ5pQ4wNpuH7xNA-lAUEGl7crsSPRqUb1CFc3hMa_wYUA/viewform" 
-	    class="btn btn-primary" 
-	    style="background-color: transparent; border: 2px solid red; color: red;">
-	    Apply to be a Speaker!
-	    </a>
-		<br></br>
-	    <h3>Event Program</h3>
-		<p>Stay tuned - more information coming soon!</p>
-	    </div>
-	    <div class="collage">
-	        <img src="./img/group.JPG" class="large" alt="Image 3">
-	        <img src="./img/eagerfaces.JPG" alt="Image 1">
-	        <img src="./img/listening.JPG" alt="Image 2">
-	        <img src="./img/sign.JPG" alt="Image 4">
-	    </div>		
-    </div>
-  </div>
-</section>
+</header>
 
 
-<!-- Speakers Section -->
-<section id="speakers" class="speakers-alt">
-  <div class="speakers-content">
-    <h2>Meet Our Speakers</h2>
-    <div class="speaker-list">
-      <div class="speaker" onclick="toggleBio(this)">
-        <div class="speaker-header">
-          <img src="img/speakers/Marlow.png" style="object-position: 70% 30%; alt="Speaker 1">
-          <div>
-            <h3>Marlow Guttmann</h3>
-            <p class="topic"></p>
-          </div>
-        </div>
-        <div class="bio">
-          Marlow D. Guttmann works in HR and Organizational Development, guiding leaders and young talent through transformation. As a consultant, author, speaker, and mentor, he brings a Generation-Z perspective that bridges generations, and is a sought-after voice on the future of work and AI ethics, featured at conferences and in leading HR and business media. He serves as an honorary judge at Hamburg’s Social Court and co-founded the Rotaract Club Hamburg International - part of the Rotary Network - promoting diversity, cultural exchange, volunteer action, and developing young leaders. <br></br> 
-In his talk, he shares a personal mentoring story that shows how an AI-driven world accelerates change while leaving early-career professionals feeling lost and unsure of their direction. His message: technology sets the pace, but purpose sets the path: anchored in values, empathy, and human connection.
-        </div>
-	  </div>
-		
-      <div class="speaker" onclick="toggleBio(this)">
-        <div class="speaker-header">
-          <img src="img/speakers/Fadi.png" alt="Speaker 2">
-          <div>
-            <h3>Dr. Fadi Alshalabi</h3>
-            <p class="topic"></p>
-          </div>
-        </div>
-        <div class="bio">
-          Dr. Fadi Alshalabi is an educator, researcher, and co-founder of Niuversity, a digital learning platform that has empowered thousands of learners across the Arab world to rebuild their skills and careers through online education and entrepreneurship. After moving to Germany, Fadi discovered that migration is often described as a story of survival - but rarely as a story of creation. His journey inspired him to ask a different question: Why not let newcomers build, not just belong?<br></br>
-In his talk, Fadi explores how entrepreneurship and digital learning can transform integration from a process of adaptation into one of co-creation, replacing dependence with dignity and turning migration into one of humanity’s most powerful startup accelerators. His message is a call to both newcomers and host communities to build belonging through what they create together.
-        </div>
-      </div>
+<!-- ═══════════════ ALL PAGES ═══════════════ -->
+<main>
 
-		 <div class="speaker" onclick="toggleBio(this)">
-        <div class="speaker-header">
-          <img src="img/speakers/Patricia.jpg" style="object-position: 60% 30%; alt="Speaker 2">
-          <div>
-            <h3>Dr. Patricia Jovičević-Klug</h3>
-            <p class="topic"></p>
-          </div>
-        </div>
-        <div class="bio">
-          With a background spanning geochemistry, marine geosciences, sustainability, nanoscience and nanotechnology, Dr. Patricia Jovičević-Klug has always been driven by curiosity - exploring new materials and the stories they tell. From metallic materials to rocks that have journeyed across galaxies, she studies how the smallest elements can help solve our biggest challenges. Her passion lies in developing sustainable solutions for critical raw materials (CRMs) - the hidden ingredients behind clean energy, semiconductors, and advanced technologies. Her work bridges chemistry, physics, cryogenics, and catalysis, advancing innovative ways to extract, recycle, and optimize the materials that power our world. She has contributed to cryogenic processing, sustainable extraction, oxide reduction, and hold two patents in thermochemical catalysis - all aimed at making materials science more circular and sustainable. <br></br>
-In her TEDx talk, she connects Earth and space—using meteorites as storytellers of our planet’s magnetism and technological future—to show how what falls from the sky can inspire cleaner, more resilient innovations on Earth.
-        </div>
-      </div>
-
-		 <div class="speaker" onclick="toggleBio(this)">
-        <div class="speaker-header">
-          <img src="img/speakers/Vanessa.jpg" alt="Speaker 2">
-          <div>
-            <h3>Dr. Vanessa Maybeck</h3>
-            <p class="topic"></p>
-          </div>
-        </div>
-        <div class="bio">
-        Dr. Vanessa Maybeck is a bioelectronics researcher with expertise in molecular cell biology and neurobiology. Her work investigates how neurons and man-made devices can communicate through light, electricity, and touch. Leading a multidisciplinary team of chemists, biologists, and bioengineers she explores how to program information into neuronal networks and interpret their outputs. Her work aims to reveal how living systems process and exchange information—and how this knowledge can inspire new bioelectronic technologies. Previously a lecturer in biochemistry, she has authored 32 peer-reviewed publications with more than 1,400 citations. <br></br>
-			In this talk she proposes, the hardest part of discovery isn’t collecting data - it’s knowing when to doubt it. And when to stand by it.
-        </div>
-      </div>
-
-		 <div class="speaker" onclick="toggleBio(this)">
-        <div class="speaker-header">
-          <img src="img/speakers/Matic.png" alt="Speaker 2">
-          <div>
-            <h3>Dr. Matic Jovičević-Klug</h3>
-            <p class="topic"></p>
-          </div>
-        </div>
-        <div class="bio">
-          For Dr. Matic Jovičević-Klug, research is more than a profession - it’s a calling shaped by curiosity, imagination, and the desire to make a difference. As a materials engineer in science, he sees engineering as storytelling through matter, transforming atoms, energy and their form into new possibilities. A journey that has taken him from uncovering the invisible beauty of magnetism to leading the research forefront of transforming waste into resources and designing magnets that will power a greener, more sustainable world. But beyond the science, his work is a story of imagination - of seeing possibility where others see limitation, of turning curiosity into creation.<br></br>
-In his  talk, he shares how being an engineer means not just solving problems, but imagining futures—crafting the unseen and unknown into the tangible, and shaping a future where innovation and sustainability walk hand in hand.
-        </div>
-      </div>
-
-		 <div class="speaker" onclick="toggleBio(this)">
-        <div class="speaker-header">
-          <img src="img/speakers/Uzair.jpg" alt="Speaker 2">
-          <div>
-            <h3>Uzair Munir</h3>
-            <p class="topic"></p>
-          </div>
-        </div>
-        <div class="bio">
-Being an art enthusiast and hobbyist, Uzair believe that everyone can and should use art as a utility of expression. It can be in the form of drawing, painting, sculpting, poetry, or anything that helps us connect better with this world and those around us. Uzair believes everyone can draw and that they should invest time in it once more as they did when they were kids. In his words: "I draw cities, buildings and nature whenever I travel, to capture a souvenir of the places I have been to." He has compiled such drawings with poetry into two self-published books.<br></br>
-
-His message: Art is a therapy that people can and should lean into
-        </div>
-      </div>
-		
-    </div>
-  </div>
-</section>
-
-<!-- Team Section -->
-<section id="team" class="team">
-  <div class="container">
-    <h2>Meet the Team</h2>
-    <p>The passionate individuals behind TEDxHSRW - making "Why Not?" a reality. <br></br></p>
-
-    <div class="team-hierarchy">
-
-      <!-- Level 1: Head Organiser -->
-      <div class="team-level head-organiser">
-        <div class="team-member">
-          <img src="img/team/Yasmin.jpeg" style="object-position: 60% 30%;" alt="Yasmine">
-          <h3>Yasmine Najaa</h3>
-          <p>Head Organiser and Speaker Curator</p>
-        </div>
-      </div>
-
-      <!-- Level 2: Team Leads / Department Heads -->
-      <div class="team-level leads">
-	<div class="team-member">
-          <img src="img/team/Suzan.jpg" alt="Suzan">
-          <h3>Suzan Al Jaroudi</h3>
-	  <p>Co-organizer</p>
-          <p>Social Media and Experience Workshop</p>
-        </div>
-		<div class="team-member">
-          <img src="img/team/Aarthy.jpeg" style="object-position: 30% 25%; alt="Aarthy">
-          <h3>Aarthy Naguleswaran</h3>
-			<p>Co-organizer</p>
-          <p>Social Media and Marketing</p>
-        </div>
-        <div class="team-member">
-          <img src="img/team/Hanin.JPG" alt="Hanin">
-          <h3>Hanin Elkenany</h3>
-	  <p>Co-organizer</p>
-          <p>Sponsor Management and Speaker Curator</p>
-        </div>
-
-		    <div class="team-member">
-          <img src="https://tse1.mm.bing.net/th/id/OIP.bM6nB8aNy_tQ3XzUUd_GYAHaHa?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Prof. Dr. Alexander Struck">
-          <h3>Prof. Dr. Alexander Struck</h3>
-          <p>Special Advisor</p>
-        </div>
-		   </div>
-		      <!-- Level 3: Team Members -->
-      <div class="team-level members">
-		  <div class="team-member">
-          <img src="img/team/Jad.jpeg" alt="Jad">
-          <h3>Jad Abou Saleh</h3>
-	  <p>Co-organizer</p>
-          <p>Sponsor Management and Speaker Curator</p>
-        </div>
-        <div class="team-member">
-          <img src="img/team/Youssef.jpeg" style="object-position: 30% 50%;" alt="Youssef">
-          <h3>Youssef Amer</h3>
-	  <p>Co-organizer</p>
-          <p>Administrative Operations</p>
-        </div>
-	<div class="team-member">
-          <img src="img/team/Bianca.jpg" style="object-position: 60% 60%;" alt="Bianca">
-          <h3>Bianca White</h3>
-          <p>Sponsor Management and Experience Workshop</p>
-        </div>
-        <div class="team-member">
-          <img src="img/team/Mostafa.jpg" alt="Mostafa">
-          <h3>Mostafa Kobaisi</h3>
-          <p>Catering Management</p>
-      </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- Videography Team Section -->
-<section id="videography" class="videography">
-  <div class="container">
-    <h2>Videography Team</h2>
-    <p>The team behind capturing and preserving the TEDxHSRW experience.</p>
-
-    <div class="videography-content">
-      <!-- Roles List (LEFT) -->
-      <div class="videography-roles">
-        <div class="role">
-          <h3>Dr. Maryam Bolouri</h3>
-          <p>Direction, Sound and Edit</p>
-        </div>
-
-		<div class="role">
-          <h3>Harshita Tiwari</h3>
-          <p>General Assistant</p>
-        </div>
-		  
-        <div class="role">
-          <h3>Muhammad Haroon Faizan</h3>
-          <p>Camera Operator (Talks)</p>
-        </div>
-		
-		<div class="role">
-          <h3>Muhammad Haroon Faizan</h3>
-          <p>Camera Operator (Talks)</p>
-        </div>
-		  
-		<div class="role">
-          <h3>Omar Elkabbany</h3>
-          <p>Audio Assistant</p>
-        </div>
-
-		<div class="role">
-          <h3>Sanuth Sakala Walli Acharige</h3>
-          <p>Camera Operator (Talks)</p>
-        </div>
-		  
-        <div class="role">
-          <h3>Serge Alpha Azinui Chofor</h3>
-          <p>Camera Operator (Experience and Feedback)</p>
-        </div>
-
-		<div class="role">
-          <h3>Sharada Samarawickrama</h3>
-          <p>Camera Operator (Talks)</p>
-        </div>
-		  
-      </div>
-
-      <!-- Team Photo (RIGHT) -->
-      <div class="videography-photo">
-        <img src="img/team/videography-team.png" alt="TEDxHSRW Videography Team">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Sponsors Section -->
-<section id="sponsors" class="sponsors">
-  <div class="container">
-    <h2>Our Sponsors</h2>
-    <p>We would like to thank our generous sponsors for supporting TEDxHSRW. They make all of this possible.</p>
-
-    <div class="sponsors-grid">
-      <!-- Confirmed Sponsor -->
-      <div class="sponsor-card">
-        <img src="img/sponsors/rootscafe.jpeg" alt="Roots Cafe Logo">
-        <h3>Roots Cafe</h3>
-        <p>Hagsche Str. 3, 47533 Kleve</p>
-      </div>
-
-      <div class="sponsor-card">
-        <img src="img/sponsors/gelateria.jpeg" alt="Gelateria La Dolce Vita">
-        <h3>Gelateria La Dolce Vita</h3>
-        <p>Triftstr. 99, 47533 Kleve</p>
-      </div>
-				
-		<div class="sponsor-card premium">
-		  <div class="badge-premium">Main Sponsor</div>
-		  <img src="img/sponsors/hsrw.jpg" alt="Sponsor Logo">
-		  <h3>Faculty of Technology and Bionics</h3>
-			<p>Marie-Curie-Str. 1, 47533 Kleve</p>
-		</div>   
-
-		<div class="sponsor-card">
-        <img src="img/sponsors/lffsr.jpeg" alt="Faculty of LS">
-        <h3>FSR Life Sciences</h3>
-        <p>Marie-Curie-Str. 1, 47533 Kleve</p>
-      </div>
-
-		<div class="sponsor-card">
-        <img src="img/sponsors/asta.jpeg" alt="AStA">
-        <h3>AStA Hochschule Rhein-Waal</h3>
-        <p>Marie-Curie-Str. 1, 47533 Kleve</p>
-      </div>
-    </div>
-	  <br>
-	  <div class="sponsors-grid">
-		<div class="sponsor-card">
-        <img src="img/sponsors/tnbfsr.jpg" alt="FSR T&B">
-        <h3>FSR Technology and Bionics</h3>
-        <p>Marie-Curie-Str. 1, 47533 Kleve</p>
-      </div>
-
-		<div class="sponsor-card">
-        <img src="img/sponsors/catering.jpeg" alt="Felfela Restaurant">
-        <h3>Felfela Restaurant</h3>
-		<p>Main Caterer</p>
-        <p>Worringerstr. 99, 40210 Düsseldorf</p>
-      </div>
-		  <div class="sponsor-card">
-        <img src="https://www.elaya-hotels.com/wp-content/themes/elaya/assets/images/logo.svg" alt="Elaya Hotel">
-        <h3>Elaya Hotels</h3>
-        <p>Bensdorpstr. 3, 47533 Kleve</p>
-      </div>
-		   <div class="sponsor-card">
-        <img src="img/sponsors/shirts.jpg" alt="Klever Flockdruck">
-        <h3>Klever Flockdruck</h3>
-        <p>Hammscher Weg 62, 47533 Kleve</p>
-      </div>
-	  </div>
-  </div>
-</section>
-
-
-<!-- Contact Section -->
-<section id="contact" class="contact">
-  <div class="container">
-    <h2>Contact</h2>
-    <p>Have a question or want to get involved? Reach out to the TEDxHSRW team below.</p>
-
-    <form action="https://formspree.io/f/manppjbn" method="POST" class="contact-form">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="_replyto" required>
-      </div>
-
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Send Message</button>
-    </form>
-
-    <p class="contact-alt">
-      Or email us directly at <a href="mailto:team@tedxhsrw.com">team@tedxhsrw.com</a>
-    </p>
-  </div>
-</section>
-
-
-    <section id="tickets" class="tickets">
+  <!-- ─────────────── PAGE: HOME ─────────────── -->
+  <div id="home" class="page active">
+    <section class="hero-about" aria-label="Hero and About">
+      <div class="hero-top">
         <div class="container">
-            <h2>Tickets</h2>
-            <p>Tickets are available through our partner platform. Click the button below to save your seat at TEDxHSRW! <br></br></p>
-            <a href="https://buytickets.at/tedxhsrw/1913143" class="btn btn-primary">Buy Tickets</a>
+          <h1>TEDxHSRW</h1>
+          <p class="tagline">"Limitless" - sparking ideas and conversations at HSRW</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSelHL-jFVM1EGvGNRwu5Ud7SqW5dDKfwnL9eEz8j7WSMiQd3A/viewform?usp=dialog" class="btn btn-primary" target="_blank" rel="noopener">Join the team!</a>
         </div>
+      </div>
+      <div class="about-bottom" id="about">
+        <div class="container">
+          <h2>What is TEDx?</h2>
+          <p>In the spirit of ideas worth spreading, TED has created a program called <strong>TEDx</strong>.
+            TEDx is a program of local, self-organized events that bring people together to share a TED-like experience.
+            Our event is called <strong>TEDxHSRW</strong>, where x = independently organized TED event. At our TEDxHSRW event,
+            TEDTalks video and live speakers will combine to spark deep discussion and connection in a small group.
+            The TED Conference provides general guidance for the TEDx program, but individual TEDx events, including ours,
+            are self-organized.</p>
+          <p><br>Learn more about the TEDx program:
+            <a href="https://www.ted.com/about/programs-initiatives/tedx-program" target="_blank" rel="noopener">TEDx Program</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </div><!-- /home -->
+
+
+  <!-- ─────────────── PAGE: EVENT ─────────────── -->
+  <div id="event" class="page">
+    <section class="next-event">
+      <div class="container">
+        <h2>Events</h2>
+        <div id="events-container"></div>
+      </div>
+    </section>
+  </div><!-- /event -->
+
+
+  <!-- ─────────────── PAGE: SPEAKERS ─────────────── -->
+  <!--
+  HOW TO ADD A NEW YEAR of speakers:
+    1. Add a year divider above the new group:
+         <div class="year-divider"><span class="year-label">2027</span></div>
+    2. Wrap that year's cards in their own <div class="speaker-list"> … </div>
+       Each year's speaker-list scrolls horizontally on its own.
+  -->
+  <div id="speakers" class="page">
+    <section class="speakers-alt">
+      <div class="speakers-content">
+        <h2>Meet Our Speakers</h2>
+
+        <!-- ── 2026 ── -->
+        <div class="year-divider"><span class="year-label">2026</span></div>
+        <div class="speaker-list">
+	<h3>Stay tuned!</h3>
+          <!-- ★ ADD MORE 2026 SPEAKERS HERE ★ -->
+        </div><!-- /speaker-list 2026 -->
+
+
+        <!-- ── 2025 ── -->
+        <div class="year-divider"><span class="year-label">2025</span></div>
+        <div class="speaker-list">
+
+          <div class="speaker"">
+            <div class="speaker-header">
+              <img src="img/speakers/2025/Marlow.png" style="object-position:70% 30%;" alt="Marlow Guttmann">
+              <div><h3>Marlow Guttmann</h3><p class="topic"></p></div>
+            </div>
+            <div class="bio">
+              Marlow D. Guttmann works in HR and Organizational Development, guiding leaders and young talent through transformation. As a consultant, author, speaker, and mentor, he brings a Generation-Z perspective that bridges generations, and is a sought-after voice on the future of work and AI ethics, featured at conferences and in leading HR and business media. He serves as an honorary judge at Hamburg's Social Court and co-founded the Rotaract Club Hamburg International - part of the Rotary Network - promoting diversity, cultural exchange, volunteer action, and developing young leaders.<br><br>
+              In his talk, he shares a personal mentoring story that shows how an AI-driven world accelerates change while leaving early-career professionals feeling lost and unsure of their direction. His message: technology sets the pace, but purpose sets the path: anchored in values, empathy, and human connection.
+            </div>
+          </div>
+
+          <div class="speaker"">
+            <div class="speaker-header">
+              <img src="img/speakers/2025/Fadi.png" alt="Dr. Fadi Alshalabi">
+              <div><h3>Dr. Fadi Alshalabi</h3><p class="topic"></p></div>
+            </div>
+            <div class="bio">
+              Dr. Fadi Alshalabi is an educator, researcher, and co-founder of Niuversity, a digital learning platform that has empowered thousands of learners across the Arab world to rebuild their skills and careers through online education and entrepreneurship. After moving to Germany, Fadi discovered that migration is often described as a story of survival - but rarely as a story of creation.<br><br>
+              In his talk, Fadi explores how entrepreneurship and digital learning can transform integration from a process of adaptation into one of co-creation, replacing dependence with dignity and turning migration into one of humanity's most powerful startup accelerators.
+            </div>
+          </div>
+
+          <div class="speaker"">
+            <div class="speaker-header">
+              <img src="img/speakers/2025/Patricia.jpg" style="object-position:60% 30%;" alt="Dr. Patricia Jovičević-Klug">
+              <div><h3>Dr. Patricia Jovičević-Klug</h3><p class="topic"></p></div>
+            </div>
+            <div class="bio">
+              With a background spanning geochemistry, marine geosciences, sustainability, nanoscience and nanotechnology, Dr. Patricia Jovičević-Klug has always been driven by curiosity. Her passion lies in developing sustainable solutions for critical raw materials (CRMs) - the hidden ingredients behind clean energy, semiconductors, and advanced technologies. She holds two patents in thermochemical catalysis.<br><br>
+              In her TEDx talk, she connects Earth and space—using meteorites as storytellers of our planet's magnetism and technological future—to show how what falls from the sky can inspire cleaner, more resilient innovations on Earth.
+            </div>
+          </div>
+
+          <div class="speaker"">
+            <div class="speaker-header">
+              <img src="img/speakers/2025/Vanessa.jpg" alt="Dr. Vanessa Maybeck">
+              <div><h3>Dr. Vanessa Maybeck</h3><p class="topic"></p></div>
+            </div>
+            <div class="bio">
+              Dr. Vanessa Maybeck is a bioelectronics researcher with expertise in molecular cell biology and neurobiology. Her work investigates how neurons and man-made devices can communicate through light, electricity, and touch. She has authored 32 peer-reviewed publications with more than 1,400 citations.<br><br>
+              In this talk she proposes the hardest part of discovery isn't collecting data - it's knowing when to doubt it. And when to stand by it.
+            </div>
+          </div>
+
+          <div class="speaker"">
+            <div class="speaker-header">
+              <img src="img/speakers/2025/Matic.png" alt="Dr. Matic Jovičević-Klug">
+              <div><h3>Dr. Matic Jovičević-Klug</h3><p class="topic"></p></div>
+            </div>
+            <div class="bio">
+              For Dr. Matic Jovičević-Klug, research is more than a profession - it's a calling shaped by curiosity, imagination, and the desire to make a difference. As a materials engineer in science, he sees engineering as storytelling through matter, transforming atoms, energy and their form into new possibilities.<br><br>
+              In his talk, he shares how being an engineer means not just solving problems, but imagining futures—crafting the unseen and unknown into the tangible, and shaping a future where innovation and sustainability walk hand in hand.
+            </div>
+          </div>
+
+          <div class="speaker"">
+            <div class="speaker-header">
+              <img src="img/speakers/2025/Uzair.jpg" alt="Uzair Munir">
+              <div><h3>Uzair Munir</h3><p class="topic"></p></div>
+            </div>
+            <div class="bio">
+              Being an art enthusiast and hobbyist, Uzair believes that everyone can and should use art as a utility of expression. It can be in the form of drawing, painting, sculpting, poetry, or anything that helps us connect better with this world and those around us. He has compiled his drawings with poetry into two self-published books.<br><br>
+              His message: Art is a therapy that people can and should lean into.
+            </div>
+          </div>
+
+        </div><!-- /speaker-list 2025 -->
+
+      </div>
+    </section>
+  </div><!-- /speakers -->
+
+
+  <!-- ─────────────── PAGE: TEAM ─────────────── -->
+  <!--
+  HOW TO ADD A NEW YEAR of team members:
+    1. Add: <div class="year-divider"><span class="year-label">YYYY</span></div>
+    2. Add a <div class="team-hierarchy"> block below it.
+  -->
+  <div id="team" class="page">
+
+    <section class="team">
+      <div class="container">
+        <h2>Meet the Team</h2>
+        <p>The passionate individuals behind TEDxHSRW.<br><br></p>
+
+        <!-- ── 2025 ── -->
+        <div class="year-divider"><span class="year-label">2025</span></div>
+        <div class="team-hierarchy">
+          <div class="team-level head-organiser">
+            <div class="team-member">
+              <img src="img/team/2025/Yasmin.jpeg" style="object-position:60% 30%;" alt="Yasmine Najaa">
+              <h3>Yasmine Najaa</h3>
+              <p>Head Organiser and Speaker Curator</p>
+            </div>
+          </div>
+          <div class="team-level leads">
+            <div class="team-member">
+              <img src="img/team/2025/Suzan.jpg" alt="Suzan Al Jaroudi">
+              <h3>Suzan Al Jaroudi</h3>
+              <p>Co-organizer</p><p>Social Media and Experience Workshop</p>
+            </div>
+            <div class="team-member">
+              <img src="img/team/2025/Aarthy.jpeg" style="object-position:30% 25%;" alt="Aarthy Naguleswaran">
+              <h3>Aarthy Naguleswaran</h3>
+              <p>Co-organizer</p><p>Social Media and Marketing</p>
+            </div>
+            <div class="team-member">
+              <img src="img/team/2025/Hanin.JPG" alt="Hanin Elkenany">
+              <h3>Hanin Elkenany</h3>
+              <p>Co-organizer</p><p>Sponsor Management and Speaker Curator</p>
+            </div>
+            <div class="team-member">
+              <img src="https://tse1.mm.bing.net/th/id/OIP.bM6nB8aNy_tQ3XzUUd_GYAHaHa?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Prof. Dr. Alexander Struck">
+              <h3>Prof. Dr. Alexander Struck</h3>
+              <p>Special Advisor</p>
+            </div>
+          </div>
+          <div class="team-level members">
+            <div class="team-member">
+              <img src="img/team/2025/Jad.jpeg" alt="Jad Abou Saleh">
+              <h3>Jad Abou Saleh</h3>
+              <p>Co-organizer</p><p>Sponsor Management and Speaker Curator</p>
+            </div>
+            <div class="team-member">
+              <img src="img/team/2025/Youssef.jpeg" style="object-position:30% 50%;" alt="Youssef Amer">
+              <h3>Youssef Amer</h3>
+              <p>Co-organizer</p><p>Administrative Operations</p>
+            </div>
+            <div class="team-member">
+              <img src="img/team/2025/Bianca.jpg" style="object-position:60% 60%;" alt="Bianca White">
+              <h3>Bianca White</h3>
+              <p>Sponsor Management and Experience Workshop</p>
+            </div>
+            <div class="team-member">
+              <img src="img/team/2025/Mostafa.jpg" alt="Mostafa Kobaisi">
+              <h3>Mostafa Kobaisi</h3>
+              <p>Catering Management</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-container">
-            <p>This independent TEDx event is operated under license from TED.</p>
+    <!-- Videography Team -->
+    <section class="videography">
+      <div class="container">
+        <h2>Videography Team</h2>
+        <p>The team behind capturing and preserving the TEDxHSRW experience.</p>
+
+        <!-- ── 2025 ── -->
+        <div class="year-divider" style="margin-bottom:1.5rem;"><span class="year-label">2025</span></div>
+        <div class="videography-content">
+          <div class="videography-roles">
+            <div class="role"><h3>Dr. Maryam Bolouri</h3><p>Direction, Sound and Edit</p></div>
+            <div class="role"><h3>Harshita Tiwari</h3><p>General Assistant</p></div>
+            <div class="role"><h3>Muhammad Haroon Faizan</h3><p>Camera Operator (Talks)</p></div>
+            <div class="role"><h3>Omar Elkabbany</h3><p>Audio Assistant</p></div>
+            <div class="role"><h3>Sanuth Sakala Walli Acharige</h3><p>Camera Operator (Talks)</p></div>
+            <div class="role"><h3>Serge Alpha Azinui Chofor</h3><p>Camera Operator (Experience and Feedback)</p></div>
+            <div class="role"><h3>Sharada Samarawickrama</h3><p>Camera Operator (Talks)</p></div>
+          </div>
+          <div class="videography-photo">
+            <img src="img/team/2025/videography-team.png" alt="TEDxHSRW Videography Team">
+          </div>
         </div>
-    </footer>
+
+      </div>
+    </section>
+
+  </div><!-- /team -->
 
 
+  <!-- ─────────────── PAGE: SPONSORS ─────────────── -->
+  <!--
+  HOW TO ADD A NEW YEAR of sponsors:
+    1. Add: <div class="year-divider"><span class="year-label">YYYY</span></div>
+    2. Add a <div class="sponsors-grid"> block below it.
+    Keep to ~5 sponsors per grid. For more, add a second grid with a <br> between them.
+  -->
+  <div id="sponsors" class="page">
+    <section class="sponsors">
+      <div class="container">
+        <h2>Our Sponsors</h2>
+        <p>We would like to thank our generous sponsors for supporting TEDxHSRW. They make all of this possible.</p>
+
+        <!-- ── 2025 ── -->
+        <div class="year-divider"><span class="year-label">2025</span></div>
+        <div class="sponsors-grid">
+          <div class="sponsor-card">
+            <img src="img/sponsors/2025/rootscafe.jpeg" alt="Roots Cafe Logo">
+            <h3>Roots Cafe</h3><p>Hagsche Str. 3, 47533 Kleve</p>
+          </div>
+          <div class="sponsor-card">
+            <img src="img/sponsors/2025/gelateria.jpeg" alt="Gelateria La Dolce Vita">
+            <h3>Gelateria La Dolce Vita</h3><p>Triftstr. 99, 47533 Kleve</p>
+          </div>
+          <div class="sponsor-card premium">
+            <div class="badge-premium">Main Sponsor</div>
+            <img src="img/sponsors/2025/hsrw.jpg" alt="HSRW Logo">
+            <h3>Faculty of Technology and Bionics</h3><p>Marie-Curie-Str. 1, 47533 Kleve</p>
+          </div>
+          <div class="sponsor-card">
+            <img src="img/sponsors/2025/lffsr.jpeg" alt="FSR Life Sciences">
+            <h3>FSR Life Sciences</h3><p>Marie-Curie-Str. 1, 47533 Kleve</p>
+          </div>
+          <div class="sponsor-card">
+            <img src="img/sponsors/2025/asta.jpeg" alt="AStA">
+            <h3>AStA Hochschule Rhein-Waal</h3><p>Marie-Curie-Str. 1, 47533 Kleve</p>
+          </div>
+        </div>
+        <br>
+        <div class="sponsors-grid">
+          <div class="sponsor-card">
+            <img src="img/sponsors/2025/tnbfsr.jpg" alt="FSR T&B">
+            <h3>FSR Technology and Bionics</h3><p>Marie-Curie-Str. 1, 47533 Kleve</p>
+          </div>
+          <div class="sponsor-card">
+            <img src="img/sponsors/2025/catering.jpeg" alt="Felfela Restaurant">
+            <h3>Felfela Restaurant</h3><p>Main Caterer</p><p>Worringerstr. 99, 40210 Düsseldorf</p>
+          </div>
+          <div class="sponsor-card">
+            <img src="https://www.elaya-hotels.com/wp-content/themes/elaya/assets/images/logo.svg" alt="Elaya Hotel">
+            <h3>Elaya Hotels</h3><p>Bensdorpstr. 3, 47533 Kleve</p>
+          </div>
+          <div class="sponsor-card">
+            <img src="img/sponsors/2025/shirts.jpg" alt="Klever Flockdruck">
+            <h3>Klever Flockdruck</h3><p>Hammscher Weg 62, 47533 Kleve</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div><!-- /sponsors -->
+
+
+  <!-- ─────────────── PAGE: CONTACT ─────────────── -->
+  <div id="contact" class="page">
+    <section class="contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>Have a question or want to get involved? Reach out to the TEDxHSRW team below.</p>
+        <form action="https://formspree.io/f/manppjbn" method="POST" class="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="_replyto" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+        <p class="contact-alt">
+          Or email us directly at <a href="mailto:info@tedxhsrw.com">info@tedxhsrw.com</a>
+        </p>
+      </div>
+    </section>
+    <section class="tickets">
+      <div class="container">
+        <h2>Tickets</h2>
+        <p>Tickets are available through our partner platform. Click the button below to save your seat at TEDxHSRW!<br><br></p>
+        <a href="https://buytickets.at/tedxhsrw/1913143" class="btn btn-primary" target="_blank" rel="noopener">Buy Tickets</a>
+      </div>
+    </section>
+  </div><!-- /contact -->
+
+
+  <!--
+  ╔══════════════════════════════════════════════════════╗
+  ║  HOW TO ADD A NEW PAGE                              ║
+  ║  Step 1 — Add a nav button in <ul class="nav-links">║
+  ║    <li><button class="nav-btn"                      ║
+  ║      onclick="showPage('my-page')">My Page          ║
+  ║    </button></li>                                    ║
+  ║  Step 2 — Add the page div in <main>:               ║
+  ║    <div id="my-page" class="page">                  ║
+  ║      <section><div class="container">               ║
+  ║        <h2>Title</h2>                               ║
+  ║      </div></section>                               ║
+  ║    </div>                                           ║
+  ╚══════════════════════════════════════════════════════╝
+  -->
+
+</main>
+
+
+<!-- ═══════════════ LIGHTBOX ═══════════════ -->
+<div id="lightbox">
+  <button id="lightbox-close" aria-label="Close">&#x2715;</button>
+  <button id="lightbox-prev" aria-label="Previous">&#x2039;</button>
+  <img id="lightbox-img" src="" alt="">
+  <div id="lightbox-caption"></div>
+  <button id="lightbox-next" aria-label="Next">&#x203a;</button>
+</div>
+
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="container footer-container">
+    <p>This independent TEDx event is operated under license from TED.</p>
+  </div>
+</footer>
+
+
+<!-- ═══════════════ SCRIPTS ═══════════════ -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script>
-  const menu = document.getElementById('mobile-menu');
-  const nav = document.querySelector('.nav-links');
+  // ── Page Router ──────────────────────────────────────────
+  function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById(pageId);
+    if (target) {
+      target.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+      btn.classList.remove('nav-active');
+      if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(`'${pageId}'`)) {
+        btn.classList.add('nav-active');
+      }
+    });
+    document.getElementById('mobile-menu').classList.remove('is-active');
+    document.getElementById('nav-links').classList.remove('active');
+    history.pushState(null, '', '#' + pageId);
+  }
 
-  menu.addEventListener('click', () => {
-    menu.classList.toggle('is-active');
-    nav.classList.toggle('active');
+  window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash && document.getElementById(hash)) showPage(hash);
+  });
+  window.addEventListener('popstate', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash && document.getElementById(hash)) showPage(hash);
+    else showPage('home');
+  });
+
+  document.getElementById('mobile-menu').addEventListener('click', function () {
+    this.classList.toggle('is-active');
+    document.getElementById('nav-links').classList.toggle('active');
+  });
+
+  // ── Speaker bio toggle ───────────────────────────────────
+  function toggleBio(card) {
+    const isOpen = card.classList.contains('active');
+    document.querySelectorAll('.speaker').forEach(c => c.classList.remove('active'));
+    if (!isOpen) card.classList.add('active');
+  }
+  document.addEventListener('click', e => {
+    const card = e.target.closest('.speaker');
+    if (card) toggleBio(card);
   });
 </script>
+
+
+<!--
+╔══════════════════════════════════════════════════════════════╗
+║  EVENTS 
+║  ────────────────────────────────────────────────────────── 
+║                                                              ║
+║  EVENT FIELDS:                                              ║
+║    status       — "upcoming" | "past"                        ║
+║    title        — event name (required)                      ║
+║    date         — display date string                        ║
+║    location     — venue name                                 ║
+║    description  — array of paragraph strings                 ║
+║  Upcoming only:                                             ║
+║    ticketUrl    — "" = hide button                           ║
+║    teamUrl	  — "" = hide button                           ║
+║	 speakerUrl   — "" = hide button                           ║
+║    program      — "" = hide block                            ║
+║    images       — [{src, alt, large}] collage; [] = none     ║
+║  Past only:                                                  ║
+║    photosUrl  — "" = hide button				║
+║    youtubeUrl    — "" = hide button                          ║
+╚══════════════════════════════════════════════════════════════╝
+-->
 <script>
-  // Select all speaker cards
-  const speakers = document.querySelectorAll('.speaker');
+  // ══════════════════════════════════════════════════════════
+  //  ★ STEP 1: EDIT YOUR EVENTS HERE ★
+  // ══════════════════════════════════════════════════════════
+  const EVENTS = [
 
-  speakers.forEach(card => {
-    card.addEventListener('click', () => {
-      // Remove active from any other card
-      speakers.forEach(c => {
-        if (c !== card) c.classList.remove('active');
-      });
+    // ── UPCOMING ────────────────────────────────────────────
+    {
+      status:      'upcoming',
+      title:       'TEDxHSRW 2026 "Limitless"',
+      date:        'October, 2026',
+      location:    'Rhine-Waal University of Applied Sciences, Kleve Campus',
+      description: ['More information coming soon!'],
+      ticketUrl:   '',
+      teamUrl:	'https://docs.google.com/forms/d/e/1FAIpQLSelHL-jFVM1EGvGNRwu5Ud7SqW5dDKfwnL9eEz8j7WSMiQd3A/viewform?usp=dialog',
+      speakerUrl:  'https://docs.google.com/forms/d/e/1FAIpQLSeURPWnbxgXUluPhpFI333evir1GVp4BMXsEADF2x75pCmuJA/viewform?usp=dialog',
+      program:     'Stay tuned - more information coming soon!',
+      images:      [],
+    },
 
-      // Toggle active class on clicked card
-      card.classList.toggle('active');
-    });
+    // ── PAST: 2025 ──────────────────────────────────────────
+    {
+      status:       'past',
+      title:        'TEDxHSRW 2025 "Why Not?"',
+      date:         'December 13th, 2025',
+      location:     'Rhine-Waal University of Applied Sciences, Kleve Campus',
+      description:  [
+        'Ever wondered how different your life could have been, had you asked this one question or chased that single opportunity? It\'s happened to us all, except some people decided to stop wondering; they started to find out. Ordinary people embarked on extraordinary journeys, simply because they took that first step.',
+        'They asked themselves: <strong>"Why Not?"</strong>',
+        '<strong>Join us for an inspiring day of ideas worth spreading - live talks, performances, and community connection. Together, we\'ll explore the power of asking "Why Not?" in shaping our future.</strong>',
+      ],
+      images: [
+        { src: './img/2025/group.JPG',      alt: 'Group photo', large: true },
+        { src: './img/2025/eagerfaces.JPG', alt: 'Audience' },
+        { src: './img/2025/listening.JPG',  alt: 'Listening' },
+        { src: './img/2025/sign.JPG',       alt: 'Sign' },
+      ],
+      photosUrl:  'https://www.flickr.com/photos/203996074@N04/albums/72177720331068917/',
+      youtubeUrl:    'https://www.youtube.com/playlist?list=PL_sAmacHVhJhsUiiQHcLecrQOLZHIsqep',
+    },
+
+    // ── TEMPLATE FOR ADDITIONAL PAST EVENTS ─────────────────
+    // {
+    //   status:       'past',
+    //   title:        'TEDxHSRW 2024 "Theme"',
+    //   date:         'November 8th, 2024',
+    //   location:     'Rhine-Waal University of Applied Sciences, Kleve Campus',
+    //   description:  ['Description.'],
+    //   images:       [],
+    //   photosUrl:  'your-url-here',
+    //   youtubeUrl:    'https://www.youtube.com/@TEDxHSRW',
+    // },
+
+  ];
+  // ══════════════════════════════════════════════════════════
+
+
+  // ── Events Renderer ───────────────────────────────────────
+  function renderEvents() {
+    const container = document.getElementById('events-container');
+    if (!container) return;
+    if (EVENTS.length === 0) {
+      container.innerHTML = '<p style="color:#555;margin-top:1rem;">No events scheduled yet — check back soon!</p>';
+      return;
+    }
+    container.innerHTML = EVENTS.map((ev, i) => {
+      const isPast = ev.status === 'past';
+      const statusBadge = ev.status ? `
+        <span style="display:inline-block;margin-bottom:12px;padding:3px 12px;
+          border-radius:20px;font-size:0.78rem;font-weight:bold;
+          letter-spacing:0.05em;text-transform:uppercase;
+          background:${isPast ? '#555' : '#EB0028'};color:#fff;">${ev.status}</span>` : '';
+      const paragraphs = (ev.description || []).map(p => `<p>${p}</p>`).join('');
+      let buttons = '';
+      if (isPast) {
+        const photosBtn = ev.photosUrl
+          ? `<a href="${ev.photosUrl}" class="btn btn-primary"
+               style="background-color:transparent;border:2px solid #EB0028;color:#EB0028;cursor:pointer;">
+               View Photos</a>` : '';
+        const ytBtn = ev.youtubeUrl
+          ? `<a href="${ev.youtubeUrl}" class="btn btn-primary"
+               style="background-color:transparent;border:2px solid #EB0028;color:#EB0028;"
+               target="_blank" rel="noopener">Watch Talks on YouTube</a>` : '';
+        buttons = photosBtn + ytBtn;
+      } else {
+        const ticketBtn = ev.ticketUrl
+          ? `<a href="${ev.ticketUrl}" class="btn btn-primary" target="_blank" rel="noopener">Get Tickets</a>` : '';
+        const speakerBtn = ev.speakerUrl
+          ? `<a href="${ev.speakerUrl}" class="btn btn-primary" target="_blank" rel="noopener">Apply to be a Speaker!</a>` : '';
+	const teamBtn = ev.teamUrl
+          ? `<a href="${ev.teamUrl}" class="btn btn-primary"
+               style="background-color:transparent;border:2px solid #EB0028;color:#EB0028;"
+               target="_blank" rel="noopener">Join the team!</a>` : '';
+        buttons = ticketBtn + speakerBtn + teamBtn;
+      }
+      const programBlock = (!isPast && ev.program)
+        ? `<h3 style="margin-top:1.5rem;">Event Program</h3><p>${ev.program}</p>` : '';
+      const collage = ev.images && ev.images.length
+        ? `<div class="collage">${ev.images.map(img =>
+            `<img src="${img.src}" alt="${img.alt}"${img.large ? ' class="large"' : ''}>`
+          ).join('')}</div>` : '';
+      const divider = i > 0 ? `<hr style="border:none;border-top:2px solid #EB0028;margin:3rem 0;">` : '';
+      return `
+        ${divider}
+        <div class="event-details">
+          <div class="event-info">
+            ${statusBadge}
+            <h3>${ev.title}</h3>
+            ${ev.date     ? `<p><strong>Date:</strong> ${ev.date}</p>` : ''}
+            ${ev.location ? `<p><strong>Location:</strong> ${ev.location}</p>` : ''}
+            ${paragraphs}
+            <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:1rem;">${buttons}</div>
+            ${programBlock}
+          </div>
+          ${collage}
+        </div>`;
+    }).join('');
+  }
+
+
+  // ── Lightbox ──────────────────────────────────────────────
+  let _lbItems = [], _lbIndex = 0;
+
+  function openLightbox(items, index) {
+    _lbItems = Array.from(items);
+    _lbIndex = index;
+    showLightboxSlide();
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function showLightboxSlide() {
+    document.getElementById('lightbox-img').src = _lbItems[_lbIndex].dataset.large;
+    document.getElementById('lightbox-caption').textContent = _lbItems[_lbIndex].dataset.caption || '';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.getElementById('lightbox-img').src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-prev').addEventListener('click', () => {
+    _lbIndex = (_lbIndex - 1 + _lbItems.length) % _lbItems.length;
+    showLightboxSlide();
+  });
+  document.getElementById('lightbox-next').addEventListener('click', () => {
+    _lbIndex = (_lbIndex + 1) % _lbItems.length;
+    showLightboxSlide();
+  });
+  document.getElementById('lightbox').addEventListener('click', e => {
+    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  });
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape')     closeLightbox();
+    if (e.key === 'ArrowLeft')  { _lbIndex = (_lbIndex - 1 + _lbItems.length) % _lbItems.length; showLightboxSlide(); }
+    if (e.key === 'ArrowRight') { _lbIndex = (_lbIndex + 1) % _lbItems.length; showLightboxSlide(); }
+  });
+
+
+  // ── Init ──────────────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', () => {
+    renderEvents();
   });
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
