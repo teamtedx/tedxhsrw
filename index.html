@@ -694,9 +694,36 @@
     renderEvents();
   });
 	
-function toggleTeam(block) {
-  block.classList.toggle("expanded");
+const teamMembers = {
+  "Team X": ["Alice", "Bob", "Charlie", "Diana", "Eve"],
+  "Team Y": ["John", "Sarah", "Leo"],
+  "Team Z": ["Maya", "Omar", "Nina", "Zara"]
+};
+
+function openTeam(teamName) {
+  const overlay = document.getElementById("teamOverlay");
+  const title = document.getElementById("teamTitle");
+  const scrollArea = document.querySelector(".team-scroll");
+
+  title.textContent = teamName;
+  scrollArea.innerHTML = "";
+
+  teamMembers[teamName].forEach(member => {
+    scrollArea.innerHTML += `
+      <div class="member-card">
+        <div class="photo"></div>
+        <p>${member}</p>
+      </div>
+    `;
+  });
+
+  overlay.style.display = "flex";
 }
+
+function closeTeam() {
+  document.getElementById("teamOverlay").style.display = "none";
+}
+
 
 </script>
 
