@@ -190,39 +190,87 @@
 		<!-- ── 2026 ── -->
 		<div class="year-divider"><span class="year-label">2026</span></div>
 
-	<!--	  
-    	<section class="team-preview">
+<section class="team-preview">
 
-  <div class="team-block">
-    <div class="team-image">
+  <!-- Social Media & Marketing -->
+  <div class="team-block" onclick="toggleTeam(this)">
+    <div class="team-image team-main">
       <img src="img/team/2026/Social Media & Marketing.jpg" alt="Social Media & Marketing">
     </div>
     <h3>Social Media & Marketing</h3>
+
+    <div class="team-members">
+      <div class="member">
+        <img src="img/team/2026/Social Media & Marketing/member1.jpg">
+      </div>
+      <div class="member">
+        <img src="img/team/2026/Social Media & Marketing/member2.jpg">
+      </div>
+      <div class="member">
+        <img src="img/team/2026/Social Media & Marketing/member3.jpg">
+      </div>
+    </div>
   </div>
 
-  <div class="team-block">
-    <div class="team-image">
+  <!-- Sponsorship Outreach -->
+  <div class="team-block" onclick="toggleTeam(this)">
+    <div class="team-image team-main">
       <img src="img/team/2026/Sponsorship Outreach.jpg" alt="Sponsorship Outreach">
     </div>
     <h3>Sponsorship Outreach</h3>
+
+    <div class="team-members">
+      <div class="member">
+        <img src="img/team/2026/Sponsorship Outreach/member1.jpg">
+      </div>
+      <div class="member">
+        <img src="img/team/2026/Sponsorship Outreach/member2.jpg">
+      </div>
+    </div>
   </div>
 
-  <div class="team-block">
-    <div class="team-image">
+  <!-- Speaker Curation & Coaching -->
+  <div class="team-block" onclick="toggleTeam(this)">
+    <div class="team-image team-main">
       <img src="img/team/2026/Speaker Curation & Coaching.webp" alt="Speaker Curation & Coaching">
     </div>
     <h3>Speaker Curation & Coaching</h3>
+
+    <div class="team-members">
+      <div class="member">
+        <img src="img/team/2026/Speaker Curation & Coaching/member1.jpg">
+      </div>
+      <div class="member">
+        <img src="img/team/2026/Speaker Curation & Coaching/member2.jpg">
+      </div>
+      <div class="member">
+        <img src="img/team/2026/Speaker Curation & Coaching/member3.jpg">
+      </div>
+      <div class="member">
+        <img src="img/team/2026/Speaker Curation & Coaching/member4.jpg">
+      </div>
+    </div>
   </div>
 
-  <div class="team-block">
-    <div class="team-image">
-      <img src="img/team/2026/Adminstration & Logistics.jpeg" alt="Administration & Logistics">
+  <!-- Administration & Logistics -->
+  <div class="team-block" onclick="toggleTeam(this)">
+    <div class="team-image team-main">
+      <img src="img/team/2026/Administration & Logistics.jpeg" alt="Administration & Logistics">
     </div>
     <h3>Administration & Logistics</h3>
+
+    <div class="team-members">
+      <div class="member">
+        <img src="img/team/2026/Administration & Logistics/member1.jpg">
+      </div>
+      <div class="member">
+        <img src="img/team/2026/Administration & Logistics/member2.jpg">
+      </div>
+    </div>
   </div>
 
 </section>
--->
+
 
         <!-- ── 2025 ── -->
         <div class="year-divider"><span class="year-label">2025</span></div>
@@ -690,7 +738,17 @@
   // ── Init ──────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', () => {
     renderEvents();
+	  
   });
+	function toggleTeam(block) {
+  // collapse all others
+  document.querySelectorAll(".team-block.expanded").forEach(b => {
+    if (b !== block) b.classList.remove("expanded");
+  });
+
+  // toggle this one
+  block.classList.toggle("expanded");
+}
 	
 </script>
 
