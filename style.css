@@ -571,6 +571,7 @@ footer a:hover {
 /* Team Section */
 
 /* 2026 */
+
 /* Grid layout */
 .team-preview {
   display: grid;
@@ -662,7 +663,28 @@ footer a:hover {
   display: flex;
 }
 
+/* Smooth transition for swapping */
+.team-main,
+.team-members {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
 
+/* Members start hidden */
+.team-members {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+/* When expanded */
+.team-block.expanded .team-main {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.team-block.expanded .team-members {
+  opacity: 1;
+  transform: scale(1);
+}
 
 /* 2025 */
 .team {
