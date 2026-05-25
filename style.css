@@ -571,6 +571,7 @@ footer a:hover {
 /* Team Section */
 
 /* 2026 */
+/* Layout for the 3 circles */
 .team-preview {
   display: flex;
   justify-content: center;
@@ -579,17 +580,13 @@ footer a:hover {
   font-family: 'Poppins', sans-serif;
 }
 
+/* Each block container */
 .team-block {
   text-align: center;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.team-block:hover {
-  transform: scale(1.06);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
-}
-
+/* Circle container */
 .team-image {
   width: 180px;
   height: 180px;
@@ -597,19 +594,26 @@ footer a:hover {
   overflow: hidden;
   border: 4px solid #E62B1E; /* TEDx red */
   margin-bottom: 15px;
-  transition: border-color 0.25s ease;
+  transition: transform 0.25s ease, 
+              box-shadow 0.25s ease, 
+              border-color 0.25s ease;
 }
 
-.team-block:hover .team-image {
+/* Hover effect ONLY on the circle */
+.team-image:hover {
+  transform: scale(1.06);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
   border-color: #1A1A1A; /* dark gray */
 }
 
+/* Image inside the circle */
 .team-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+/* Team label */
 .team-block h3 {
   font-size: 1.2rem;
   font-weight: 600;
