@@ -192,52 +192,36 @@
 		  
     	<section class="team-preview">
 
-  <div class="team-block" onclick="toggleTeam(this)">
+  <div class="team-block">
     <div class="team-image">
-      <img src="team-x.jpg" alt="Team X">
+      <img src="Social Media & Marketing.jpg" alt="Social Media & Marketing">
     </div>
-    <h3>Team X</h3>
-
-    <div class="team-expanded">
-      <div class="member"></div>
-      <div class="member"></div>
-      <div class="member"></div>
-      <div class="member"></div>
-      <div class="member"></div>
-    </div>
+    <h3>Social Media & Marketing</h3>
   </div>
 
-  <div class="team-block" onclick="toggleTeam(this)">
+  <div class="team-block">
     <div class="team-image">
-      <img src="team-y.jpg" alt="Team Y">
+      <img src="Sponsorship Outreach.jpg" alt="Sponsorship Outreach">
     </div>
-    <h3>Team Y</h3>
-
-    <div class="team-expanded">
-      <div class="member"></div>
-      <div class="member"></div>
-      <div class="member"></div>
-    </div>
+    <h3>Sponsorship Outreach</h3>
   </div>
 
-  <div class="team-block" onclick="toggleTeam(this)">
+  <div class="team-block">
     <div class="team-image">
-      <img src="team-z.jpg" alt="Team Z">
+      <img src="Speaker Curation & Coaching.jpg" alt="Speaker Curation & Coaching">
     </div>
-    <h3>Team Z</h3>
-
-    <div class="team-expanded">
-      <div class="member"></div>
-      <div class="member"></div>
-      <div class="member"></div>
-      <div class="member"></div>
-    </div>
+    <h3>Speaker Curation & Coaching</h3>
   </div>
 
+  <div class="team-block">
+	  <div class="team-image">
+		  <img src="Adminstration & Logistics.jpg" alt="Adminstration & Logistics">
+	  </div>
+	  <h3>Adminstration & Logistics</h3>
+  </div>
+			
 </section>
 
-
-		  
         <!-- ── 2025 ── -->
         <div class="year-divider"><span class="year-label">2025</span></div>
         <div class="team-hierarchy">
@@ -706,19 +690,6 @@
     renderEvents();
   });
 	
-function toggleTeam(block) {
-  // Collapse any other expanded team
-  document.querySelectorAll(".team-block.expanded").forEach(b => {
-    if (b !== block) b.classList.remove("expanded");
-  });
-
-  // Toggle the clicked one
-  block.classList.toggle("expanded");
-}
-
-
-
-
 </script>
 
 </body>
