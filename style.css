@@ -602,10 +602,21 @@ footer a:hover {
 }
 
 /* Hover effect */
-.team-image:hover {
+/* Hover the entire block */
+.team-block:hover .team-image {
   transform: scale(1.06);
   box-shadow: 0 12px 28px rgba(0,0,0,0.15);
   border-color: #1A1A1A;
+}
+
+/* Optional: text hover effect */
+.team-block:hover h3 {
+  color: #E62B1E; /* TEDx red */
+  transform: translateY(-3px);
+}
+
+.team-block h3 {
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
 /* Image inside circle */
