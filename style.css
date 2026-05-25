@@ -571,30 +571,31 @@ footer a:hover {
 /* Team Section */
 
 /* 2026 */
-/* Main container */
+/* Grid layout */
 .team-preview {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
-  gap: 60px; /* equal spacing between all items */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 60px 0;
   font-family: 'Poppins', sans-serif;
 }
 
-/* Each block */
+/* Team block */
 .team-block {
   text-align: center;
   cursor: pointer;
+  position: relative;
 }
 
-/* Circle */
+/* Main circle */
 .team-image {
   width: 180px;
   height: 180px;
   border-radius: 50%;
   overflow: hidden;
-  border: 4px solid #E62B1E; /* TEDx red */
+  border: 4px solid #E62B1E;
   margin: 0 auto 15px;
   transition: transform 0.25s ease,
               box-shadow 0.25s ease,
@@ -602,24 +603,12 @@ footer a:hover {
 }
 
 /* Hover effect */
-/* Hover the entire block */
 .team-block:hover .team-image {
   transform: scale(1.06);
   box-shadow: 0 12px 28px rgba(0,0,0,0.15);
   border-color: #1A1A1A;
 }
 
-/* Optional: text hover effect */
-.team-block:hover h3 {
-  color: #E62B1E; /* TEDx red */
-  transform: translateY(-3px);
-}
-
-.team-block h3 {
-  transition: color 0.25s ease, transform 0.25s ease;
-}
-
-/* Image inside circle */
 .team-image img {
   width: 100%;
   height: 100%;
@@ -633,7 +622,44 @@ footer a:hover {
   color: #1A1A1A;
   max-width: 180px;
   margin: 10px auto 0;
-  line-height: 1.3;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.team-block:hover h3 {
+  color: #E62B1E;
+  transform: translateY(-3px);
+}
+
+/* Hidden members */
+.team-members {
+  display: none;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+/* Member circles (same size as main circle) */
+.member {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #1A1A1A;
+}
+
+.member img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Expanded state */
+.team-block.expanded .team-main {
+  display: none;
+}
+
+.team-block.expanded .team-members {
+  display: flex;
 }
 
 
