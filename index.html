@@ -753,7 +753,16 @@
   // ── Init ──────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', () => {
     renderEvents();
-	  
+
+	  document.querySelectorAll('.team-block').forEach(block => {
+  const members = block.querySelectorAll('.member').length;
+  const container = block.querySelector('.team-members');
+
+  if (members <= 4) {
+    container.classList.add('no-scroll');
+  }
+});
+
   });
 	function toggleTeam(block) {
   // collapse all others
@@ -768,15 +777,6 @@
   m.addEventListener('click', e => {
     e.stopPropagation();
   });
-});
-
-	document.querySelectorAll('.team-block').forEach(block => {
-  const members = block.querySelectorAll('.member').length;
-  const container = block.querySelector('.team-members');
-
-  if (members <= 4) {
-    container.classList.add('no-scroll');
-  }
 });
 
 </script>
