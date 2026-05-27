@@ -641,7 +641,7 @@ footer a:hover {
   margin-top: 15px;
 }
 
-/* Member container (FIXED VERSION — allows name below circle) */
+/* Member container */
 .member {
   width: 180px;
   display: flex;
@@ -683,7 +683,7 @@ footer a:hover {
   transform: translateY(-3px);
 }
 
-/* Expanded state (instant swap) */
+/* Expanded state */
 .team-block.expanded .team-main {
   display: none;
 }
@@ -692,26 +692,24 @@ footer a:hover {
   display: flex;
 }
 
-/* === SLIDER FOR EXPANDED TEAMS === */
-.team-block.expanded .team-members {
-  display: flex;
+/* === SLIDER ONLY WHEN NEEDED (5+ MEMBERS) === */
+.team-block.expanded .team-members.slider-enabled {
   overflow-x: auto;
   overflow-y: hidden;
   gap: 20px;
   padding-top: 10px;
   padding-bottom: 20px;
-  height: 260px; /* makes the members visible */
+  height: 260px;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   scrollbar-color: #E62B1E #ddd;
-
-  /* show exactly 4 members at once */
   max-width: calc(180px * 4 + 20px * 3);
   margin: 0 auto;
   cursor: grab;
+  background: white;
 }
 
-.team-members .member {
+.team-members.slider-enabled .member {
   flex: 0 0 auto;
   scroll-snap-align: center;
 }
