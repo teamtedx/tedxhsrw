@@ -716,25 +716,6 @@ footer a:hover {
   scroll-snap-align: center;
 }
 
-/* === FADE ONLY ON TEAM MEMBERS (NOT THE SLIDER) === */
-.team-block.expanded .team-members .member {
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 15%,
-    black 85%,
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 15%,
-    black 85%,
-    transparent 100%
-  );
-}
-
-
 
 /* 2025 */
 .team {
