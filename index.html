@@ -754,21 +754,15 @@
   document.addEventListener('DOMContentLoaded', () => {
     renderEvents();
 	  
-// Expand / collapse teams
 function toggleTeam(block) {
-    document.querySelectorAll(".team-block.expanded").forEach(b => {
-        if (b !== block) b.classList.remove("expanded");
-    });
+  // collapse all others
+  document.querySelectorAll(".team-block.expanded").forEach(b => {
+    if (b !== block) b.classList.remove("expanded");
+  });
 
-    block.classList.toggle("expanded");
+  // toggle this one
+  block.classList.toggle("expanded");
 }
-	  
-// Prevent clicking a member from collapsing the team
-document.querySelectorAll('.member').forEach(m => {
-    m.addEventListener('click', e => {
-        e.stopPropagation();
-    });
-});
 
 </script>
 
