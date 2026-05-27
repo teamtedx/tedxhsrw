@@ -754,16 +754,15 @@
   document.addEventListener('DOMContentLoaded', () => {
     renderEvents();
 
-//  Detect how many members each team has
-//     If 4 or fewer → disable slider
-document.querySelectorAll('.team-block').forEach(block => {
-    const members = block.querySelectorAll('.member').length;
-    const container = block.querySelector('.team-members');
+// Enable slider ONLY if content overflows
+document.querySelectorAll('.team-members').forEach(container => {
+    const isOverflowing = container.scrollWidth > container.clientWidth;
 
-    if (members <= 4) {
-        container.classList.add('no-scroll');
+    if (!isOverflowing) {
+        container.classList.add('no-slider');
     }
 });
+
 
 // Prevent clicking a member from collapsing the team
 document.querySelectorAll('.member').forEach(m => {
