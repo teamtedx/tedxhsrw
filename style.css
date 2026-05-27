@@ -692,6 +692,25 @@ footer a:hover {
   display: flex;
 }
 
+/* SLIDER MODE FOR TEAM MEMBERS */
+.team-block.expanded .team-members {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 20px;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #E62B1E #ddd;
+  max-width: 100%;
+}
+
+.team-members .member {
+  scroll-snap-align: center;
+  flex: 0 0 auto;
+}
+
+
 /* 2025 */
 .team {
     padding: 60px 20px;
