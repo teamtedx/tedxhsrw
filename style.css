@@ -692,23 +692,29 @@ footer a:hover {
   display: flex;
 }
 
-/* SLIDER MODE FOR TEAM MEMBERS */
+/* SLIDER FIX — reachable + 4 visible members */
 .team-block.expanded .team-members {
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
   gap: 20px;
-  padding-bottom: 10px;
+  padding: 10px 0;
+  height: 220px;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   scrollbar-color: #E62B1E #ddd;
-  max-width: 100%;
+
+  /* show exactly 4 members */
+  max-width: calc(180px * 4 + 20px * 3);
+  margin: 0 auto;
+  cursor: grab;
 }
 
 .team-members .member {
-  scroll-snap-align: center;
   flex: 0 0 auto;
+  scroll-snap-align: center;
 }
+
 
 
 /* 2025 */
