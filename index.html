@@ -754,30 +754,34 @@
   document.addEventListener('DOMContentLoaded', () => {
     renderEvents();
 
-	  document.querySelectorAll('.team-block').forEach(block => {
-  const members = block.querySelectorAll('.member').length;
-  const container = block.querySelector('.team-members');
+//  Detect how many members each team has
+//     If 4 or fewer → disable slider
+document.querySelectorAll('.team-block').forEach(block => {
+    const members = block.querySelectorAll('.member').length;
+    const container = block.querySelector('.team-members');
 
-  if (members <= 4) {
-    container.classList.add('no-scroll');
-  }
+    if (members <= 4) {
+        container.classList.add('no-scroll');
+    }
 });
 
-  });
-	function toggleTeam(block) {
-  // collapse all others
-  document.querySelectorAll(".team-block.expanded").forEach(b => {
-    if (b !== block) b.classList.remove("expanded");
-  });
+// Prevent clicking a member from collapsing the team
+document.querySelectorAll('.member').forEach(m => {
+    m.addEventListener('click', e => {
+        e.stopPropagation();
+    });
+});
 
-  // toggle this one
-  block.classList.toggle("expanded");
+//  Expand / collapse teams
+function toggleTeam(block) {
+    // Collapse all other expanded teams
+    document.querySelectorAll(".team-block.expanded").forEach(b => {
+        if (b !== block) b.classList.remove("expanded");
+    });
+
+    // Toggle this team
+    block.classList.toggle("expanded");
 }
-	document.querySelectorAll('.member').forEach(m => {
-  m.addEventListener('click', e => {
-    e.stopPropagation();
-  });
-});
 
 </script>
 
