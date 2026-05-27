@@ -716,31 +716,24 @@ footer a:hover {
   scroll-snap-align: center;
 }
 
-/* === FADE EDGES FOR SLIDER (OVERLAY METHOD) === */
-.team-block.expanded {
-  position: relative;
+/* === FADE ONLY ON TEAM MEMBERS (NOT THE SLIDER) === */
+.team-block.expanded .team-members .member {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
 }
 
-.team-block.expanded::before,
-.team-block.expanded::after {
-  content: "";
-  position: absolute;
-  top: 180px; /* aligns with slider top */
-  width: 60px;
-  height: 260px; /* same as slider height */
-  pointer-events: none;
-  z-index: 5;
-}
-
-.team-block.expanded::before {
-  left: 0;
-  background: linear-gradient(to right, white, transparent);
-}
-
-.team-block.expanded::after {
-  right: 0;
-  background: linear-gradient(to left, white, transparent);
-}
 
 
 /* 2025 */
