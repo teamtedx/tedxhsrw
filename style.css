@@ -698,8 +698,9 @@ footer a:hover {
   overflow-x: auto;
   overflow-y: hidden;
   gap: 20px;
-  padding: 10px 0;
-  height: 220px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  height: 260px;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   scrollbar-color: #E62B1E #ddd;
