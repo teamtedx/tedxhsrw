@@ -768,6 +768,12 @@
   // toggle this one
   block.classList.toggle("expanded");
 }
+
+	document.querySelectorAll(".team-members .member").forEach(member => {
+  member.addEventListener("click", e => {
+    e.stopPropagation(); // prevents collapsing
+  });
+});
 	
 </script>
 
