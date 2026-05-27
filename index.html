@@ -764,7 +764,11 @@
   // toggle this one
   block.classList.toggle("expanded");
 }
-	
+	document.querySelectorAll('.member').forEach(m => {
+  m.addEventListener('click', e => {
+    e.stopPropagation();
+  });
+});
 </script>
 
 </body>
