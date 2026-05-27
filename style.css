@@ -692,6 +692,31 @@ footer a:hover {
   display: flex;
 }
 
+/* === SLIDER FOR EXPANDED TEAMS === */
+.team-block.expanded .team-members {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 20px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  height: 260px; /* makes the members visible */
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #E62B1E #ddd;
+
+  /* show exactly 4 members at once */
+  max-width: calc(180px * 4 + 20px * 3);
+  margin: 0 auto;
+  cursor: grab;
+}
+
+.team-members .member {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+}
+
+
 /* 2025 */
 .team {
     padding: 60px 20px;
