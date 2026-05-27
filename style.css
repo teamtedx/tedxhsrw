@@ -717,14 +717,13 @@ footer a:hover {
 }
 
 /* Disable slider when 4 or fewer members */
-.team-block.expanded .team-members.no-scroll {
+.team-members.no-scroll {
   overflow-x: visible !important;
+  scroll-snap-type: none !important;
   cursor: default !important;
   max-width: none !important;
-  height: auto !important;
-  padding: 0 !important;
-  scroll-snap-type: none !important;
 }
+
 
 
 /* 2025 */
