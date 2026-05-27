@@ -763,14 +763,13 @@ document.querySelectorAll('.member').forEach(m => {
 
 // Expand / collapse teams
 function toggleTeam(block) {
-    // Collapse all other expanded teams
     document.querySelectorAll(".team-block.expanded").forEach(b => {
         if (b !== block) b.classList.remove("expanded");
     });
 
-    // Toggle this team
     block.classList.toggle("expanded");
 }
+
 </script>
 
 </body>
