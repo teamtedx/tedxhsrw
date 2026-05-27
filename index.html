@@ -754,17 +754,6 @@
   document.addEventListener('DOMContentLoaded', () => {
     renderEvents();
 
-// Enable slider ONLY if content overflows
-document.querySelectorAll('.team-members').forEach(container => {
-    const isOverflowing = container.scrollWidth > container.clientWidth;
-
-    if (isOverflowing) {
-        container.classList.add('slider-active');
-    }
-});
-
-
-
 // Prevent clicking a member from collapsing the team
 document.querySelectorAll('.member').forEach(m => {
     m.addEventListener('click', e => {
@@ -772,7 +761,7 @@ document.querySelectorAll('.member').forEach(m => {
     });
 });
 
-//  Expand / collapse teams
+// Expand / collapse teams
 function toggleTeam(block) {
     // Collapse all other expanded teams
     document.querySelectorAll(".team-block.expanded").forEach(b => {
@@ -782,7 +771,6 @@ function toggleTeam(block) {
     // Toggle this team
     block.classList.toggle("expanded");
 }
-
 </script>
 
 </body>
