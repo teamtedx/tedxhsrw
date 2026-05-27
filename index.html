@@ -251,14 +251,6 @@
         <img src="img/team/2026/Speaker Curation & Coaching/member3.jpg">
 		  <p class="member-name">Name Here</p>
       </div>
-		<div class="member">
-        <img src="img/team/2026/Speaker Curation & Coaching/member3.jpg">
-		  <p class="member-name">Name Here</p>
-      </div>
-		<div class="member">
-        <img src="img/team/2026/Speaker Curation & Coaching/member3.jpg">
-		  <p class="member-name">Name Here</p>
-      </div>
       <div class="member">
         <img src="img/team/2026/Speaker Curation & Coaching/member4.jpg">
 		  <p class="member-name">Name Here</p>
@@ -754,7 +746,8 @@
   document.addEventListener('DOMContentLoaded', () => {
     renderEvents();
 	  
-function toggleTeam(block) {
+  });
+	function toggleTeam(block) {
   // collapse all others
   document.querySelectorAll(".team-block.expanded").forEach(b => {
     if (b !== block) b.classList.remove("expanded");
@@ -763,7 +756,7 @@ function toggleTeam(block) {
   // toggle this one
   block.classList.toggle("expanded");
 }
-
+	
 </script>
 
 </body>
