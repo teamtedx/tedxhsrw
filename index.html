@@ -758,10 +758,11 @@
 document.querySelectorAll('.team-members').forEach(container => {
     const isOverflowing = container.scrollWidth > container.clientWidth;
 
-    if (!isOverflowing) {
-        container.classList.add('no-slider');
+    if (isOverflowing) {
+        container.classList.add('slider-active');
     }
 });
+
 
 
 // Prevent clicking a member from collapsing the team
