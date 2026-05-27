@@ -716,6 +716,24 @@ footer a:hover {
   scroll-snap-align: center;
 }
 
+/* === SMOOTH FADE EDGES FOR SLIDER === */
+.team-block.expanded .team-members {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
 
 /* 2025 */
 .team {
