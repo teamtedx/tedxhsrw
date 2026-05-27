@@ -753,14 +753,7 @@
   // ── Init ──────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', () => {
     renderEvents();
-
-// Prevent clicking a member from collapsing the team
-document.querySelectorAll('.member').forEach(m => {
-    m.addEventListener('click', e => {
-        e.stopPropagation();
-    });
-});
-
+	  
 // Expand / collapse teams
 function toggleTeam(block) {
     document.querySelectorAll(".team-block.expanded").forEach(b => {
@@ -769,12 +762,14 @@ function toggleTeam(block) {
 
     block.classList.toggle("expanded");
 }
-
-function toggleTeam(block) {
-  block.classList.toggle('expanded');
-}
-
 	  
+// Prevent clicking a member from collapsing the team
+document.querySelectorAll('.member').forEach(m => {
+    m.addEventListener('click', e => {
+        e.stopPropagation();
+    });
+});
+
 </script>
 
 </body>
