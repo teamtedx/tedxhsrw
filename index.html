@@ -757,16 +757,7 @@
   // ── Init ──────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', () => {
     renderEvents();
-
-	  document.querySelectorAll(".team-members").forEach(container => {
-  const members = container.querySelectorAll(".member").length;
-
-  if (members > 4) {
-    container.classList.add("slider-enabled");
-  }
-});
-
-	  
+  
   });
 	function toggleTeam(block) {
   // collapse all others
@@ -782,6 +773,14 @@
   member.addEventListener("click", e => {
     e.stopPropagation(); // prevents collapsing
   });
+});
+
+	document.querySelectorAll(".team-members").forEach(container => {
+  const members = container.querySelectorAll(".member").length;
+
+  if (members > 4) {
+    container.classList.add("slider-enabled");
+  }
 });
 	
 </script>
