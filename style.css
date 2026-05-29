@@ -1170,7 +1170,65 @@ html {
   scroll-behavior: smooth;
 }
 
+/* === EVENTS TAB STYLE CARD (STATIC VERSION) === */
 
+.event-card {
+  background: #000;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+  border-top: 2px solid #EB0028;
+  border-bottom: 2px solid #EB0028;
+}
+
+.event-card-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.event-card .event-title {
+  color: #EB0028;
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  font-weight: 900;
+}
+
+.event-card .event-description {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 40px;
+  color: #ddd;
+}
+
+.event-card .event-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.event-card .btn-primary {
+  background: #EB0028;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 6px;
+}
+
+.event-program-box {
+  border: 2px solid #EB0028;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.event-program-box h3 {
+  color: #EB0028;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
 
 
 
