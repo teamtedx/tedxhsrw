@@ -1247,11 +1247,11 @@ html {
   font-size: 1.4rem;
 }
 
-/* Ensure red separator is always visible */
 .section-divider {
-  display: block;
   border: none;
   border-top: 2px solid #EB0028;
-  margin: 60px 0 40px 0; /* more spacing so it doesn't get hidden */
-  width: 80%;
+  width: 100%;     /* full width across the entire screen */
+  margin: 0;       /* sits flush between hero and event */
+  display: block;
 }
+
