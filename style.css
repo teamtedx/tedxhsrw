@@ -1170,30 +1170,53 @@ html {
   scroll-behavior: smooth;
 }
 
-/* === EXACT EVENTS TAB LAYOUT — UPDATED === */
+/* === HOME: 2026 EVENT (EVENTS TAB LAYOUT) === */
 
+.event-2026-exact {
+  background: #fff;
+  padding: 60px 0;
+}
+
+.event-2026-wrapper {
+  width: 90%;
+  margin-left: 7%;
+  max-width: 900px;
+}
+
+/* Title: now black, left-aligned */
 .event-2026-title {
-  color: #000; /* changed from red to black */
+  color: #000;
   font-size: 2.4rem;
   font-weight: 900;
   margin-bottom: 20px;
   text-align: left;
 }
 
-/* Remove border from Event Program */
-.event-2026-program {
-  border: none; /* removed red border */
-  padding: 0;
-  margin-top: 20px;
+/* Description text */
+.event-2026-description {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #000;
+  margin-bottom: 40px;
+  text-align: left;
 }
 
-.event-2026-program h3 {
-  color: #EB0028;
-  margin-bottom: 10px;
-  font-size: 1.4rem;
+/* Buttons row */
+.event-2026-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
 }
 
-/* Add border to "Join the Team!" button */
+/* Primary button (Apply to be a Speaker!) uses your existing .btn-primary styles */
+.event-2026-buttons .btn-primary {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 6px;
+}
+
+/* Bordered button (Join the Team!) */
 .btn-bordered {
   background: transparent;
   color: #EB0028;
@@ -1208,4 +1231,18 @@ html {
 .btn-bordered:hover {
   background: #EB0028;
   color: #fff;
+}
+
+/* Event Program: no border, just text */
+.event-2026-program {
+  border: none;
+  padding: 0;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.event-2026-program h3 {
+  color: #EB0028;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
 }
