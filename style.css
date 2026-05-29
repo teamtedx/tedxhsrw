@@ -1170,7 +1170,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* === HOME: 2026 EVENT (EVENTS TAB LAYOUT) === */
+/* === HOME PAGE — EXACT 2026 EVENT (MATCHES EVENTS TAB) === */
 
 .event-2026-exact {
   background: #fff;
@@ -1183,7 +1183,7 @@ html {
   max-width: 900px;
 }
 
-/* Title: now black, left-aligned */
+/* Title — black, left-aligned */
 .event-2026-title {
   color: #000;
   font-size: 2.4rem;
@@ -1192,7 +1192,7 @@ html {
   text-align: left;
 }
 
-/* Description text */
+/* Description */
 .event-2026-description {
   font-size: 1.15rem;
   line-height: 1.7;
@@ -1209,14 +1209,14 @@ html {
   margin-bottom: 40px;
 }
 
-/* Primary button (Apply to be a Speaker!) uses your existing .btn-primary styles */
+/* Speaker button uses your existing .btn-primary */
 .event-2026-buttons .btn-primary {
   padding: 12px 24px;
   font-size: 1.1rem;
   border-radius: 6px;
 }
 
-/* Bordered button (Join the Team!) */
+/* Join the Team button — bordered */
 .btn-bordered {
   background: transparent;
   color: #EB0028;
@@ -1233,7 +1233,7 @@ html {
   color: #fff;
 }
 
-/* Event Program: no border, just text */
+/* Event Program — no border */
 .event-2026-program {
   border: none;
   padding: 0;
