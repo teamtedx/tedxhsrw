@@ -1170,54 +1170,21 @@ html {
   scroll-behavior: smooth;
 }
 
-/* === EXACT EVENTS TAB LAYOUT FOR HOME PAGE === */
-
-.event-2026-exact {
-  background: #fff;
-  padding: 60px 0;
-}
-
-.event-2026-wrapper {
-  width: 90%;
-  margin-left: 7%;   /* matches your screenshot’s left alignment */
-  max-width: 900px;
-}
+/* === EXACT EVENTS TAB LAYOUT — UPDATED === */
 
 .event-2026-title {
-  color: #EB0028;
+  color: #000; /* changed from red to black */
   font-size: 2.4rem;
   font-weight: 900;
   margin-bottom: 20px;
   text-align: left;
 }
 
-.event-2026-description {
-  font-size: 1.15rem;
-  line-height: 1.7;
-  color: #000;
-  margin-bottom: 40px;
-  text-align: left;
-}
-
-.event-2026-buttons {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-}
-
-.event-2026-buttons .btn-primary {
-  padding: 12px 24px;
-  font-size: 1.1rem;
-  border-radius: 6px;
-}
-
+/* Remove border from Event Program */
 .event-2026-program {
-  border: 2px solid #EB0028;
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 600px;
-  text-align: left;
+  border: none; /* removed red border */
+  padding: 0;
+  margin-top: 20px;
 }
 
 .event-2026-program h3 {
@@ -1226,9 +1193,19 @@ html {
   font-size: 1.4rem;
 }
 
+/* Add border to "Join the Team!" button */
+.btn-bordered {
+  background: transparent;
+  color: #EB0028;
+  border: 2px solid #EB0028;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: 0.25s ease;
+}
 
-
-
-
-
-
+.btn-bordered:hover {
+  background: #EB0028;
+  color: #fff;
+}
