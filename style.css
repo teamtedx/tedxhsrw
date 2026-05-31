@@ -1255,3 +1255,18 @@ html {
   display: block;
 }
 
+.contact-socials {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.instagram-link {
+    font-size: 32px;
+    color: #E1306C; /* Instagram pink */
+    transition: 0.2s ease;
+}
+
+.instagram-link:hover {
+    color: #C13584;
+    transform: scale(1.1);
+}
