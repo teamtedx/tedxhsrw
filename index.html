@@ -104,34 +104,39 @@
 
 	  <hr class="section-divider">
 
-<section class="contact" id="contact-home">
-  <h2>Contact Us</h2>
-  <p>Have questions or want to get in touch? We'd love to hear from you.</p>
+<div id="contact-home" class="page">
+  <section class="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Have a question or want to get involved? Reach out to the TEDxHSRW team below.</p>
 
-  <form class="contact-form">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
+      <form action="https://formspree.io/f/manppjbn" method="POST" class="contact-form">
+        <div class="form-group">
+          <label for="home-name">Name</label>
+          <input type="text" id="home-name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="home-email">Email</label>
+          <input type="email" id="home-email" name="_replyto" required>
+        </div>
+
+        <div class="form-group">
+          <label for="home-message">Message</label>
+          <textarea id="home-message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+
+      <p class="contact-alt">
+        Or email us directly at
+        <a href="mailto:team@tedxhsrw.com">team@tedxhsrw.com</a>
+      </p>
     </div>
+  </section>
+</div>
 
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-
-    <div class="form-group">
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Send Message</button>
-  </form>
-
-  <p class="contact-alt">
-    Prefer email? Reach us at
-    <a href="mailto:info@tedxhsrw.com">info@tedxhsrw.com</a>
-  </p>
-</section>
 
 	  <div class="gradient-shift"></div>
 	  
