@@ -1262,7 +1262,7 @@ html {
 }
 
 .social-link {
-    font-size: 40px; /* bigger icons */
+    font-size: 48px; /* bigger icons */
     margin: 0 12px;
     transition: 0.2s ease;
 }
@@ -1273,7 +1273,7 @@ html {
 
 .social-link.instagram:hover {
     color: #C13584;
-    transform: scale(1.12);
+    opacity: 0.8;
 }
 
 .social-link.linkedin {
@@ -1282,5 +1282,5 @@ html {
 
 .social-link.linkedin:hover {
     color: #005582;
-    transform: scale(1.12);
+    opacity: 0.8;
 }
