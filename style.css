@@ -1256,17 +1256,32 @@ html {
 }
 
 .contact-socials {
-    margin-top: 20px;
+    margin-top: 25px;
+    margin-bottom: 15px;
     text-align: center;
 }
 
-.instagram-link {
-    font-size: 32px;
-    color: #E1306C; /* Instagram pink */
+.social-link {
+    font-size: 40px; /* bigger icons */
+    margin: 0 12px;
     transition: 0.2s ease;
 }
 
-.instagram-link:hover {
-    color: #C13584;
-    transform: scale(1.1);
+.social-link.instagram {
+    color: #E1306C;
 }
+
+.social-link.instagram:hover {
+    color: #C13584;
+    transform: scale(1.12);
+}
+
+.social-link.linkedin {
+    color: #0077B5;
+}
+
+.social-link.linkedin:hover {
+    color: #005582;
+    transform: scale(1.12);
+}
+
