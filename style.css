@@ -1262,25 +1262,33 @@ html {
 }
 
 .social-link {
-    font-size: 48px; /* bigger icons */
-    margin: 0 12px;
+    margin: 0 14px;
+    display: inline-block;
+}
+
+.icon-svg {
+    width: 48px;      /* clean, sharp size */
+    height: 48px;
+    fill: currentColor;
     transition: 0.2s ease;
 }
 
+/* Instagram */
 .social-link.instagram {
     color: #E1306C;
 }
 
-.social-link.instagram:hover {
+.social-link.instagram:hover .icon-svg {
     color: #C13584;
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
+/* LinkedIn */
 .social-link.linkedin {
     color: #0077B5;
 }
 
-.social-link.linkedin:hover {
+.social-link.linkedin:hover .icon-svg {
     color: #005582;
-    opacity: 0.8;
+    opacity: 0.85;
 }
