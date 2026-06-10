@@ -734,6 +734,7 @@
       ticketUrl:   '',
       teamUrl:	'https://docs.google.com/forms/d/e/1FAIpQLSelHL-jFVM1EGvGNRwu5Ud7SqW5dDKfwnL9eEz8j7WSMiQd3A/viewform?usp=dialog',
       speakerUrl:  'https://docs.google.com/forms/d/e/1FAIpQLSeURPWnbxgXUluPhpFI333evir1GVp4BMXsEADF2x75pCmuJA/viewform?usp=dialog',
+	  sponsorUrl: 'https://forms.gle/NHaFyPziS1a9Cyev6',	
       program:     'Stay tuned - more information coming soon!',
       images:      [],
     },
@@ -812,7 +813,9 @@
           ? `<a href="${ev.teamUrl}" class="btn btn-primary"
                style="background-color:transparent;border:2px solid #EB0028;color:#EB0028;"
                target="_blank" rel="noopener">Join the team!</a>` : '';
-        buttons = ticketBtn + speakerBtn + teamBtn;
+		  const sponsorBtn = ev.sponsorUrl
+		  ? `<a href="${ev.sponsorUrl}" class="btn btn-bordered" target="_blank" rel="noopener">Become a Sponsor</a>` : '';
+        buttons = ticketBtn + speakerBtn + teamBtn + sponsorBtn;
       }
       const programBlock = (!isPast && ev.program)
         ? `<h3 style="margin-top:1.5rem;">Event Program</h3><p>${ev.program}</p>` : '';
