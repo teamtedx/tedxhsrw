@@ -1293,4 +1293,20 @@ html {
     opacity: 0.85;
 }
 
-
+/* ── Sponsor category blocks — stacked vertically by type ── */
+.sponsor-category {
+    margin-bottom: 45px;
+}
+ 
+.sponsor-category:last-child {
+    margin-bottom: 0;
+}
+ 
+.sponsor-category-title {
+    color: #EB0028;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
