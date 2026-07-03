@@ -1293,64 +1293,67 @@ html {
     opacity: 0.85;
 }
 
-/* ── Sponsor category blocks — stacked vertically by type ── */
+/* Sponsors */
+
+.sponsors {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
 .sponsor-category {
-    margin-bottom: 45px;
+    margin-bottom: 50px;
 }
- 
-.sponsor-category:last-child {
-    margin-bottom: 0;
-}
- 
+
 .sponsor-category-title {
+    font-size: 1.6rem;
+    font-weight: 800;
     color: #EB0028;
-    font-size: 1.3rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 20px;
-    text-align: center;
+    text-align: left;
+    margin-left: 7%;
+    margin-bottom: 25px;
 }
- 
-/* Sponsors stacked one under another within each category, TEDxFrankfurt-style */
-.sponsor-category .sponsors-grid {
+
+/* Left‑aligned sponsor list */
+.sponsors-grid {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 40px;
+    align-items: flex-start;
+    gap: 35px;
+    margin-left: 7%;
 }
- 
-.sponsor-category .sponsor-card {
-    width: 100%;
-    max-width: 480px;
-    padding: 35px 30px;
+
+/* Individual sponsor block */
+.sponsor-item {
+    text-align: left;
 }
- 
-.sponsor-category .sponsor-card img {
+
+.sponsor-item img {
     max-width: 220px;
-    height: 120px;
+    height: auto;
+    margin-bottom: 10px;
 }
- 
-.sponsor-category .sponsor-card h3 {
-    font-size: 1.3rem;
-    margin-top: 5px;
+
+.sponsor-item h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 5px;
 }
- 
-/* Make the whole card clickable, keep existing card look */
-.sponsor-card-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
+
+.sponsor-item p {
+    font-size: 1rem;
+    color: #333;
+    max-width: 420px;
 }
- 
-/* Explicit "Visit website" link, shown under the card details like TEDxFrankfurt */
-.sponsor-card .visit-link {
-    display: inline-block;
-    margin-top: 14px;
-    color: #EB0028;
-    font-weight: bold;
-    font-size: 0.95rem;
-}
- 
-.sponsor-card-link:hover .visit-link {
-    text-decoration: underline;
+
+/* Mobile */
+@media (max-width: 768px) {
+    .sponsors-grid {
+        margin-left: 5%;
+        gap: 25px;
+    }
+
+    .sponsor-item img {
+        max-width: 180px;
+    }
 }
