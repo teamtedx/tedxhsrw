@@ -1322,6 +1322,7 @@ html {
     margin-bottom: 50px;
 }
 
+/* Divider */
 .sponsors-divider {
     margin-left: 7%;
     margin-right: 7%;
@@ -1332,7 +1333,7 @@ html {
 .sponsors-grid {
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: 65px;
     margin-left: 7%;
     margin-right: 7%;
 }
@@ -1341,7 +1342,7 @@ html {
 .sponsor-card {
     display: flex;
     gap: 50px;
-    align-items: center;
+    align-items: flex-start;   /* FIX: alignment */
     max-width: 1200px;
 }
 
@@ -1359,11 +1360,11 @@ html {
     transform: scale(1.04);
 }
 
-/* TEXT */
-.sponsor-content h3 {
-    font-size: 1.6rem;
-    margin-bottom: 6px;
-    color: #000;
+/* TEXT BLOCK (FIX: alignment consistency) */
+.sponsor-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .sponsor-type {
@@ -1372,6 +1373,12 @@ html {
     color: #EB0028;
     margin-bottom: 10px;
     letter-spacing: 0.5px;
+}
+
+.sponsor-content h3 {
+    font-size: 1.6rem;
+    margin: 0 0 6px 0;
+    color: #000;
 }
 
 .sponsor-content p {
@@ -1400,10 +1407,26 @@ html {
     border-radius: 12px;
 }
 
-/* CTA */
-.sponsors-top-cta .btn {
-    padding: 12px 22px;
-    font-size: 1.05rem;
+/* CTA SECTION (NEW FULL WIDTH GREY BLOCK) */
+.sponsors-cta-section {
+    margin-top: 90px;
+    background: #f2f2f2;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.sponsors-cta-section h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.sponsors-cta-section p {
+    max-width: 750px;
+    margin: 0 auto 25px auto;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #444;
 }
 
 /* MOBILE */
