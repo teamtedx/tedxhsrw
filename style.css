@@ -1310,3 +1310,47 @@ html {
     margin-bottom: 20px;
     text-align: center;
 }
+ 
+/* Sponsors stacked one under another within each category, TEDxFrankfurt-style */
+.sponsor-category .sponsors-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+ 
+.sponsor-category .sponsor-card {
+    width: 100%;
+    max-width: 480px;
+    padding: 35px 30px;
+}
+ 
+.sponsor-category .sponsor-card img {
+    max-width: 220px;
+    height: 120px;
+}
+ 
+.sponsor-category .sponsor-card h3 {
+    font-size: 1.3rem;
+    margin-top: 5px;
+}
+ 
+/* Make the whole card clickable, keep existing card look */
+.sponsor-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+ 
+/* Explicit "Visit website" link, shown under the card details like TEDxFrankfurt */
+.sponsor-card .visit-link {
+    display: inline-block;
+    margin-top: 14px;
+    color: #EB0028;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+ 
+.sponsor-card-link:hover .visit-link {
+    text-decoration: underline;
+}
