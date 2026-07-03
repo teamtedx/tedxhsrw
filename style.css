@@ -1305,53 +1305,95 @@ html {
     font-weight: 800;
     color: #EB0028;
     margin-left: 7%;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
-/* Year divider already matches Speakers/Team */
+.sponsors-intro {
+    margin-left: 7%;
+    max-width: 750px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 20px;
+}
 
+.sponsors-top-cta {
+    margin-left: 7%;
+    margin-bottom: 50px;
+}
+
+.sponsors-divider {
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-bottom: 50px;
+}
+
+/* GRID */
 .sponsors-grid {
     display: flex;
     flex-direction: column;
-    gap: 55px;
+    gap: 60px;
     margin-left: 7%;
+    margin-right: 7%;
 }
 
-.sponsor-item {
+/* CARD */
+.sponsor-card {
     display: flex;
-    align-items: center;
     gap: 50px;
-    max-width: 1100px;
+    align-items: center;
+    max-width: 1200px;
 }
 
-.sponsor-item img {
-    width: 300px;
-    max-width: 300px;
-    max-height: 140px;
+/* LOGO */
+.sponsor-card img {
+    width: 420px;
+    max-width: 420px;
+    max-height: 180px;
     object-fit: contain;
-    transition: transform .25s ease;
     flex-shrink: 0;
+    transition: transform 0.25s ease;
 }
 
-.sponsor-item:hover img {
+.sponsor-card:hover img {
     transform: scale(1.04);
 }
 
-.sponsor-text h3 {
-    font-size: 1.45rem;
-    margin-bottom: 8px;
+/* TEXT */
+.sponsor-content h3 {
+    font-size: 1.6rem;
+    margin-bottom: 6px;
     color: #000;
 }
 
-.sponsor-text p {
+.sponsor-type {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #EB0028;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.sponsor-content p {
     font-size: 1.05rem;
     line-height: 1.7;
     color: #444;
-    max-width: 600px;
+    max-width: 650px;
+    margin-bottom: 12px;
 }
 
-/* Elaya logo */
+/* LINK */
+.sponsor-link {
+    color: #EB0028;
+    font-weight: 700;
+    text-decoration: none;
+}
 
+.sponsor-link:hover {
+    text-decoration: underline;
+}
+
+/* ELAYA FIX */
 .sponsor-light img {
     background: #f2f2f2;
     padding: 18px;
@@ -1359,48 +1401,30 @@ html {
 }
 
 /* CTA */
-
-.sponsor-cta {
-    margin: 90px auto 0;
-    max-width: 700px;
-    text-align: center;
+.sponsors-top-cta .btn {
+    padding: 12px 22px;
+    font-size: 1.05rem;
 }
 
-.sponsor-cta h3 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
+/* MOBILE */
+@media (max-width: 768px) {
 
-.sponsor-cta p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #555;
-    margin-bottom: 30px;
-}
-
-/* Mobile */
-
-@media (max-width:768px){
-
-    .sponsors-grid{
-        margin-left:5%;
-        margin-right:5%;
-        gap:45px;
+    .sponsors-grid {
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
-    .sponsor-item{
-        flex-direction:column;
-        text-align:center;
-        gap:20px;
+    .sponsor-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
     }
 
-    .sponsor-item img{
-        width:240px;
-        max-width:240px;
+    .sponsor-card img {
+        width: 280px;
     }
 
-    .sponsor-text p{
-        max-width:100%;
+    .sponsor-content p {
+        max-width: 100%;
     }
-
 }
