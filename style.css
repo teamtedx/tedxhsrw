@@ -1293,32 +1293,28 @@ html {
     opacity: 0.85;
 }
 
-/* Sponsors */
+/* === SPONSORS — SIMPLE VERTICAL STACK, LEFT ALIGNED === */
 
 .sponsors {
     padding: 60px 0;
     background-color: #fff;
 }
 
-.sponsor-category {
-    margin-bottom: 50px;
-}
-
-.sponsor-category-title {
-    font-size: 1.6rem;
+.sponsors-title {
+    font-size: 1.8rem;
     font-weight: 800;
     color: #EB0028;
     text-align: left;
     margin-left: 7%;
-    margin-bottom: 25px;
+    margin-bottom: 35px;
 }
 
-/* Left‑aligned sponsor list */
+/* Left‑aligned vertical list */
 .sponsors-grid {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 35px;
+    gap: 40px;
     margin-left: 7%;
 }
 
