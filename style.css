@@ -1293,63 +1293,114 @@ html {
     opacity: 0.85;
 }
 
-/* === SPONSORS — SIMPLE VERTICAL STACK, LEFT ALIGNED === */
+/* Sponsors */
 
 .sponsors {
-    padding: 60px 0;
-    background-color: #fff;
+    padding: 70px 0;
+    background: #fff;
 }
 
 .sponsors-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 800;
     color: #EB0028;
-    text-align: left;
     margin-left: 7%;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
-/* Left‑aligned vertical list */
+/* Year divider already matches Speakers/Team */
+
 .sponsors-grid {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 40px;
+    gap: 55px;
     margin-left: 7%;
 }
 
-/* Individual sponsor block */
 .sponsor-item {
-    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1100px;
 }
 
 .sponsor-item img {
-    max-width: 220px;
-    height: auto;
-    margin-bottom: 10px;
+    width: 300px;
+    max-width: 300px;
+    max-height: 140px;
+    object-fit: contain;
+    transition: transform .25s ease;
+    flex-shrink: 0;
 }
 
-.sponsor-item h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
+.sponsor-item:hover img {
+    transform: scale(1.04);
+}
+
+.sponsor-text h3 {
+    font-size: 1.45rem;
+    margin-bottom: 8px;
     color: #000;
-    margin-bottom: 5px;
 }
 
-.sponsor-item p {
-    font-size: 1rem;
-    color: #333;
-    max-width: 420px;
+.sponsor-text p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #444;
+    max-width: 600px;
+}
+
+/* Elaya logo */
+
+.sponsor-light img {
+    background: #f2f2f2;
+    padding: 18px;
+    border-radius: 12px;
+}
+
+/* CTA */
+
+.sponsor-cta {
+    margin: 90px auto 0;
+    max-width: 700px;
+    text-align: center;
+}
+
+.sponsor-cta h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.sponsor-cta p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 30px;
 }
 
 /* Mobile */
-@media (max-width: 768px) {
-    .sponsors-grid {
-        margin-left: 5%;
-        gap: 25px;
+
+@media (max-width:768px){
+
+    .sponsors-grid{
+        margin-left:5%;
+        margin-right:5%;
+        gap:45px;
     }
 
-    .sponsor-item img {
-        max-width: 180px;
+    .sponsor-item{
+        flex-direction:column;
+        text-align:center;
+        gap:20px;
     }
+
+    .sponsor-item img{
+        width:240px;
+        max-width:240px;
+    }
+
+    .sponsor-text p{
+        max-width:100%;
+    }
+
 }
