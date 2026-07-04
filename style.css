@@ -1341,8 +1341,7 @@ html {
 
 .sponsor-row.main-sponsor {
   background: #fff8d1; 
-  padding: 35px 6%;
-  border-left: 6px solid #EB0028; 
+  padding: 35px 6%; 
   margin: 40px 0;
   border-radius: 6px;
   min-height: 180px; 
