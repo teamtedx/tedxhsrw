@@ -1295,20 +1295,34 @@ html {
 
 /* Sponsor */
 
+/* Section Title */
+.sponsors-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #EB0028;
+  margin-left: 6%;
+  margin-bottom: 25px;
+}
+
+/* Base Row Layout */
 .sponsor-row {
   display: grid;
-  grid-template-columns: 180px 1fr; /* logo column + description column */
+  grid-template-columns: 180px 1fr; 
   align-items: center;
   gap: 25px;
   margin: 30px 0;
-  padding-left: 6%; /* left alignment without hugging the border */
+  padding-left: 6%; 
+  min-height: 160px; 
 }
 
+/* Logo Styling */
 .sponsor-logo {
   width: 160px;
-  height: auto;
+  height: 120px; 
+  object-fit: contain; 
 }
 
+/* Text Styling */
 .sponsor-info h3 {
   font-size: 1.3rem;
   margin: 0 0 6px 0;
@@ -1323,11 +1337,22 @@ html {
   line-height: 1.4;
 }
 
-/* Section title */
-.sponsors-title {
-  font-size: 2rem;
-  font-weight: 800;
-  color: #EB0028;
-  margin-left: 6%;
-  margin-bottom: 25px;
+/* Main Sponsor Highlight */
+
+.sponsor-row.main-sponsor {
+  background: #fff8d1; 
+  padding: 35px 6%;
+  border-left: 6px solid #EB0028; 
+  margin: 40px 0;
+  border-radius: 6px;
+  min-height: 180px; 
 }
+
+.sponsor-row.main-sponsor .sponsor-logo {
+  width: 180px; 
+  height: 130px;
+}
+
+.sponsor-row.main-sponsor h3 {
+  font-size: 1.45rem;
+  font-weight: 800;
