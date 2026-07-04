@@ -1356,3 +1356,11 @@ html {
 .sponsor-row.main-sponsor h3 {
   font-size: 1.45rem;
   font-weight: 800;
+
+/* Special Elaya Logo */
+	
+.elaya-logo {
+  background: #f2f2f2;
+  padding: 10px;
+  border-radius: 6px;
+}
