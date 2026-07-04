@@ -1293,3 +1293,41 @@ html {
     opacity: 0.85;
 }
 
+/* Sponsor */
+
+.sponsor-row {
+  display: grid;
+  grid-template-columns: 180px 1fr; /* logo column + description column */
+  align-items: center;
+  gap: 25px;
+  margin: 30px 0;
+  padding-left: 6%; /* left alignment without hugging the border */
+}
+
+.sponsor-logo {
+  width: 160px;
+  height: auto;
+}
+
+.sponsor-info h3 {
+  font-size: 1.3rem;
+  margin: 0 0 6px 0;
+  font-weight: 700;
+  color: #000;
+}
+
+.sponsor-info p {
+  font-size: 1rem;
+  margin: 0;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Section title */
+.sponsors-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #EB0028;
+  margin-left: 6%;
+  margin-bottom: 25px;
+}
