@@ -1346,8 +1346,6 @@ html {
   border-radius: 6px;
   min-height: 180px;
   text-align: center;
-  justify-items: center;
-  align-items: center;
 }
 
 .sponsor-row.main-sponsor .sponsor-logo {
