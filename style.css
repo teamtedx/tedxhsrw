@@ -694,6 +694,7 @@ footer a:hover {
 
 /* === SLIDER ONLY WHEN NEEDED (5+ MEMBERS) === */
 .team-block.expanded .team-members.slider-enabled {
+  justify-content: flex-start;
   overflow-x: auto;
   overflow-y: hidden;
   gap: 20px;
