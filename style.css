@@ -590,6 +590,7 @@ footer a:hover {
   text-align: center;
   cursor: pointer;
   position: relative;
+	min-width: 0
 }
 
 /* Main circle */
