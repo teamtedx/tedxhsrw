@@ -598,7 +598,7 @@ footer a:hover {
   height: 180px;
   border-radius: 50%;
   overflow: hidden;
-  border: 4px solid #E62B1E;
+  border: 4px solid transparent;
   margin: 0 auto 15px;
   transition: transform 0.25s ease,
               box-shadow 0.25s ease,
@@ -615,7 +615,7 @@ footer a:hover {
 .team-block:hover .team-image {
   transform: scale(1.06);
   box-shadow: 0 12px 28px rgba(0,0,0,0.15);
-  border-color: #1A1A1A;
+  border-color: #E62B1E;
 }
 
 /* Team name */
