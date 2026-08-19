@@ -590,7 +590,6 @@ footer a:hover {
   text-align: center;
   cursor: pointer;
   position: relative;
-	min-width: 0
 }
 
 /* Main circle */
@@ -685,10 +684,6 @@ footer a:hover {
 }
 
 /* Expanded state */
-
-.team-block.expanded {
-  grid-column: 1 / -1;
-}
 
 .team-block.expanded .team-main {
   display: none;
