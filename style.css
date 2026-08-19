@@ -684,6 +684,11 @@ footer a:hover {
 }
 
 /* Expanded state */
+
+.team-block.expanded {
+  grid-column: 1 / -1;
+}
+
 .team-block.expanded .team-main {
   display: none;
 }
