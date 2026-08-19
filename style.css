@@ -574,11 +574,13 @@ footer a:hover {
 
 /* === TEAM SECTION (2026) — SIMPLE INSTANT EXPANSION === */
 
-/* Grid layout */
+/* Team layout — flexbox so the expanded block can grow while
+   the others shrink to make room, all within the row's width */
 .team-preview {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 60px 0;
@@ -587,22 +589,27 @@ footer a:hover {
 
 /* Team block */
 .team-block {
+  flex: 1 1 0;
+  min-width: 70px;
   text-align: center;
   cursor: pointer;
   position: relative;
+  transition: flex-grow 0.3s ease, flex-basis 0.3s ease;
 }
 
 /* Main circle */
 .team-image {
-  width: 180px;
-  height: 180px;
+  width: 100%;
+  max-width: 180px;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid transparent;
   margin: 0 auto 15px;
   transition: transform 0.25s ease,
               box-shadow 0.25s ease,
-              border-color 0.25s ease;
+              border-color 0.25s ease,
+              width 0.3s ease;
 }
 
 .team-image img {
@@ -623,7 +630,7 @@ footer a:hover {
   font-size: 1.1rem;
   font-weight: 600;
   color: #1A1A1A;
-  max-width: 180px;
+  max-width: 100%;
   margin: 10px auto 0;
   transition: color 0.25s ease, transform 0.25s ease;
 }
@@ -684,6 +691,9 @@ footer a:hover {
 }
 
 /* Expanded state */
+.team-block.expanded {
+  flex: 0 1 800px;
+}
 
 .team-block.expanded .team-main {
   display: none;
