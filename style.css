@@ -1368,3 +1368,156 @@ html {
 .sponsor-row.main-sponsor h3 {
   font-size: 1.45rem;
   font-weight: 800;
+
+/* ═══════════════ DISCOVER YOUR BENEFITS (Sponsors page) ═══════════════ */
+.dyb {
+  padding: 60px 20px 40px;
+  background-color: #fff;
+  text-align: center;
+}
+ 
+.dyb h2 {
+  color: #EB0028;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+ 
+.dyb-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 780px;
+  margin: 0 auto 40px;
+  text-align: left;
+}
+ 
+.dyb-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+}
+ 
+.dyb-icon {
+  font-size: 1.6rem;
+  color: #EB0028;
+  flex-shrink: 0;
+  width: 32px;
+  margin-top: 4px;
+  text-align: center;
+}
+ 
+.dyb-text h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 4px;
+}
+ 
+.dyb-text p {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.55;
+  margin: 0;
+}
+ 
+.dyb-cta {
+  display: inline-block;
+}
+ 
+@media (max-width: 600px) {
+  .dyb-item {
+    gap: 16px;
+  }
+  .dyb h2 {
+    font-size: 1.6rem;
+  }
+}
+ 
+/* ═══════════════ SPONSORSHIP TIERS (Sponsors page) ═══════════════ */
+.tiers {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+ 
+.tiers h2 {
+  color: #EB0028;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+ 
+.tiers-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 30px;
+  -webkit-overflow-scrolling: touch;
+}
+ 
+.tiers-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 760px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+ 
+.tiers-table th,
+.tiers-table td {
+  padding: 18px 16px;
+  border: 1px solid #eee;
+  vertical-align: top;
+  font-size: 0.92rem;
+  text-align: left;
+}
+ 
+.tiers-table thead th {
+  background: #000;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1rem;
+}
+ 
+.tiers-table tbody td:first-child {
+  font-weight: 700;
+  color: #EB0028;
+  background: #fafafa;
+  white-space: nowrap;
+}
+ 
+.tiers-table .tier-sub {
+  color: #666;
+  font-size: 0.85rem;
+}
+ 
+.tiers-table th.tier-diamond,
+.tiers-table td.tier-diamond {
+  background: #fff8d1;
+}
+ 
+.tiers-table thead th.tier-diamond {
+  background: #b3941f;
+  color: #fff;
+}
+ 
+.tiers-note {
+  max-width: 700px;
+  margin: 0 auto 25px;
+  color: #333;
+  font-size: 0.95rem;
+}
+ 
+@media (max-width: 600px) {
+  .tiers h2 {
+    font-size: 1.6rem;
+  }
+  .tiers-table th,
+  .tiers-table td {
+    font-size: 0.85rem;
+    padding: 14px 12px;
+  }
+}
