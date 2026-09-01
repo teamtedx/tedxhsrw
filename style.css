@@ -1372,7 +1372,7 @@ html {
 
 /* Benefits Section */
 .benefits {
-  background-color: #fff; /* white background */
+  background-color: #fff;
   padding: 80px 20px;
   text-align: center;
 }
@@ -1387,47 +1387,41 @@ html {
 .benefits-grid {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 50px; /* breathing room between benefits */
+  gap: 40px;
   max-width: 900px;
   margin: 0 auto;
 }
 
+/* Each benefit row */
 .benefit {
-  max-width: 700px;
+  display: flex;
+  align-items: center; /* vertically center icon + text */
+  gap: 20px;
+  text-align: left;
 }
 
 .benefit-icon {
   font-size: 2rem;
-  display: block;
-  margin-bottom: 10px;
   color: #EB0028;
+  flex-shrink: 0;
 }
 
-.benefit h3 {
+.benefit-text h3 {
   font-size: 1.4rem;
   color: #000;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
-.benefit p {
+.benefit-text p {
   font-size: 1rem;
   color: #333;
-  line-height: 1.7;
-}
-
-/* Separator Block */
-.separator-block {
-  background-color: #f0f0f0; /* light gray divider */
-  height: 120px; /* thickness of the block */
-  width: 100%;
+  line-height: 1.6;
 }
 
 /* Sponsors Section */
 .sponsors {
   padding: 60px 20px;
   background-color: #f9f9f9;
-  text-align: left;
 }
 
 .sponsors-title {
@@ -1444,7 +1438,7 @@ html {
   grid-template-columns: 180px 1fr;
   align-items: center;
   gap: 25px;
-  margin: 90px 0; /* increased spacing between rows */
+  margin: 80px 0; /* larger spacing between rows */
   padding-left: 6%;
   min-height: 160px;
 }
@@ -1467,3 +1461,4 @@ html {
   margin: 0;
   color: #333;
   line-height: 1.4;
+}
