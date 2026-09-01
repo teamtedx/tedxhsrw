@@ -1369,3 +1369,46 @@ html {
   font-size: 1.45rem;
   font-weight: 800;
 
+/* Discover Your Benefits Section */
+.benefits {
+  background-color: #eaeaea; /* slightly darker than sponsors section */
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.benefits h2 {
+  color: #EB0028;
+  font-size: 2.2rem;
+  margin-bottom: 50px;
+  font-weight: 800;
+}
+
+.benefits-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px; /* breathing room between benefits */
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.benefit {
+  max-width: 700px;
+}
+
+.benefit h3 {
+  font-size: 1.4rem;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.benefit p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.7;
+}
+
+/* Buffer space before sponsors section */
+.sponsors {
+  margin-top: 100px; /* creates natural separation */
+}
