@@ -1467,19 +1467,3 @@ html {
   line-height: 1.4;
 }
 
-.sponsors {
-    background-color: lightgray;
-    text-align: center;
-    padding: 25px;
-}
-
-.sponsors h2 {
-    color: red;
-    margin-bottom: 10px;
-}
-
-.sponsors p {
-    color: black;
-    font-size: 14px;
-    margin: 0;
-}
