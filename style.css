@@ -1419,7 +1419,7 @@ html {
 /* Separator Block */
 .separator-block {
   background-color: #f0f0f0; /* light gray divider */
-  height: 80px; /* thickness of the block */
+  height: 120px; /* thickness of the block */
   width: 100%;
 }
 
@@ -1444,7 +1444,7 @@ html {
   grid-template-columns: 180px 1fr;
   align-items: center;
   gap: 25px;
-  margin: 60px 0; /* increased spacing between rows */
+  margin: 90px 0; /* increased spacing between rows */
   padding-left: 6%;
   min-height: 160px;
 }
