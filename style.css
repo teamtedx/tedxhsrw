@@ -1370,9 +1370,9 @@ html {
   font-weight: 800;
 }
 
-/* Discover Your Benefits Section */
+/* Benefits Section */
 .benefits {
-  background-color: #eaeaea; /* slightly darker than sponsors section */
+  background-color: #fff; /* white background */
   padding: 80px 20px;
   text-align: center;
 }
@@ -1397,6 +1397,13 @@ html {
   max-width: 700px;
 }
 
+.benefit-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 10px;
+  color: #EB0028;
+}
+
 .benefit h3 {
   font-size: 1.4rem;
   color: #000;
@@ -1409,7 +1416,54 @@ html {
   line-height: 1.7;
 }
 
-/* Buffer space before sponsors section */
-.sponsors {
-  margin-top: 100px; /* creates natural separation */
+/* Separator Block */
+.separator-block {
+  background-color: #f0f0f0; /* light gray divider */
+  height: 80px; /* thickness of the block */
+  width: 100%;
 }
+
+/* Sponsors Section */
+.sponsors {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: left;
+}
+
+.sponsors-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #EB0028;
+  margin-left: 6%;
+  margin-bottom: 40px;
+}
+
+/* Sponsor Row Layout */
+.sponsor-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  align-items: center;
+  gap: 25px;
+  margin: 60px 0; /* increased spacing between rows */
+  padding-left: 6%;
+  min-height: 160px;
+}
+
+.sponsor-logo {
+  width: 160px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.sponsor-info h3 {
+  font-size: 1.3rem;
+  margin: 0 0 6px 0;
+  font-weight: 700;
+  color: #000;
+}
+
+.sponsor-info p {
+  font-size: 1rem;
+  margin: 0;
+  color: #333;
+  line-height: 1.4;
