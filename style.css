@@ -1387,7 +1387,7 @@ html {
 .benefits-grid {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 120px;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -1409,12 +1409,14 @@ html {
 .benefit-text h3 {
   font-size: 1.4rem;
   color: #000;
+  text-align: center;
   margin-bottom: 8px;
 }
 
 .benefit-text p {
   font-size: 1rem;
   color: #333;
+  text-align: center;
   line-height: 1.6;
 }
 
@@ -1438,7 +1440,7 @@ html {
   grid-template-columns: 180px 1fr;
   align-items: center;
   gap: 25px;
-  margin: 80px 0; /* larger spacing between rows */
+  margin: 160px 0; /* larger spacing between rows */
   padding-left: 6%;
   min-height: 160px;
 }
