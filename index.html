@@ -1007,15 +1007,21 @@ In his TEDx talk, he explores the idea of “Laziness-ology”: how the desire t
         buttons = photosBtn + ytBtn;
       } else {
         const ticketBtn = ev.ticketUrl
-          ? `<a href="${ev.ticketUrl}" class="btn btn-primary" target="_blank" rel="noopener">Get Tickets</a>` : '';
+          ? `<a href="${ev.ticketUrl}" class="btn btn-primary"
+			   style="background-color:transparent;border:2px solid #EB0028;color:#EB0028;"
+			   target="_blank" rel="noopener">Get Tickets</a>` : '';
         const speakerBtn = ev.speakerUrl
-          ? `<a href="${ev.speakerUrl}" class="btn btn-primary" target="_blank" rel="noopener">Apply to be a Speaker!</a>` : '';
+          ? `<a href="${ev.speakerUrl}" class="btn btn-primary"
+		       style="background-color:transparent;border:2px solid #EB0028;color:#EB0028;"
+			   target="_blank" rel="noopener">Apply to be a Speaker!</a>` : '';
 	const teamBtn = ev.teamUrl
           ? `<a href="${ev.teamUrl}" class="btn btn-primary"
                style="background-color:transparent;border:2px solid #EB0028;color:#EB0028;"
                target="_blank" rel="noopener">Join the team!</a>` : '';
 		  const sponsorBtn = ev.sponsorUrl
-		  ? `<a href="${ev.sponsorUrl}" class="btn btn-bordered" target="_blank" rel="noopener">Become a Sponsor</a>` : '';
+		  ? `<a href="${ev.sponsorUrl}" class="btn btn-primary"
+		       style="background-color:transparent;border:2px solid #EB0028;color:#EB0028;"
+			   target="_blank" rel="noopener">Become a Sponsor</a>` : '';
         buttons = ticketBtn + speakerBtn + teamBtn + sponsorBtn;
       }
       const programBlock = (!isPast && ev.program)
