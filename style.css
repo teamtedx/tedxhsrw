@@ -546,20 +546,20 @@ footer a:hover {
 
 /* 5-image layout: fanned like a hand of cards, outer cards on a second level */
 .collage.collage-fan img {
-  width: 42%;
+  width: 64%;
   height: auto;
-  left: 29%;
+  left: 18%;
   top: auto;
   bottom: 18%;
   transform-origin: 50% 100%;
   transform: translateX(var(--x)) rotate(var(--r));
 }
 
-.collage.collage-fan img:nth-child(1) { --x: -40%; --r: -14deg; z-index: 1; bottom: 38%; }
-.collage.collage-fan img:nth-child(2) { --x: -20%; --r: -7deg;  z-index: 2; }
+.collage.collage-fan img:nth-child(1) { --x: -55%; --r: -14deg; z-index: 1; bottom: 38%; }
+.collage.collage-fan img:nth-child(2) { --x: -35%; --r: -7deg;  z-index: 2; }
 .collage.collage-fan img:nth-child(3) { --x: 0%;   --r: 0deg;   z-index: 3; }
-.collage.collage-fan img:nth-child(4) { --x: 20%;  --r: 7deg;   z-index: 2; }
-.collage.collage-fan img:nth-child(5) { --x: 40%;  --r: 14deg;  z-index: 1; bottom: 38%; }
+.collage.collage-fan img:nth-child(4) { --x: 35%;  --r: 7deg;   z-index: 2; }
+.collage.collage-fan img:nth-child(5) { --x: 55%;  --r: 14deg;  z-index: 1; bottom: 38%; }
 
 /* keep this LAST so the hovered image always wins */
 .collage.collage-fan img:hover {
