@@ -567,6 +567,40 @@ footer a:hover {
   z-index: 10;
 }
 
+/* wrapper so the credit sits under the collage */
+.event-visual {
+  width: 80%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.event-visual .collage {
+  width: 100%;
+  margin: 0;
+}
+
+/* designer credit */
+.design-credit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 1.5rem;
+}
+
+.design-credit img {
+  height: 60px;
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.design-credit a {
+  color: #EB0028;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 @media (max-width: 768px) {
     .event-details {
         flex-direction: column;
