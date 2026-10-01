@@ -542,6 +542,7 @@ footer a:hover {
 .collage img:nth-child(2) { top: 2%; left: 45%; transform: rotate(4deg); z-index: 2; }
 .collage img:nth-child(3) { top: 5%; left: 15%; transform: rotate(-5deg); z-index: 3; }
 .collage img:nth-child(4) { top: 20%; left: 30%; transform: rotate(6deg); z-index: 4; }
+}
 
 /* 5-image layout: centre image on top, 2 tucked behind on each side */
 .collage.collage-fan img {
@@ -559,9 +560,7 @@ footer a:hover {
 .collage.collage-fan img:nth-child(2) { width: 42%; left: 3%;  top: 46%;   --r: 4deg;  z-index: 1; }
 .collage.collage-fan img:nth-child(3) { width: 56%; left: 22%; top: 28.5%; --r: 0deg;  z-index: 5; }
 .collage.collage-fan img:nth-child(4) { width: 42%; left: 58%; top: 12%;   --r: 6deg;  z-index: 2; }
-.collage.collage-fan img:nth-child(5) { width: 42%; left: 55%; top: 46%;   --r: -4deg; z-index: 1; }	
-}
-
+.collage.collage-fan img:nth-child(5) { width: 42%; left: 55%; top: 46%;   --r: -4deg; z-index: 1; }
 
 @media (max-width: 768px) {
     .event-details {
