@@ -550,16 +550,16 @@ footer a:hover {
   height: auto;
   left: 25%;
   top: auto;
-  bottom: 10%;
+  bottom: 16%;
   transform-origin: 50% 100%;
   transform: translateX(var(--x)) rotate(var(--r));
 }
 
-.collage.collage-fan img:nth-child(1) { --x: -40%; --r: -10deg; z-index: 1; bottom: 45%; width: 62%; left: 19%; }
+.collage.collage-fan img:nth-child(1) { --x: -36%; --r: -10deg; z-index: 1; bottom: 55%; width: 62%; left: 19%; }
 .collage.collage-fan img:nth-child(2) { --x: -22%; --r: -7deg;  z-index: 2; width: 62%; left: 19%; }
 .collage.collage-fan img:nth-child(3) { --x: 0%;   --r: 0deg;   z-index: 3; }
 .collage.collage-fan img:nth-child(4) { --x: 22%;  --r: 7deg;   z-index: 2; width: 62%; left: 19%; }
-.collage.collage-fan img:nth-child(5) { --x: 40%;  --r: 10deg;  z-index: 1; bottom: 45%; width: 62%; left: 19%; }
+.collage.collage-fan img:nth-child(5) { --x: 36%;  --r: 10deg;  z-index: 1; bottom: 55%; width: 62%; left: 19%; }
 
 /* keep this LAST so the hovered image always wins */
 .collage.collage-fan img:hover {
