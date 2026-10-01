@@ -1248,7 +1248,7 @@ html {
 .event-2026-wrapper {
   width: 93%;
   margin-left: 7%;
-  max-width: none;
+  max-width: 1100;
   display: flex;
   align-items: center;
   gap: 40px;
