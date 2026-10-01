@@ -937,7 +937,14 @@ In his TEDx talk, he explores the idea of “Laziness-ology”: how the desire t
       speakerUrl:  '',
 	  sponsorUrl:  'https://forms.gle/NHaFyPziS1a9Cyev6',	
       program:     'Stay tuned - more information coming soon!',
-      images:      [],
+      layout:      'fan',
+      images: [
+        { src: 'img/2026/event thumbnail/IMG_4830.jpg.jpeg', alt: 'Photo 1' },   // left, top
+        { src: 'img/2026/event thumbnail/IMG_4851.jpg.jpeg', alt: 'Photo 2' },   // left, bottom
+        { src: 'img/2026/event thumbnail/TEDxHSRW 2026 Logo - WhatsApp Image 2026-09-22 at 10.19.03 PM.jpeg', alt: 'Photo 3' },   // CENTRE (biggest, on top)
+        { src: 'img/2026/event thumbnail/IMG_4837.jpg.jpeg', alt: 'Photo 4' },   // right, top
+        { src: 'img/2026/event thumbnail/IMG_4845.jpg.jpeg', alt: 'Photo 5' },   // right, bottom
+      ],
     },
 
     // ── PAST: 2025 ──────────────────────────────────────────
@@ -1027,7 +1034,7 @@ In his TEDx talk, he explores the idea of “Laziness-ology”: how the desire t
       const programBlock = (!isPast && ev.program)
         ? `<h3 style="margin-top:1.5rem;">Event Program</h3><p>${ev.program}</p>` : '';
       const collage = ev.images && ev.images.length
-        ? `<div class="collage">${ev.images.map(img =>
+        ? `<div class="collage${ev.layout === 'fan' ? ' collage-fan' : ''}">${ev.images.map(img =>
             `<img src="${img.src}" alt="${img.alt}"${img.large ? ' class="large"' : ''}>`
           ).join('')}</div>` : '';
       const divider = i > 0 ? `<hr style="border:none;border-top:2px solid #EB0028;margin:3rem 0;">` : '';
