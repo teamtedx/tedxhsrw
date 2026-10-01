@@ -544,7 +544,7 @@ footer a:hover {
 .collage img:nth-child(4) { top: 20%; left: 30%; transform: rotate(6deg); z-index: 4; }
 }
 
-/* 5-image layout: fanned like a hand of cards */
+/* 5-image layout: fanned like a hand of cards, outer cards on a second level */
 .collage.collage-fan img {
   width: 42%;
   height: auto;
@@ -555,16 +555,17 @@ footer a:hover {
   transform: translateX(var(--x)) rotate(var(--r));
 }
 
+.collage.collage-fan img:nth-child(1) { --x: -40%; --r: -14deg; z-index: 1; bottom: 38%; }
+.collage.collage-fan img:nth-child(2) { --x: -20%; --r: -7deg;  z-index: 2; }
+.collage.collage-fan img:nth-child(3) { --x: 0%;   --r: 0deg;   z-index: 3; }
+.collage.collage-fan img:nth-child(4) { --x: 20%;  --r: 7deg;   z-index: 2; }
+.collage.collage-fan img:nth-child(5) { --x: 40%;  --r: 14deg;  z-index: 1; bottom: 38%; }
+
+/* keep this LAST so the hovered image always wins */
 .collage.collage-fan img:hover {
   transform: translateX(var(--x)) rotate(var(--r)) scale(1.05);
   z-index: 10;
 }
-
-.collage.collage-fan img:nth-child(1) { --x: -40%; --r: -14deg; z-index: 1; }
-.collage.collage-fan img:nth-child(2) { --x: -20%; --r: -7deg;  z-index: 2; }
-.collage.collage-fan img:nth-child(3) { --x: 0%;   --r: 0deg;   z-index: 3; }
-.collage.collage-fan img:nth-child(4) { --x: 20%;  --r: 7deg;   z-index: 2; }
-.collage.collage-fan img:nth-child(5) { --x: 40%;  --r: 14deg;  z-index: 1; }
 
 @media (max-width: 768px) {
     .event-details {
