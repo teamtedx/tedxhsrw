@@ -945,6 +945,13 @@ In his TEDx talk, he explores the idea of “Laziness-ology”: how the desire t
         { src: 'img/2026/event thumbnail/IMG_4837.jpg.jpeg', alt: 'Photo 4' },   // right, top
         { src: 'img/2026/event thumbnail/IMG_4845.jpg.jpeg', alt: 'Photo 5' },   // right, bottom
       ],
+
+		      credit: {
+        logo: 'img/2026/event thumbnail/mimi-visuals.jpg',
+        text: 'Design by mimi_.visuals',
+        url:  'https://www.instagram.com/mimi_.visuals?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==',
+      },
+		
     },
 
     // ── PAST: 2025 ──────────────────────────────────────────
@@ -1037,6 +1044,11 @@ In his TEDx talk, he explores the idea of “Laziness-ology”: how the desire t
         ? `<div class="collage${ev.layout === 'fan' ? ' collage-fan' : ''}">${ev.images.map(img =>
             `<img src="${img.src}" alt="${img.alt}"${img.large ? ' class="large"' : ''}>`
           ).join('')}</div>` : '';
+		      const credit = ev.credit
+        ? `<div class="design-credit">
+             <img src="${ev.credit.logo}" alt="mimi_.visuals logo">
+             <a href="${ev.credit.url}" target="_blank" rel="noopener">${ev.credit.text}</a>
+           </div>` : '';
       const divider = i > 0 ? `<hr style="border:none;border-top:2px solid #EB0028;margin:3rem 0;">` : '';
       return `
         ${divider}
@@ -1050,7 +1062,7 @@ In his TEDx talk, he explores the idea of “Laziness-ology”: how the desire t
             <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:1rem;">${buttons}</div>
             ${programBlock}
           </div>
-          ${collage}
+            ${ev.credit ? `<div class="event-visual">${collage}${credit}</div>` : collage}
         </div>`;
     }).join('');
   }
