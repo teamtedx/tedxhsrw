@@ -928,20 +928,25 @@ In his TEDx talk, he explores the idea of “Laziness-ology”: how the desire t
       teamUrl:	   '',
       speakerUrl:  '',
 	  sponsorUrl:  'https://forms.gle/NHaFyPziS1a9Cyev6',	
-      program:     '<strong>Welcoming our guests</strong><br>2:00 PM - 3:00 PM<br><br>' +
-		  		   '<strong>1st Session</strong><br>3:00 PM - 4:00 PM<br><br><br>' +
-		  		   '<strong>Dr. Abdelrahman Rayan</strong><br>Neuroscientist<br><br>' +
-		  		   '<strong>Dr. Pradeep Ghosh</strong><br>Physicist<br><br>' +
-		  		   '<strong>Ranika Koneru</strong><br>Clinic Owner<br><br>' +
-		  		   '<strong>1st Break</strong><br>4:00 PM - 5:15 PM<br><br>' +
-		  		   '<strong>2nd Session</strong><br>5:20 PM - 6:10 PM<br><br><br>' +
-		  		   '<strong>Winston Nau</strong><br>Student and developer<br><br>' +
-		  		   '<strong>Dr. Valerie Woo</strong><br>Pediatric dentist<br><br>' +
-		  		   '<strong>Aleksandra Kireeva</strong><br>Senior commercial operator<br><br>' +
-		  		   '<strong>2nd Break</strong><br>6:10 PM - 7:20 PM<br><br>' +
-		  		   '<strong>Last Session</strong><br>7:25 PM - 8:00 PM<br><br><br>' +
-		  		   '<strong>Dr. Antje Bothin</strong><br>Assertive communication coach<br><br>' +
-		  		   '<strong>Dr. Eljura Salihu</strong><br>Health services researcher<br><br>',
+      program: [
+  					{ title: 'Welcoming our guests', time: '2:00 PM - 3:00 PM' },
+  					{ title: '1st Session', time: '3:00 PM - 4:00 PM', speakers: [
+      					{ name: 'Dr. Abdelrahman Rayan', role: 'Neuroscientist' },
+      					{ name: 'Dr. Pradeep Ghosh',     role: 'Physicist' },
+      					{ name: 'Ranika Koneru',         role: 'Clinic Owner' },
+  				]},
+  					{ title: '1st Break', time: '4:00 PM - 5:15 PM' },
+  					{ title: '2nd Session', time: '5:20 PM - 6:10 PM', speakers: [
+      				{ name: 'Winston Nau',           role: 'Student and developer' },
+      				{ name: 'Dr. Valerie Woo',       role: 'Pediatric dentist' },
+      				{ name: 'Aleksandra Kireeva',    role: 'Senior commercial operator' },
+  				]},
+  					{ title: '2nd Break', time: '6:10 PM - 7:20 PM' },
+  					{ title: 'Last Session', time: '7:25 PM - 8:00 PM', speakers: [
+      					{ name: 'Dr. Antje Bothin',      role: 'Assertive communication coach' },
+      					{ name: 'Dr. Eljura Salihu',     role: 'Health services researcher' },
+  				]},
+			   ],
       layout:      'fan',
       images: [
         { src: 'img/2026/event thumbnail/IMG_4830.jpg.jpeg', alt: 'Photo 1' },   // left, top
@@ -1043,8 +1048,23 @@ In his TEDx talk, he explores the idea of “Laziness-ology”: how the desire t
 			   target="_blank" rel="noopener">Become a Sponsor</a>` : '';
         buttons = ticketBtn + speakerBtn + teamBtn + sponsorBtn;
       }
-      const programBlock = (!isPast && ev.program)
-        ? `<h3 style="margin-top:1.5rem;">Event Program</h3><p>${ev.program}</p>` : '';
+      const renderItem = s => `
+  <div class="program-item${s.speakers ? '' : ' simple'}">
+    <div class="program-title">${s.title}</div>
+    <div class="program-time">${s.time}</div>
+    ${s.speakers ? `<div class="program-speakers">${s.speakers.map(p =>
+      `<div class="program-speaker"><strong>${p.name}</strong><span>${p.role}</span></div>`
+    ).join('')}</div>` : ''}
+  </div>`;
+const half = ev.program ? Math.ceil(ev.program.length / 2) : 0;
+const programBlock = (!isPast && ev.program && ev.program.length)
+  ? `<div class="program">
+       <h3>Event Program</h3>
+       <div class="program-cols">
+         <div class="program-col">${ev.program.slice(0, half).map(renderItem).join('')}</div>
+         <div class="program-col">${ev.program.slice(half).map(renderItem).join('')}</div>
+       </div>
+     </div>` : '';
       const collage = ev.images && ev.images.length
         ? `<div class="collage${ev.layout === 'fan' ? ' collage-fan' : ''}">${ev.images.map(img =>
             `<img src="${img.src}" alt="${img.alt}"${img.large ? ' class="large"' : ''}>`
@@ -1065,10 +1085,10 @@ In his TEDx talk, he explores the idea of “Laziness-ology”: how the desire t
             ${ev.location ? `<p><strong>Location:</strong> ${ev.location}</p>` : ''}
             ${paragraphs}
             <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:1rem;">${buttons}</div>
-            ${programBlock}
           </div>
             ${ev.credit ? `<div class="event-visual">${collage}${credit}</div>` : collage}
-        </div>`;
+        </div>
+		${programBlock}`;
     }).join('');
   }
 
