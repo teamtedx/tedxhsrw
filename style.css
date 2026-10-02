@@ -1574,3 +1574,11 @@ html {
     width: 100%;
     text-align: center;
 }
+
+.get-involved-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 25px 0;
+}
