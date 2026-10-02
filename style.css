@@ -1586,6 +1586,7 @@ html {
 /* Event program */
 .program {
   margin-top: 2.5rem;
+  max-width: 600px;
   text-align: left;
 }
 
@@ -1602,7 +1603,7 @@ html {
 }
 
 .program-col {
-  flex: 1 1 320px;
+  flex: 1 1 250px;
   display: flex;
   flex-direction: column;
   gap: 14px;
