@@ -1085,10 +1085,10 @@ const programBlock = (!isPast && ev.program && ev.program.length)
             ${ev.location ? `<p><strong>Location:</strong> ${ev.location}</p>` : ''}
             ${paragraphs}
             <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:1rem;">${buttons}</div>
+			${programBlock}
           </div>
             ${ev.credit ? `<div class="event-visual">${collage}${credit}</div>` : collage}
-        </div>
-		${programBlock}`;
+        </div>`;
     }).join('');
   }
 
