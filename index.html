@@ -947,7 +947,7 @@ In his TEDx talk, he explores the idea of “Laziness-ology”: how the desire t
       					{ name: 'Dr. Eljura Salihu',     role: 'Health services researcher' },
   				]},
 			   ],
-      layout:      'fan',
+      layout:      'fan', xBackground: true,
       images: [
         { src: 'img/2026/event thumbnail/IMG_4830.jpg.jpeg', alt: 'Photo 1' },   // left, top
         { src: 'img/2026/event thumbnail/IMG_4851.jpg.jpeg', alt: 'Photo 2' },   // left, bottom
@@ -1077,7 +1077,7 @@ const programBlock = (!isPast && ev.program && ev.program.length)
       const divider = i > 0 ? `<hr style="border:none;border-top:2px solid #EB0028;margin:3rem 0;">` : '';
       return `
         ${divider}
-        <div class="event-details">
+        <div class="event-details${ev.xBackground ? ' has-x' : ''}">
           <div class="event-info">
             ${statusBadge}
             <h3>${ev.title}</h3>
