@@ -1649,3 +1649,31 @@ html {
   font-size: 0.9rem;
   color: #555;
 }
+
+/* Half X behind the 2026 event images */
+.next-event {
+  overflow-x: clip;   /* stops the X causing sideways scrolling */
+}
+
+.event-details.has-x {
+  position: relative;
+  isolation: isolate;  /* keeps the X behind the content, but above the page background */
+}
+
+.event-details.has-x::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: calc(-3vw - 20px);   /* pushes it to the screen edge */
+  height: 100%;
+  aspect-ratio: 1 / 2;        /* box is half as wide as it is tall = half an X */
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 0h22l78 100H78zM78 0h22L22 100H0z' fill='%23EB0028'/%3E%3C/svg%3E")
+              no-repeat left center / 200% 100%;
+  opacity: 0.12;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .event-details.has-x::after { display: none; }
+}
