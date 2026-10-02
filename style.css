@@ -1259,12 +1259,17 @@ html {
   min-width: 0;
 }
 
-.event-2026-poster {
+.event-2026-visual {
   width: 300px;
   max-width: 35%;
-  height: auto;
   flex-shrink: 0;
   margin: 0 auto;
+}
+
+.event-2026-poster {
+  display: block;
+  width: 100%;
+  height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.25s ease, box-shadow 0.25s ease;	
@@ -1280,7 +1285,7 @@ html {
     flex-direction: column;
     align-items: flex-start;
   }
-  .event-2026-poster {
+  .event-2026-visual {
     width: 70%;
     max-width: 320px;
     align-self: center;
