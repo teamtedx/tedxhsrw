@@ -1667,5 +1667,5 @@ a.program-speaker:hover strong { color: #EB0028; }
 
 /* flash on the speaker card you land on */
 .speaker-highlight {
-  box-shadow: 0 0 0 3px #EB0028, 0 6px 18px rgba(235, 0, 40, 0.35);
+  box-shadow: 0 0 0 3px #000080, 0 6px 18px rgba(235, 0, 40, 0.35);
 }
