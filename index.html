@@ -468,7 +468,6 @@ In his TEDx talk, he explores the idea of “Laziness-ology”: how the desire t
   <!-- Administration & Logistics -->
   <div class="team-row">
     <div class="team-label">
-      <img class="team-icon" src="img/2026/Admin.png" alt="">
       <div>
         <h4 class="team-name">Administration &amp; Logistics</h4>
         <p class="team-count">7 members</p>
@@ -488,7 +487,6 @@ In his TEDx talk, he explores the idea of “Laziness-ology”: how the desire t
   <!-- Speaker Curation & Coaching -->
   <div class="team-row">
     <div class="team-label">
-      <img class="team-icon" src="img/2026/Speaker.png" alt="">
       <div>
         <h4 class="team-name">Speaker Curation &amp; Coaching</h4>
         <p class="team-count">6 members</p>
@@ -507,7 +505,6 @@ In his TEDx talk, he explores the idea of “Laziness-ology”: how the desire t
   <!-- Social Media -->
   <div class="team-row">
     <div class="team-label">
-      <img class="team-icon" src="img/2026/Social.png" alt="">
       <div>
         <h4 class="team-name">Social Media</h4>
         <p class="team-count">6 members</p>
@@ -526,7 +523,6 @@ In his TEDx talk, he explores the idea of “Laziness-ology”: how the desire t
   <!-- Web Editing -->
   <div class="team-row">
     <div class="team-label">
-      <img class="team-icon" src="img/2026/Coding.png" alt="">
       <div>
         <h4 class="team-name">Web Editing</h4>
         <p class="team-count">2 members</p>
@@ -1127,93 +1123,7 @@ const programBlock = (!isPast && ev.program && ev.program.length)
     renderEvents();
   
   });
-	function toggleTeam(block) {
-  // collapse all others
-  document.querySelectorAll(".team-block.expanded").forEach(b => {
-    if (b !== block) b.classList.remove("expanded");
-  });
-
-  // toggle this one
-  block.classList.toggle("expanded");
-}
-
-	document.querySelectorAll(".team-members .member").forEach(member => {
-  member.addEventListener("click", e => {
-    e.stopPropagation(); // prevents collapsing
-  });
-});
-
-	document.querySelectorAll(".team-members").forEach(container => {
-  const members = container.querySelectorAll(".member").length;
-
-  if (members > 4) {
-    container.classList.add("slider-enabled");
-  }
-});
-
-	// ── Team blocks: member count, close button, accessibility, slider fades ──
-document.querySelectorAll(".team-block").forEach(block => {
-  const count = block.querySelectorAll(".member").length;
-  const title = block.querySelector("h3");
-  const name  = title ? title.textContent.trim() : "team";
-
-  // "6 members ▾"
-  const label = document.createElement("p");
-  label.className = "team-count";
-  label.innerHTML = count + (count === 1 ? " member" : " members") +
-    ' <span class="chev" aria-hidden="true">&#9662;</span>';
-
-  // "× Close" button
-  const close = document.createElement("button");
-  close.type = "button";
-  close.className = "team-close";
-  close.setAttribute("aria-label", "Close " + name);
-  close.innerHTML = '<span aria-hidden="true">&times;</span> Close';
-  close.addEventListener("click", e => {
-    e.stopPropagation();
-    block.classList.remove("expanded");
-    if (title) title.focus(); // the button disappears, so hand focus back
-  });
-
-  if (title) {
-    title.after(label, close);
-
-    // keyboard + screen reader access: the label acts as the toggle
-    title.setAttribute("role", "button");
-    title.setAttribute("tabindex", "0");
-    title.setAttribute("aria-expanded", "false");
-    title.addEventListener("keydown", e => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        toggleTeam(block);
-      }
-    });
-
-    // keep aria-expanded in sync however the block gets toggled
-    new MutationObserver(() => {
-      title.setAttribute("aria-expanded", block.classList.contains("expanded"));
-    }).observe(block, { attributes: true, attributeFilter: ["class"] });
-  }
-
-  // Esc closes an open group
-  block.addEventListener("keydown", e => {
-    if (e.key === "Escape" && block.classList.contains("expanded")) {
-      block.classList.remove("expanded");
-      if (title) title.focus();
-    }
-  });
-});
-
-function updateFades(c) {
-  const max = c.scrollWidth - c.clientWidth;
-  c.classList.toggle("fade-left",  c.scrollLeft > 4);
-  c.classList.toggle("fade-right", c.scrollLeft < max - 4);
-}
-
-document.querySelectorAll(".team-members.slider-enabled").forEach(c => {
-  c.addEventListener("scroll", () => updateFades(c), { passive: true });
-  new ResizeObserver(() => updateFades(c)).observe(c);
-});
+	
 	
 </script>
 
