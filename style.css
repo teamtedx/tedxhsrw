@@ -1740,6 +1740,61 @@ a.program-speaker:hover {
 
 a.program-speaker:hover strong { color: #EB0028; }
 
+/* band dropdowns in the program */
+.program-band summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.program-band summary::-webkit-details-marker { display: none; }
+
+.program-band summary::after {
+  content: "▾";
+  color: #EB0028;
+  transition: transform 0.2s ease;
+}
+
+.program-band[open] summary::after { transform: rotate(180deg); }
+
+.program-band {
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.program-band:hover,
+.program-band[open] {
+  border-color: #EB0028;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.program-band:hover summary strong,
+.program-band[open] summary strong { color: #EB0028; }
+
+.program-band summary:focus-visible {
+  outline: 3px solid rgba(235, 0, 40, 0.4);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.band-members {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 8px 0 0;
+  border-top: 1px solid #eee;
+}
+
+.band-members li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 5px 0;
+}
+
+.band-members li strong { font-weight: 600; }
+
 /* flash on the speaker card you land on */
 .speaker-highlight {
   box-shadow: 0 0 0 4px #fff, 0 0 0 7px #111, 0 8px 24px rgba(0, 0, 0, 0.35);
