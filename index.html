@@ -118,9 +118,39 @@
             </div>
 
             <div class="program-item simple">
-              <div class="program-title">1st Break</div>
-              <div class="program-time">4:00 PM - 5:15 PM</div>
-            </div>
+  <div class="program-title">1st Break</div>
+  <div class="program-time">4:00 PM - 5:15 PM</div>
+
+  <div class="program-speakers">
+
+    <details class="program-speaker program-band" name="first-break-band">
+      <summary>
+        <div><strong>Crossroads</strong><span>Band</span></div>
+      </summary>
+      <ul class="band-members">
+        <li><strong>Member Name</strong><span>Role</span></li>
+        <li><strong>Member Name</strong><span>Role</span></li>
+        <li><strong>Member Name</strong><span>Role</span></li>
+      </ul>
+    </details>
+
+    <details class="program-speaker program-band" name="first-break-band">
+      <summary>
+        <div><strong>Da-Kick</strong><span>Band</span></div>
+      </summary>
+      <ul class="band-members">
+        <li><strong>Member Name</strong><span>Role</span></li>
+        <li><strong>Member Name</strong><span>Role</span></li>
+        <li><strong>Member Name</strong><span>Role</span></li>
+      </ul>
+    </details>
+
+    <div class="program-speaker">
+      <strong>Lili Nau</strong><span>Solo performer</span>
+    </div>
+
+  </div>
+</div>
           </div>
 
           <div class="program-col">
@@ -904,9 +934,21 @@ In his TEDx talk, he explores the idea of “Laziness-ology”: how the desire t
   					{ title: '1st Session', time: '3:00 PM - 4:00 PM', speakers: [
       					{ id: 'sp-pradeep', name: 'Dr. Pradeep Ghosh', role: 'Physicist' },
       					{ id: 'sp-ranika', name: 'Ranika Koneru',     role: 'Clinic Owner' },
-      					{ id: 'sp-rayan', name: 'Dr. Abdelrahman Rayan',         role: 'Neuroscientist' },
+      					{ id: 'sp-abdelrahman', name: 'Dr. Abdelrahman Rayan',         role: 'Neuroscientist' },
   				]},
-  					{ title: '1st Break', time: '4:00 PM - 5:15 PM' },
+  					{ title: '1st Break', time: '4:00 PM - 5:15 PM', performers: [
+    				{ name: 'Crossroads', role: 'Band', members: [
+        				{ name: 'Member Name', role: 'Role' },
+        				{ name: 'Member Name', role: 'Role' },
+        				{ name: 'Member Name', role: 'Role' },
+    					]},
+    				{ name: 'Da-Kick', role: 'Band', members: [
+        				{ name: 'Member Name', role: 'Role' },
+        				{ name: 'Member Name', role: 'Role' },
+        				{ name: 'Member Name', role: 'Role' },
+    					]},
+    				{ name: 'Lili Nau', role: 'Solo performer' },
+						]},
   					{ title: '2nd Session', time: '5:20 PM - 6:10 PM', speakers: [
       				{ id: 'sp-valerie', name: 'Dr. Valerie Woo',           role: 'Pediatric dentist' },
       				{ id: 'sp-aleks', name: 'Aleksandra Kireeva',       role: 'Senior commercial operator' },
@@ -1019,14 +1061,34 @@ In his TEDx talk, he explores the idea of “Laziness-ology”: how the desire t
 			   target="_blank" rel="noopener">Become a Sponsor</a>` : '';
         buttons = ticketBtn + speakerBtn + teamBtn + sponsorBtn;
       }
-      const renderItem = s => `
+      const renderItem = s => {
+  const group = 'band-' + s.title.toLowerCase().replace(/\W+/g, '-');
+
+  const speakers = s.speakers
+    ? `<div class="program-speakers">${s.speakers.map(p =>
+        `<a class="program-speaker" href="#speakers" onclick="goToSpeaker('${p.id}'); return false;"><strong>${p.name}</strong><span>${p.role}</span></a>`
+      ).join('')}</div>` : '';
+
+  const performers = s.performers
+    ? `<div class="program-speakers">${s.performers.map(p =>
+        (p.members && p.members.length)
+          ? `<details class="program-speaker program-band" name="${group}">
+               <summary><div><strong>${p.name}</strong><span>${p.role || 'Band'}</span></div></summary>
+               <ul class="band-members">${p.members.map(m =>
+                 `<li><strong>${m.name}</strong><span>${m.role}</span></li>`
+               ).join('')}</ul>
+             </details>`
+          : `<div class="program-speaker"><strong>${p.name}</strong><span>${p.role || ''}</span></div>`
+      ).join('')}</div>` : '';
+
+  return `
   <div class="program-item${s.speakers ? '' : ' simple'}">
     <div class="program-title">${s.title}</div>
     <div class="program-time">${s.time}</div>
-    ${s.speakers ? `<div class="program-speakers">${s.speakers.map(p =>
-      `<a class="program-speaker" href="#speakers" onclick="goToSpeaker('${p.id}'); return false;"><strong>${p.name}</strong><span>${p.role}</span></a>`
-    ).join('')}</div>` : ''}
+    ${speakers}
+    ${performers}
   </div>`;
+};
 const half = ev.program ? Math.ceil(ev.program.length / 2) : 0;
 const programBlock = (!isPast && ev.program && ev.program.length)
   ? `<div class="program">
