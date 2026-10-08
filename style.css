@@ -1692,7 +1692,7 @@ a.program-speaker:hover strong { color: #EB0028; }
 .sponsors.sp-head { padding-bottom: 0; }
 
 .sp-section {
-  background-color: #f9f9f9;
+  background-color: #fff;
   padding: 0 20px 80px;
 }
 
@@ -1764,8 +1764,8 @@ a.sp-card .sp-text::after {
 
 /* Become a Sponsor band */
 .sp-cta {
-  background: #EB0028;
-  color: #fff;
+  background: #f9f9f9;
+  color: #EB0028;
   text-align: center;
   padding: 56px 20px;
 }
@@ -1774,20 +1774,20 @@ a.sp-card .sp-text::after {
   margin: 0 0 10px;
   font-size: 1.8rem;
   font-weight: 800;
-  color: #fff;
+  color: #000;
 }
 
 .sp-cta p {
   max-width: 560px;
   margin: 0 auto 24px;
-  color: #fff;
+  color: #000;
 }
 
 .sp-cta-btn {
   display: inline-block;
   padding: 12px 28px;
-  background: #fff;
-  color: #EB0028;
+  background: #EB0028;
+  color: #fff;
   border-radius: 6px;
   font-weight: 700;
   text-decoration: none;
