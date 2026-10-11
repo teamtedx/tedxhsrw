@@ -1590,7 +1590,7 @@ a.program-speaker:hover strong { color: #EB0028; }
 }
 
 /* === SPONSORS PAGE: grid, links, CTA === */
-.sponsors.sp-head { padding-bottom: 4; }
+.sponsors.sp-head { padding-bottom: 4%; }
 
 .sp-section {
   background-color: #fff;
