@@ -637,9 +637,9 @@ footer a:hover {
 }
 
 .org-team .org-title {
-  margin: 0 0 10px;
-  font-size: 1.5rem;     
-  font-weight: bold;
+  margin: 0 0 6px;
+  font-size: 1.75rem;
+  font-weight: 800;
   color: #EB0028;
 }
 
@@ -758,94 +758,6 @@ footer a:hover {
   .person-card { animation: none; }
 }
 
-/* 2026 – Videography & Photography row */
-.crew-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;   /* 50 / 50 */
-  gap: 40px;
-  align-items: stretch;
-  padding-bottom: 40px;
-}
-
-.crew-col {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;                     /* lets grid children shrink instead of overflowing */
-}
-
-.crew-body { flex: 1; }
-
-/* centers the single videographer card against the taller photographer grid */
-.crew-body--center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* logo + name card, same look as person-card but stacked */
-.crew-logo-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  padding: 28px 36px;
-  background: #fff;
-  border: 1px solid #E4E4E4;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  text-align: center;
-}
-
-.crew-logo-card img {
-  display: block;
-  max-width: 180px;
-  max-height: 110px;
-  object-fit: contain;              /* logos shouldn't be cropped */
-}
-
-.crew-logo-card .person-name {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1A1A1A;
-}
-
-/* photographers: 2x2 inside the half-width column, smaller photo area */
-.crew-grid {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-
-.crew-grid .person-card img {
-  flex-basis: 90px;
-  width: 90px;
-  height: 110px;
-}
-
-.crew-grid .person-info { padding: 0 14px; }
-
-/* initials fallback for anyone without a photo (reusable later) */
-.person-initials {
-  flex: 0 0 90px;
-  width: 90px;
-  height: 110px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #F3F3F3;
-  color: #EB0028;
-  font-weight: 700;
-  font-size: 1.4rem;
-}
-
-/* tablet/mobile: stack, videography first */
-@media (max-width: 900px) {
-  .crew-row { grid-template-columns: 1fr; gap: 32px; }
-}
-
-@media (max-width: 560px) {
-  .crew-grid { grid-template-columns: 1fr; }
-}
 
 /* 2025 */
 .team {
