@@ -637,9 +637,9 @@ footer a:hover {
 }
 
 .org-team .org-title {
-  margin: 0 0 6px;
-  font-size: 1.75rem;
-  font-weight: 800;
+  margin: 0 0 10px;
+  font-size: 1.50rem;
+  font-weight: bold;
   color: #EB0028;
 }
 
