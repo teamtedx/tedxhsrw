@@ -1714,28 +1714,72 @@ a.sp-card .sp-text::after {
 }
 
 /* ── Videography & Photography (team page) ── */
+.media-heading {
+  text-align: center;
+  margin: 3rem 0 2rem;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #EB0028;
+}
+.media-heading h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #EB0028;
+  letter-spacing: 0.03em;
+}
+
 .media-team {
-  display: flex;
-  align-items: flex-start;
-  gap: 48px;
+  --media-img: 200px;            /* one size for ALL images */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* left half / right half */
+  align-items: center;
+  gap: 40px;
   padding: 0 0 40px;
   font-family: 'Poppins', sans-serif;
 }
-.media-videographer {
-  flex: 0 0 220px;
+
+.media-half {
   display: flex;
+  justify-content: center;
+}
+
+/* Left half: videographer */
+.media-videographer {
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 14px;
 }
-.media-logo-link img {
-  display: block;
-  width: 180px;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
+
+/* Right half: 2x2 photographers */
+.media-photographers {
+  display: grid;
+  grid-template-columns: repeat(2, var(--media-img));
+  justify-content: center;
+  gap: 28px;
 }
+
+/* Every image: identical square */
+.media-img-link img,
+.photographer img {
+  display: block;
+  width: var(--media-img);
+  height: var(--media-img);
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.media-img-link img {
+  object-fit: contain;          /* keeps the logo uncropped */
+  padding: 12px;
+  border: 1px solid #E4E4E4;
+}
+
+.photographer { text-align: center; }
+.photographer img { margin-bottom: 10px; }
+
 .media-name {
   margin: 0;
   font-size: 1rem;
@@ -1745,28 +1789,12 @@ a.sp-card .sp-text::after {
   text-decoration: none;
 }
 a.media-name:hover { color: #EB0028; }
-.media-photographers {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+
+/* Mobile: stack the two halves */
+@media (max-width: 800px) {
+  .media-team { grid-template-columns: 1fr; gap: 36px; }
 }
-.photographer { text-align: center; }
-.photographer img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  object-position: center 20%;
-  border-radius: 12px;
-  margin-bottom: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-@media (max-width: 900px) {
-  .media-photographers { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 700px) {
-  .media-team { flex-direction: column; align-items: center; gap: 32px; }
-  .media-videographer { flex: none; }
-  .media-photographers { width: 100%; }
+@media (max-width: 480px) {
+  .media-team { --media-img: 140px; }
+  .media-photographers { gap: 18px; }
 }
