@@ -1715,24 +1715,65 @@ a.sp-card .sp-text::after {
 
 /* ── Videography & Photography (team page) ── */
 .media-team {
-  --media-img: 170px;   /* size of each photographer image */
-  --media-gap: 24px;    /* gap between photographer images */
+  container-type: inline-size;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  align-items: stretch;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);  /* left half / right half */
+  align-items: stretch;                                   /* both panels same height */
   gap: 40px;
   padding: 10px 0 40px;
   font-family: 'Poppins', sans-serif;
+
+  --media-gap: 16px;
+  --media-img: 120px;                                     /* fallback */
+  --media-img: min(170px, calc((50cqw - 124px) / 4));     /* auto-sizes so 4 fit in the right half */
 }
 
-/* Right half: 2x2 photographers */
+/* Black panels */
+.media-panel {
+  background: #000;
+  border-radius: 16px;
+  padding: 20px 28px 28px;
+  box-sizing: border-box;
+  min-width: 0;
+}
+.media-team .media-panel-title {
+  margin: 0 0 20px;
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+/* Left: videographer (logo is the same height as the photographer images) */
+.media-videographer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.media-logo {
+  display: block;
+  width: 100%;
+  height: var(--media-img);
+  margin-bottom: 10px;
+}
+.media-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;      /* logo is never cropped */
+  border-radius: 12px;
+}
+
+/* Right: photographers in one row */
 .media-photographers {
   display: grid;
-  grid-template-columns: repeat(2, var(--media-img));
+  grid-template-columns: repeat(4, var(--media-img));
   gap: var(--media-gap);
-  justify-content: start;
-  justify-self: center;
+  justify-content: center;
 }
+.photographer { text-align: center; }
 .photographer img {
   display: block;
   width: var(--media-img);
@@ -1740,56 +1781,26 @@ a.sp-card .sp-text::after {
   object-fit: cover;
   object-position: center 20%;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   margin-bottom: 10px;
 }
 
-/* Left half: videographer, same width as the photographer block */
-.media-videographer {
-  width: calc(var(--media-img) * 2 + var(--media-gap));
-  max-width: 100%;
-  min-width: 0;
-  justify-self: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-.media-logo {
-  position: relative;
-  display: block;
-  flex: 1;
-  width: 100%;
-  min-height: calc(var(--media-img) * 2 + var(--media-gap));
-  box-sizing: border-box;
-  overflow: hidden;
-}
-.media-logo img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  object-fit: contain;     /* logo is never cropped */
-  border-radius: 12px;     /* matches the photographer images */
-}
-
-.media-name {
+/* Names */
+.media-team .media-name {
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   line-height: 1.3;
-  color: #1A1A1A;
+  color: #fff;
   text-decoration: none;
 }
-a.media-name:hover { color: #EB0028; }
+.media-team a.media-name:hover { color: #EB0028; }
 
-/* Mobile: stack the two halves */
+/* Mobile: stack the panels, photographers go 2x2 */
 @media (max-width: 800px) {
-  .media-team { grid-template-columns: 1fr; justify-items: center; gap: 36px; }
-  .media-photographers,
-  .media-videographer { justify-self: center; }
-}
-@media (max-width: 480px) {
-  .media-team { --media-img: 135px; --media-gap: 16px; }
+  .media-team {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    --media-img: min(170px, calc((100cqw - 56px - var(--media-gap)) / 2));
+  }
+  .media-photographers { grid-template-columns: repeat(2, var(--media-img)); }
 }
