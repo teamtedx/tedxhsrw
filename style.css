@@ -1714,53 +1714,26 @@ a.sp-card .sp-text::after {
 }
 
 /* ── Videography & Photography (team page) ── */
-.media-heading {
-  text-align: center;
-  margin: 3rem 0 2rem;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #EB0028;
-}
-.media-heading h3 {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: #EB0028;
-  letter-spacing: 0.03em;
-}
-
 .media-team {
-  --media-img: 200px;            /* one size for ALL images */
+  --media-img: 170px;   /* size of each photographer image */
+  --media-gap: 24px;    /* gap between photographer images */
   display: grid;
-  grid-template-columns: 1fr 1fr; /* left half / right half */
-  align-items: center;
+  grid-template-columns: 1fr 1fr;   /* left half / right half */
+  align-items: stretch;             /* both blocks end up the same height */
   gap: 40px;
-  padding: 0 0 40px;
+  padding: 10px 0 40px;
   font-family: 'Poppins', sans-serif;
 }
 
-.media-half {
-  display: flex;
-  justify-content: center;
-}
-
-/* Left half: videographer */
-.media-videographer {
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 14px;
-}
-
-/* Right half: 2x2 photographers */
+/* Right: the 2x2 photographer block */
 .media-photographers {
   display: grid;
   grid-template-columns: repeat(2, var(--media-img));
-  justify-content: center;
-  gap: 28px;
+  gap: var(--media-gap);
+  justify-content: start;
+  justify-self: start;
 }
 
-/* Every image: identical square */
-.media-img-link img,
 .photographer img {
   display: block;
   width: var(--media-img);
@@ -1768,17 +1741,38 @@ a.sp-card .sp-text::after {
   object-fit: cover;
   object-position: center 20%;
   border-radius: 12px;
-  background: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-.media-img-link img {
-  object-fit: contain;          /* keeps the logo uncropped */
-  padding: 12px;
-  border: 1px solid #E4E4E4;
+  margin-bottom: 10px;
 }
 
-.photographer { text-align: center; }
-.photographer img { margin-bottom: 10px; }
+/* Left: videographer, same total width and height as the photographer block */
+.media-videographer {
+  width: calc(var(--media-img) * 2 + var(--media-gap));
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.media-logo {
+  flex: 1;                  /* fills all the height above the name */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid #E4E4E4;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 16px;
+  box-sizing: border-box;
+}
+.media-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;      /* logo is never cropped */
+}
 
 .media-name {
   margin: 0;
@@ -1792,9 +1786,11 @@ a.media-name:hover { color: #EB0028; }
 
 /* Mobile: stack the two halves */
 @media (max-width: 800px) {
-  .media-team { grid-template-columns: 1fr; gap: 36px; }
+  .media-team { grid-template-columns: 1fr; justify-items: center; gap: 36px; }
+  .media-photographers,
+  .media-videographer { justify-self: center; }
+  .media-logo { min-height: calc(var(--media-img) * 2 + var(--media-gap)); }
 }
 @media (max-width: 480px) {
-  .media-team { --media-img: 140px; }
-  .media-photographers { gap: 18px; }
+  .media-team { --media-img: 135px; --media-gap: 16px; }
 }
