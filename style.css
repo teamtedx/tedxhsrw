@@ -758,6 +758,60 @@ footer a:hover {
   .person-card { animation: none; }
 }
 
+/* Videography & Photography row */
+.media-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: 24px;
+  align-items: stretch;      /* black card stretches to the 2x2 height */
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.video-card {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 24px;
+  background: #000;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+.video-card img {
+  flex: 0 0 40%;
+  width: 40%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.video-card .video-desc {
+  margin: 0;
+  color: #fff;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.photo-grid .person-card { min-width: 0; }
+
+@media (max-width: 900px) {
+  .media-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .photo-grid { grid-template-columns: 1fr; gap: 16px; }
+  .video-card { flex-direction: column; text-align: center; }
+  .video-card img { flex-basis: auto; width: 60%; }
+}
 
 /* 2025 */
 .team {
