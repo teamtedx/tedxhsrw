@@ -769,7 +769,7 @@ footer a:hover {
 /* Videography & Photography row */
 .media-row {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 2fr);  /* video block ~ 41% of the row */
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 2fr); 
   gap: 24px;
   align-items: start;
   margin-bottom: 40px;
