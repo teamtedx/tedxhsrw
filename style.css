@@ -758,21 +758,33 @@ footer a:hover {
   .person-card { animation: none; }
 }
 
-/* Videography & Photography row */
+/* Videography & Photography row (single line) */
 .media-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);  /* video block ~ a quarter, photographers the rest */
   gap: 24px;
-  align-items: stretch;      /* black card stretches to the 2x2 height */
+  align-items: start;
   margin-bottom: 40px;
   text-align: left;
 }
 
+.media-label {
+  margin: 10px 0 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #EB0028;
+}
+
 .video-card {
   display: flex;
-  align-items: center;
-  gap: 22px;
-  padding: 24px;
+  align-items: stretch;
+  gap: 12px;
+  height: 150px;               /* same height as a photographer card */
+  overflow: hidden;
   background: #000;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -781,36 +793,44 @@ footer a:hover {
 }
 
 .video-card img {
-  flex: 0 0 40%;
-  width: 40%;
-  max-height: 100%;
-  object-fit: contain;
   display: block;
+  flex: 0 0 auto;
+  height: 100%;                /* logo fills the card height exactly */
+  width: auto;
 }
 
 .video-card .video-desc {
+  align-self: center;
   margin: 0;
-  color: #fff;
-  font-size: 0.95rem;
-  line-height: 1.55;
+  padding-right: 12px;
+  color: #EB0028;
+  font-size: 0.75rem;
+  line-height: 1.4;
 }
 
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .photo-grid .person-card { min-width: 0; }
+.photo-grid .person-card img {
+  flex: 0 0 80px;
+  width: 80px;
+  height: 150px;
+}
+.photo-grid .person-info { padding: 0 12px; }
+.photo-grid .person-card .person-name { font-size: 0.85rem; }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .media-row { grid-template-columns: 1fr; }
+  .video-card { max-width: 420px; margin: 0 auto; }
+  .photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 560px) {
-  .photo-grid { grid-template-columns: 1fr; gap: 16px; }
-  .video-card { flex-direction: column; text-align: center; }
-  .video-card img { flex-basis: auto; width: 60%; }
+  .photo-grid { grid-template-columns: 1fr; }
 }
 
 /* 2025 */
