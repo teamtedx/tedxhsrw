@@ -706,8 +706,16 @@ footer a:hover {
   background: #fff;
   border: 1px solid #E4E4E4;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
   animation: teamCardIn 0.25s ease;
+}
+
+.person-card {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.person-card:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  transform: translateY(-2px);
 }
 
 .person-card[hidden] { display: none; }
